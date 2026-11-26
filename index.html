@@ -528,10 +528,21 @@ html{scroll-padding-bottom:100px}
 .offer-breakdown{margin-bottom:18px;overflow-x:auto}.offer-breakdown table{border-collapse:collapse;width:100%;font-size:13px;font-variant-numeric:tabular-nums}.offer-breakdown th,.offer-breakdown td{padding:8px 5px;border-bottom:1px solid var(--border);text-align:right;overflow-wrap:anywhere}.offer-breakdown th:first-child{text-align:left;font-weight:600;width:38%}.offer-breakdown tr:last-child{font-weight:800;color:var(--navy)}
 @media(max-width:420px){.offer-breakdown table{font-size:12px}.offer-breakdown th,.offer-breakdown td{padding:7px 3px}}
 </style>
-<meta name="preview-version" content="lab-v2.9"></head>
+<style>
+/* Lab V2.9.1 — native accessible sliders, explicit cross-browser track and thumb. */
+#calc-section .field input[type="range"]{appearance:none;-webkit-appearance:none;display:block;box-sizing:border-box;width:100%;min-width:0;max-width:100%;height:46px;min-height:46px;margin:3px 0 0;padding:0;border:0;background:transparent;cursor:pointer;touch-action:none;accent-color:var(--accent);--range-track:linear-gradient(to right,var(--accent) 0%,var(--accent) var(--range-fill,0%),#CBD5E1 var(--range-fill,0%),#CBD5E1 100%)}
+#calc-section .field input[type="range"]::-webkit-slider-runnable-track{height:8px;background:var(--range-track);border-radius:999px}
+#calc-section .field input[type="range"]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:28px;height:28px;margin-top:-10px;background:var(--accent);border:3px solid #fff;box-shadow:0 0 0 1px var(--accent),0 2px 5px #0f234233;border-radius:50%}
+#calc-section .field input[type="range"]::-moz-range-track{height:8px;background:var(--range-track);border-radius:999px}
+#calc-section .field input[type="range"]::-moz-range-thumb{box-sizing:border-box;width:28px;height:28px;background:var(--accent);border:3px solid #fff;box-shadow:0 0 0 1px var(--accent),0 2px 5px #0f234233;border-radius:50%}
+#calc-section .field input[type="range"]:focus-visible{outline:2px solid var(--navy-2);outline-offset:2px;border-radius:8px}
+#calc-section .range-limits{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);line-height:1.25;margin:-3px 0 5px}
+@media(max-width:760px){#calc-section .calc-grid>div:first-child>.field:has(input[type="range"]){margin-bottom:13px}}
+</style>
+<meta name="preview-version" content="lab-v2.9.1"></head>
 <body>
 <a class="skip-link" href="#main">Перейти к содержанию</a>
-<div class="preview-notice"><div class="container"><span class="preview-dot"></span><strong>Вариант №2 · V2.9</strong><span>Предпросмотр · заявки пока не принимаются</span></div></div>
+<div class="preview-notice"><div class="container"><span class="preview-dot"></span><strong>Вариант №2 · V2.9.1</strong><span>Предпросмотр · заявки пока не принимаются</span></div></div>
 
 <div id="toast" class="toast">Заявка отправлена!</div>
 
@@ -650,7 +661,7 @@ html{scroll-padding-bottom:100px}
             <div class="field">
               <label for="cPriceNum"><span>Стоимость имущества, ₽</span><strong id="cPriceOut">4 500 000 ₽</strong></label>
               <input type="number" id="cPriceNum" value="4500000" min="500000" max="150000000" step="50000" oninput="syncPrice(this.value,false)" onchange="syncPrice(this.value,true)">
-              <input type="range" id="cPriceRange" aria-label="Стоимость имущества" min="500000" max="150000000" step="50000" value="4500000" oninput="syncPrice(this.value)">
+              <input type="range" id="cPriceRange" aria-label="Стоимость имущества" min="500000" max="150000000" step="50000" value="4500000" oninput="syncPrice(this.value)" style="--range-fill:2.676%"><div class="range-limits" aria-hidden="true"><span>500 тыс. ₽</span><span>150 млн ₽</span></div>
             </div>
             <div class="field">
               <label>
@@ -661,11 +672,11 @@ html{scroll-padding-bottom:100px}
                 </span>
               </label>
               <input type="number" id="cAdvInput" aria-label="Размер аванса" value="20" min="0" max="49" step="0.1" oninput="syncAdvInput(false)" onchange="syncAdvInput(true)">
-              <input type="range" id="cAdvRange" aria-label="Аванс в процентах" min="0" max="49" step="0.1" value="20" oninput="syncAdvRange()">
+              <input type="range" id="cAdvRange" aria-label="Аванс в процентах" min="0" max="49" step="0.1" value="20" oninput="syncAdvRange()" style="--range-fill:40.816%"><div class="range-limits" aria-hidden="true"><span>0%</span><span>49%</span></div>
             </div>
             <div class="field">
               <label for="cTerm"><span>Срок лизинга</span><strong id="cTermOut">36 мес.</strong></label>
-              <input type="range" id="cTerm" min="12" max="84" step="6" value="36" oninput="recalc()"><div class="term-presets" aria-label="Быстрый выбор срока"><button type="button" data-term="24" aria-pressed="false">24 мес.</button><button type="button" data-term="36" aria-pressed="true">36 мес.</button><button type="button" data-term="48" aria-pressed="false">48 мес.</button><button type="button" data-term="60" aria-pressed="false">60 мес.</button></div>
+              <input type="range" id="cTerm" min="12" max="84" step="6" value="36" oninput="recalc()" style="--range-fill:33.333%"><div class="range-limits" aria-hidden="true"><span>12 мес.</span><span>84 мес.</span></div><div class="term-presets" aria-label="Быстрый выбор срока"><button type="button" data-term="24" aria-pressed="false">24 мес.</button><button type="button" data-term="36" aria-pressed="true">36 мес.</button><button type="button" data-term="48" aria-pressed="false">48 мес.</button><button type="button" data-term="60" aria-pressed="false">60 мес.</button></div>
             </div>
             <div class="field">
               <label>Налоговый режим (для консультации)</label>
@@ -1358,6 +1369,11 @@ html{scroll-padding-bottom:100px}
 
   let calcFrame=0,calcRows=[],calcSnapshot=null;
   function recalc(){if(calcFrame)return;calcFrame=requestAnimationFrame(()=>{calcFrame=0;paintCalc();});}
+  function paintRange(id,description) {
+    const el=document.getElementById(id),min=Number(el.min),max=Number(el.max);
+    el.style.setProperty('--range-fill',((Number(el.value)-min)/(max-min)*100)+'%');
+    el.setAttribute('aria-valuetext',description);
+  }
   function paintCalc() {
     const price=Math.min(150000000,Math.max(500000,Number(document.getElementById("cPriceNum").value)||500000));
     const raw=Math.max(0,Number(document.getElementById("cAdvInput").value)||0);
@@ -1368,6 +1384,7 @@ html{scroll-padding-bottom:100px}
     document.getElementById("cPriceOut").textContent=fmt(price);
     document.getElementById("cAdvOut").textContent=pct.toLocaleString("ru-RU",{maximumFractionDigits:2})+"% — "+fmt(advRub);
     document.getElementById("cTermOut").textContent=term+" мес.";
+    paintRange("cPriceRange",fmt(price));paintRange("cAdvRange",pct.toLocaleString("ru-RU",{maximumFractionDigits:2})+"%, "+fmt(advRub));paintRange("cTerm",term+" мес.");
     const rows=state.rates.map(lk=>{
       const mPay=pmt(lk.rate,term,financed);
       const total=advRub+mPay*term;
