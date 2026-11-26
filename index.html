@@ -290,8 +290,31 @@
 #contacts a.btn:has(.app-symbol){background:#fff!important;border:1px solid #e2e8f0;display:flex;flex-direction:column;gap:4px;padding:8px}
 @media(max-width:980px){.nav-wrap{flex-wrap:wrap;padding-top:10px;padding-bottom:10px;gap:8px}.logo{flex:1;min-width:220px}.logo small{font-size:10px}.nav-right{width:100%;justify-content:space-between;gap:4px}}
 @media(max-width:620px){.nav-wrap{padding-left:14px;padding-right:14px}.nav-right .btn-sm{padding:9px 12px}.msg-ico{min-width:52px}.app-name{font-size:10px}.fab-wrap{left:0;right:0;bottom:0;flex-direction:row;justify-content:center;gap:24px;border-radius:12px 12px 0 0;padding:5px 8px calc(5px + env(safe-area-inset-bottom));}.fab{min-width:62px}.fab .app-symbol{width:32px;height:32px}.fab .app-symbol img{width:22px;height:22px}.fab .app-max img{width:27px;height:27px}body{padding-bottom:76px}.hero{padding-top:38px}.cookie-bar{bottom:85px}}
+
+/* V3: prominent callback action, without continuous distracting movement */
+.callback-trigger{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-width:78px;padding:3px 4px;border:0;background:transparent;color:#b91c1c;cursor:pointer;border-radius:10px;flex-shrink:0}
+.callback-icon{display:grid;place-items:center;width:39px;height:39px;position:relative;border-radius:11px;background:#dc2626;color:#fff;box-shadow:0 3px 10px #dc262633}
+.callback-icon svg{width:25px;height:25px;transform-origin:50% 55%;animation:callback-ring 6s ease-in-out 2}
+.callback-icon::after{content:"";position:absolute;inset:0;border:2px solid #dc2626;border-radius:inherit;pointer-events:none;animation:callback-pulse 6s ease-out 2}
+.callback-label{font-size:10px;font-weight:800;line-height:1.12;text-align:center;white-space:nowrap}
+.callback-trigger:hover .callback-icon{background:#b91c1c}
+.callback-trigger:focus-visible{outline:3px solid #dc2626;outline-offset:3px}
+@keyframes callback-ring{0%,2%,12%,100%{transform:rotate(0)}4%,8%{transform:rotate(-13deg)}6%,10%{transform:rotate(13deg)}}
+@keyframes callback-pulse{0%,2%{transform:scale(1);opacity:.6}13%,100%{transform:scale(1.3);opacity:0}}
+@media(prefers-reduced-motion:reduce){.callback-icon svg,.callback-icon::after{animation:none}.callback-icon::after{display:none}}
+.callback-dialog{border:0;border-radius:16px;padding:24px;width:min(440px,calc(100% - 32px));max-height:85dvh;overflow:auto;margin:auto;color:var(--navy);box-shadow:0 20px 60px #0f234244}
+.callback-dialog::backdrop{background:#0f234299}
+.callback-dialog h2{font-size:23px;margin:4px 30px 8px 0;line-height:1.2}
+.callback-dialog p{font-size:14px;color:var(--muted);margin:10px 0}
+.callback-dialog .demo-note{background:#fff3df;padding:10px 12px;border-radius:8px;color:#783e00}
+.callback-dialog .field label{display:block}
+.callback-dialog .btn{width:100%;background:#dc2626;color:#fff}
+.callback-dialog .btn:hover{background:#b91c1c}
+#callbackResult{color:#166534;font-weight:700}
+@media(max-width:980px){.nav-right{display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) minmax(76px,1.25fr) auto;align-items:center;justify-items:center;width:100%;gap:3px}.nav-right .phone-link{display:none}.nav-right .msg-ico{min-width:0;width:100%;padding:4px 0}.nav-right .burger{padding:7px 9px}.nav-right .callback-trigger{min-width:0;width:100%}.nav-wrap .logo{min-width:0}}
+@media(max-width:620px){.container{min-width:0}.hero-grid,.calc-grid,.about-box,.grid-2,.grid-3,.grid-4{grid-template-columns:minmax(0,1fr)}.hero-grid>*,.calc-grid>*,.about-box>*{min-width:0}.hero .badge{max-width:100%;white-space:normal}.lk-table{display:block;overflow-x:auto}.calc-box{padding:16px}.nav-wrap{padding-left:12px;padding-right:12px}.nav-right .app-name{font-size:10px}.nav-right .app-symbol{width:35px;height:35px}.callback-icon{width:36px;height:36px}.callback-icon svg{width:23px;height:23px}.fab-wrap{gap:20px}}
 </style>
-<meta name="preview-version" content="messengers-v2"></head>
+<meta name="preview-version" content="callback-v3"></head>
 <body>
 <div style="padding:12px 20px;background:#fff0d8;color:#633900;text-align:center;font-weight:700;font-size:14px">ДЕМОНСТРАЦИОННАЯ ВЕРСИЯ — только для ознакомления. Ставки, кейсы, партнёры и сроки являются примерами, не подтверждены. Заявки не принимаются.</div>
 
@@ -321,7 +344,7 @@
       <a class="msg-ico msg-tg" data-bind-href="tg" target="_blank" rel="noopener" title="Telegram" aria-label="Telegram"><span class="app-symbol app-telegram"><img src="telegram.svg" alt="" aria-hidden="true"></span><span class="app-name">Telegram</span></a>
       <a class="msg-ico msg-wa" data-bind-href="wa" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp"><span class="app-symbol app-whatsapp"><img src="whatsapp.svg" alt="" aria-hidden="true"></span><span class="app-name">WhatsApp</span></a>
       <a class="msg-ico msg-max" data-bind-href="max" target="_blank" rel="noopener" title="Макс" aria-label="MAX"><span class="app-symbol app-max"><img src="max.svg" alt="" aria-hidden="true"></span><span class="app-name">MAX</span></a>
-      <a href="#calc-section" class="btn btn-primary btn-sm">Расчет</a>
+      <button type="button" class="callback-trigger" id="callbackTrigger" aria-label="Заказать обратный звонок" aria-haspopup="dialog" aria-controls="callbackDialog"><span class="callback-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7.2 3.5 4.5 4.8c-.7.4-.9 1.2-.7 2C5.6 13.5 10.5 18.4 17.2 20.2c.8.2 1.6 0 2-.7l1.3-2.7c.3-.6.1-1.3-.5-1.7l-3.8-2.4c-.5-.3-1.2-.2-1.6.3l-1.5 1.7a13.4 13.4 0 0 1-3.8-3.8l1.7-1.5c.5-.4.6-1.1.3-1.6L8.9 4c-.4-.6-1.1-.8-1.7-.5Z" fill="currentColor"/><path d="M15 3a7 7 0 0 1 6 6M15 7a3 3 0 0 1 2 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="callback-label">Обратный<br>звонок</span></button>
       <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
     </div>
   </div>
@@ -1421,6 +1444,27 @@ document.getElementById('cookieBar')?.remove();
 document.querySelector('#cases .section-title').textContent='Демонстрационные примеры сделок';
 document.querySelector('#cases .section-sub').textContent='Иллюстративные сценарии, не подтверждённые реальные сделки.';
 document.querySelectorAll('.partners-strip').forEach(x=>{x.parentElement.querySelector('.badge').textContent='Примеры участников рынка';x.parentElement.querySelector('h2').textContent='Лизинговые компании: примеры';x.parentElement.querySelector('.section-sub').textContent='Партнёрские отношения не подтверждены.';});
+</script>
+<dialog id="callbackDialog" class="callback-dialog" aria-labelledby="callbackTitle">
+<button type="button" class="modal-close" id="callbackClose" aria-label="Закрыть">×</button>
+<h2 id="callbackTitle">Заказать обратный звонок</h2>
+<p>Оставьте номер телефона, чтобы специалист мог связаться с вами.</p>
+<p class="demo-note">Демонстрация формы. Реальные заявки пока не принимаются; личные данные вводить не нужно.</p>
+<div class="field"><label for="callbackPhone">Ваш телефон</label><input id="callbackPhone" type="tel" placeholder="+7 (___) ___-__-__" readonly aria-describedby="callbackResult"></div>
+<button type="button" class="btn" id="callbackDemo">Заказать звонок — демо</button>
+<p id="callbackResult" role="status" aria-live="polite"></p>
+</dialog>
+<script>
+(() => {
+const dialog=document.getElementById('callbackDialog');
+const result=document.getElementById('callbackResult');
+const trigger=document.getElementById('callbackTrigger');
+trigger.addEventListener('click',()=>{result.textContent='';dialog.showModal();});
+document.getElementById('callbackClose').addEventListener('click',()=>dialog.close());
+document.getElementById('callbackDemo').addEventListener('click',()=>{result.textContent='Так будет работать заказ звонка. В демоверсии заявка не отправляется.';});
+dialog.addEventListener('click',e=>{if(e.target===dialog){const b=dialog.getBoundingClientRect();if(e.clientX<b.left||e.clientX>b.right||e.clientY<b.top||e.clientY>b.bottom)dialog.close();}});
+dialog.addEventListener('close',()=>trigger.focus());
+})();
 </script>
 </body>
 </html>
