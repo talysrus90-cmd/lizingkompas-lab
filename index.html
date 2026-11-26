@@ -374,8 +374,9 @@ footer{padding:48px 0 24px}.footer-grid{grid-template-columns:1.3fr 1fr 1fr 1.1f
 @media(max-width:760px){html{scroll-padding-top:142px}.container{padding-inline:16px}.section{padding:46px 0}.section-title{font-size:28px}.section-sub{font-size:15px;margin-bottom:22px}.preview-notice .container{font-size:11px;gap:4px 7px;padding-block:6px}.preview-notice .container>span:last-child{flex-basis:100%}.nav-wrap{display:flex;flex-wrap:wrap;gap:8px;min-height:0;padding-top:9px;padding-bottom:8px}.logo{flex-basis:100%;font-size:20px;min-width:0}.logo-mark{width:40px;height:40px}.logo-mark svg{width:35px;height:35px}.nav-right{display:grid;width:100%;grid-template-columns:repeat(3,minmax(0,1fr)) minmax(74px,1.1fr) 44px;gap:3px;justify-items:center}.nav-right .msg-ico,.nav-right .callback-trigger{min-width:0;width:100%;min-height:52px}.nav-right .burger{width:44px;min-width:44px;display:grid;place-items:center;padding:0}.nav-right .app-name,.callback-label{font-size:10px}.nav-right .app-symbol{width:34px;height:34px}.callback-icon{width:35px;height:35px}.hero{padding:32px 0 30px}.hero-grid,.calc-grid,.about-box,.footer-grid{grid-template-columns:minmax(0,1fr);gap:22px}.hero h1{font-size:clamp(32px,8.4vw,43px);letter-spacing:-.035em;margin-bottom:14px}.hero p.lead{font-size:16px;margin-bottom:20px}.hero-cta{display:grid;grid-template-columns:minmax(0,1fr);gap:9px;margin-bottom:16px}.hero-cta .btn{width:100%;min-height:48px}.hero-assurance{font-size:12px;gap:7px 12px}.finance-preview{padding:19px;border-radius:16px}.finance-label{margin-top:15px}.finance-amount{font-size:36px}.finance-track{margin-top:16px}.finance-breakdown{margin:12px 0;padding:12px 0}.quick-paths{grid-template-columns:minmax(0,1fr)}.quick-paths a{padding:12px 4px;font-size:13px;min-height:44px;justify-content:initial}.quick-paths a+a{border-left:0;border-top:1px solid var(--border)}.quick-paths a b{margin-left:auto}.calc-box{padding:16px}.tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%}.tab-btn{padding:9px 7px;font-size:13px}.result-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.res-card{padding:13px 10px}.res-card strong{font-size:21px}.table-wrap{overflow:visible}.lk-table{display:block}.lk-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.lk-table tbody{display:grid;gap:8px}.lk-table tr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border:1px solid var(--border);border-radius:10px;padding:10px;gap:8px;background:#fff}.lk-table tr.best{background:#E7F5F1;border-color:#B4D9CE}.lk-table tr.best td{background:transparent}.lk-table td,.lk-table td:first-child{text-align:left;border:0;padding:4px;white-space:normal;font-size:14px;overflow-wrap:anywhere}.lk-table td:before{content:attr(data-label);display:block;color:#526579;font-size:11px;font-weight:500;margin-bottom:3px}.lk-table td small{display:none}.grid-2,.grid-3,.grid-4,.steps-grid,.partners-strip{grid-template-columns:minmax(0,1fr)}.steps-grid{gap:10px}.step-item{display:grid;grid-template-columns:38px minmax(0,1fr);column-gap:12px;padding:16px}.step-item .step-num{grid-row:span 2;margin:0}.step-item p{margin:0}.partners-strip{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.partner-pill{padding:14px 8px;font-size:13px}.card{padding:18px}.fab-wrap{display:flex;position:fixed;left:0;right:0;bottom:0;flex-direction:row;justify-content:space-around;gap:3px;padding:5px 9px calc(5px + env(safe-area-inset-bottom));border-radius:12px 12px 0 0}.fab{min-width:64px;min-height:51px}.fab-wrap .callback-trigger{min-width:76px}.fab-wrap .callback-icon svg{animation:none}.fab-wrap .callback-icon:after{display:none}body{padding-bottom:76px}.callback-dialog{padding:20px}.modal{padding:18px}.about-box{padding:18px}.footer-grid{gap:18px}}
 @media(max-width:420px){#servicesGrid{grid-template-columns:minmax(0,1fr);gap:12px}.nav-right .app-name{font-size:9.5px}.callback-label{font-size:9.5px}.finance-amount{font-size:32px}.result-cards{gap:7px}.res-card strong{font-size:19px}.grid-2 .field{min-width:0}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+.sample-link{display:block;border:0;background:none;color:#21415F;font-size:14px;font-weight:700;text-align:left;padding:8px 0 15px;cursor:pointer;min-height:44px}.sample-link:hover{text-decoration:underline}.callback-icon::after{opacity:0}
 </style>
-<meta name="preview-version" content="fintech-v4"></head>
+<meta name="preview-version" content="fintech-v4.1"></head>
 <body>
 <a class="skip-link" href="#main">Перейти к содержанию</a>
 <div class="preview-notice"><div class="container"><span class="preview-dot"></span><strong>Демонстрационная версия</strong><span>Условия примерные · заявки не принимаются</span></div></div>
@@ -513,9 +514,9 @@ footer{padding:48px 0 24px}.footer-grid{grid-template-columns:1.3fr 1fr 1fr 1.1f
             <div class="field">
               <label>Налоговый режим (для консультации)</label>
               <div class="toggle-row">
-                <button type="button" class="chip active" id="vatYes" onclick="setVat(true)">Плательщик НДС</button>
-                <button type="button" class="chip" id="vatNo" onclick="setVat(false)">Без вычета НДС</button>
-              </div>
+                <button type="button" class="chip active" id="vatYes" aria-pressed="true" onclick="setVat(true)">Плательщик НДС</button>
+                <button type="button" class="chip" id="vatNo" aria-pressed="false" onclick="setVat(false)">Без вычета НДС</button>
+              </div><p class="calculation-explain" style="margin:6px 0 0">В этой модели налоговый режим не меняет платёж. Налоговый эффект рассчитывается отдельно.</p>
             </div>
             <label class="check-row">
               <input type="checkbox" id="cOpts" onchange="recalc()">
@@ -540,7 +541,7 @@ footer{padding:48px 0 24px}.footer-grid{grid-template-columns:1.3fr 1fr 1fr 1.1f
                 <tr><th scope="col">Сценарий</th><th scope="col">Платёж/мес.</th><th scope="col">Всего</th><th scope="col">Переплата</th></tr>
               </thead>
               <tbody id="lkCompareBody"></tbody>
-            </table></div><p class="calculation-explain">Модель равных ежемесячных платежей: аванс + платежи. Выкупная цена, комиссии и налоги отдельно не моделируются. Налоговый эффект и реальный график зависят от договора.</p>
+            </table></div><p class="calculation-explain">Модель равных ежемесячных платежей: аванс + платежи. Выкупная цена, комиссии и налоги отдельно не моделируются. Налоговый эффект и реальный график зависят от договора.</p><button type="button" class="sample-link" onclick="downloadSampleKP()">↓ Скачать пример сравнения без регистрации</button>
 
             <form class="calc-lead-box" onsubmit="submitForm(event, 'Калькулятор 5 ЛК')">
               <h4>Получить индивидуальный расчёт</h4>
@@ -1288,6 +1289,7 @@ footer{padding:48px 0 24px}.footer-grid{grid-template-columns:1.3fr 1fr 1fr 1.1f
     isVat = v;
     document.getElementById("vatYes").classList.toggle("active", v);
     document.getElementById("vatNo").classList.toggle("active", !v);
+    document.getElementById("vatYes").setAttribute("aria-pressed",String(v));document.getElementById("vatNo").setAttribute("aria-pressed",String(!v));
     recalc();
   }
 
@@ -1509,7 +1511,8 @@ document.querySelectorAll('form').forEach(f=>{
   f.querySelectorAll('[required]').forEach(x=>x.removeAttribute('required'));
 });
 document.querySelectorAll('[data-bind-href], a[href^="tel:"], a[href^="mailto:"],a[href="https://vk.com/"],a[href="https://rutube.ru/"],a[href="https://youtube.com/"]').forEach(x=>{x.removeAttribute('href');x.removeAttribute('target');x.setAttribute('aria-disabled','true');});
-document.querySelectorAll('[data-bind="ipName"],[data-bind="ipInn"],[data-bind="ipOgrnip"],[data-bind="phone"]').forEach(x=>x.textContent='Уточняется');
+document.querySelectorAll('[data-bind="ipName"]').forEach(x=>x.textContent='ИП Тариель Гасанов (реквизиты уточняются)');
+document.querySelectorAll('[data-bind="ipInn"],[data-bind="ipOgrnip"],[data-bind="phone"]').forEach(x=>x.textContent='Уточняется');
 document.getElementById('cmsModal')?.remove();
 document.getElementById('cookieBar')?.remove();
 document.querySelector('#cases .section-title').textContent='Примеры задач по лизингу';
@@ -1542,7 +1545,7 @@ document.querySelectorAll('form .field').forEach((field,i)=>{
  const el=field.querySelector('input,select,textarea');if(!el)return;
  if(!el.id)el.id='previewField'+i;
  let label=field.querySelector('label');
- if(!label){label=document.createElement('label');label.className='field-label';label.textContent=el.getAttribute('placeholder')||({messenger:'Способ связи',clientType:'Тип клиента'}[el.name])||'Поле';field.prepend(label);}
+ if(!label){label=document.createElement('label');label.className='field-label';label.textContent=({name:'Имя / организация',phone:'Телефон для связи',inn:'ИНН (необязательно)',messenger:'Способ связи',clientType:'Тип клиента',asset:'Предмет лизинга',budget:'Бюджет и срок',comment:'Комментарий (необязательно)'}[el.name])||'Дополнительные сведения';field.prepend(label);}
  label.htmlFor=el.id;
 });
 document.querySelectorAll('a[aria-disabled="true"]').forEach(el=>{el.tabIndex=0;el.addEventListener('click',e=>{e.preventDefault();showToast('Демонстрация: канал связи ещё не подключён.');});el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();el.click();}});});
