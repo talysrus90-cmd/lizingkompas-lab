@@ -279,8 +279,19 @@
       .grid-2, .grid-3, .grid-4, .steps-grid, .hero-bullets, .quiz-opts, .result-cards, .partners-strip { grid-template-columns: 1fr; }
       .cookie-bar { left: 12px; right: 76px; flex-direction: column; align-items: flex-start; }
     }
-  </style>
-</head>
+  
+.app-symbol{width:35px;height:35px;border-radius:10px;display:grid;place-items:center;flex-shrink:0}
+.app-symbol img{width:23px;height:23px;display:block;object-fit:contain;filter:brightness(0) invert(1)}
+.app-telegram{background:#229ED9}.app-whatsapp{background:#25D366}.app-max{background:#fff;border:1px solid #e2e8f0}
+.app-max img{width:29px;height:29px;filter:none}.app-vk{background:#0077FF}.app-rutube{background:#100943}.app-youtube{background:#FF0000}
+.app-name{font-size:10px;line-height:1.2;white-space:nowrap;font-weight:650;color:#0F2342}
+.msg-ico,.fab{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;width:auto;height:auto;min-width:58px;padding:5px 3px;background:transparent;box-shadow:none;border:0;border-radius:9px}
+.fab-wrap{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:5px;box-shadow:0 6px 20px #0f23421a;gap:3px}
+#contacts a.btn:has(.app-symbol){background:#fff!important;border:1px solid #e2e8f0;display:flex;flex-direction:column;gap:4px;padding:8px}
+@media(max-width:980px){.nav-wrap{flex-wrap:wrap;padding-top:10px;padding-bottom:10px;gap:8px}.logo{flex:1;min-width:220px}.logo small{font-size:10px}.nav-right{width:100%;justify-content:space-between;gap:4px}}
+@media(max-width:620px){.nav-wrap{padding-left:14px;padding-right:14px}.nav-right .btn-sm{padding:9px 12px}.msg-ico{min-width:52px}.app-name{font-size:10px}.fab-wrap{left:0;right:0;bottom:0;flex-direction:row;justify-content:center;gap:24px;border-radius:12px 12px 0 0;padding:5px 8px calc(5px + env(safe-area-inset-bottom));}.fab{min-width:62px}.fab .app-symbol{width:32px;height:32px}.fab .app-symbol img{width:22px;height:22px}.fab .app-max img{width:27px;height:27px}body{padding-bottom:76px}.hero{padding-top:38px}.cookie-bar{bottom:85px}}
+</style>
+<meta name="preview-version" content="messengers-v2"></head>
 <body>
 <div style="padding:12px 20px;background:#fff0d8;color:#633900;text-align:center;font-weight:700;font-size:14px">ДЕМОНСТРАЦИОННАЯ ВЕРСИЯ — только для ознакомления. Ставки, кейсы, партнёры и сроки являются примерами, не подтверждены. Заявки не принимаются.</div>
 
@@ -307,9 +318,9 @@
     </nav>
     <div class="nav-right">
       <a href="tel:+78000000000" class="phone-link" data-bind="phone">+7 (800) 000-00-00</a>
-      <a class="msg-ico msg-tg" data-bind-href="tg" target="_blank" rel="noopener" title="Telegram">TG</a>
-      <a class="msg-ico msg-wa" data-bind-href="wa" target="_blank" rel="noopener" title="WhatsApp">WA</a>
-      <a class="msg-ico msg-max" data-bind-href="max" target="_blank" rel="noopener" title="Макс">MX</a>
+      <a class="msg-ico msg-tg" data-bind-href="tg" target="_blank" rel="noopener" title="Telegram" aria-label="Telegram"><span class="app-symbol app-telegram"><img src="telegram.svg" alt="" aria-hidden="true"></span><span class="app-name">Telegram</span></a>
+      <a class="msg-ico msg-wa" data-bind-href="wa" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp"><span class="app-symbol app-whatsapp"><img src="whatsapp.svg" alt="" aria-hidden="true"></span><span class="app-name">WhatsApp</span></a>
+      <a class="msg-ico msg-max" data-bind-href="max" target="_blank" rel="noopener" title="Макс" aria-label="MAX"><span class="app-symbol app-max"><img src="max.svg" alt="" aria-hidden="true"></span><span class="app-name">MAX</span></a>
       <a href="#calc-section" class="btn btn-primary btn-sm">Расчет</a>
       <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
     </div>
@@ -734,12 +745,12 @@
             <div><strong>Реквизиты:</strong> <span data-bind="ipName">ИП Иванов Иван Иванович</span>, ИНН <span data-bind="ipInn">000000000000</span>, ОГРНИП <span data-bind="ipOgrnip">000000000000000</span></div>
           </div>
           <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;">
-            <a class="btn btn-sm" style="background:#0088CC;color:#fff;" data-bind-href="tg" target="_blank" rel="noopener">Telegram</a>
-            <a class="btn btn-sm" style="background:#25D366;color:#fff;" data-bind-href="wa" target="_blank" rel="noopener">WhatsApp</a>
-            <a class="btn btn-sm" style="background:#4F46E5;color:#fff;" data-bind-href="max" target="_blank" rel="noopener">Макс</a>
-            <a class="btn btn-sm" style="background:#0077FF;color:#fff;" href="https://vk.com/" target="_blank" rel="noopener">VK</a>
+            <a class="btn btn-sm" style="background:#0088CC;color:#fff;" data-bind-href="tg" target="_blank" rel="noopener" aria-label="Telegram"><span class="app-symbol app-telegram"><img src="telegram.svg" alt="" aria-hidden="true"></span><span class="app-name">Telegram</span></a>
+            <a class="btn btn-sm" style="background:#25D366;color:#fff;" data-bind-href="wa" target="_blank" rel="noopener" aria-label="WhatsApp"><span class="app-symbol app-whatsapp"><img src="whatsapp.svg" alt="" aria-hidden="true"></span><span class="app-name">WhatsApp</span></a>
+            <a class="btn btn-sm" style="background:#4F46E5;color:#fff;" data-bind-href="max" target="_blank" rel="noopener" aria-label="MAX"><span class="app-symbol app-max"><img src="max.svg" alt="" aria-hidden="true"></span><span class="app-name">MAX</span></a>
+            <a class="btn btn-sm" style="background:#0077FF;color:#fff;" href="https://vk.com/" target="_blank" rel="noopener"><span class="app-symbol app-vk"><img src="vk.svg" alt="" aria-hidden="true"></span><span class="app-name">VK</span></a>
             <a class="btn btn-sm" style="background:#100943;color:#fff;" href="https://rutube.ru/" target="_blank" rel="noopener">Rutube</a>
-            <a class="btn btn-sm" style="background:#DC2626;color:#fff;" href="https://youtube.com/" target="_blank" rel="noopener">YouTube</a>
+            <a class="btn btn-sm" style="background:#DC2626;color:#fff;" href="https://youtube.com/" target="_blank" rel="noopener"><span class="app-symbol app-youtube"><img src="youtube.svg" alt="" aria-hidden="true"></span><span class="app-name">YouTube</span></a>
           </div>
         </div>
       </div>
@@ -814,9 +825,9 @@
 
 <!-- FLOATING QUICK CONTACT -->
 <div class="fab-wrap">
-  <a class="fab msg-tg" data-bind-href="tg" target="_blank" rel="noopener" title="Написать в Telegram">TG</a>
-  <a class="fab msg-wa" data-bind-href="wa" target="_blank" rel="noopener" title="Написать в WhatsApp">WA</a>
-  <a class="fab msg-max" data-bind-href="max" target="_blank" rel="noopener" title="Написать в Макс">MX</a>
+  <a class="fab msg-tg" data-bind-href="tg" target="_blank" rel="noopener" title="Написать в Telegram" aria-label="Telegram"><span class="app-symbol app-telegram"><img src="telegram.svg" alt="" aria-hidden="true"></span><span class="app-name">Telegram</span></a>
+  <a class="fab msg-wa" data-bind-href="wa" target="_blank" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp"><span class="app-symbol app-whatsapp"><img src="whatsapp.svg" alt="" aria-hidden="true"></span><span class="app-name">WhatsApp</span></a>
+  <a class="fab msg-max" data-bind-href="max" target="_blank" rel="noopener" title="Написать в Макс" aria-label="MAX"><span class="app-symbol app-max"><img src="max.svg" alt="" aria-hidden="true"></span><span class="app-name">MAX</span></a>
 </div>
 
 <!-- COOKIE BANNER -->
