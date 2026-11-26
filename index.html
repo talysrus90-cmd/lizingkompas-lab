@@ -520,10 +520,18 @@ html{scroll-padding-bottom:100px}
 .cabinet-banner{display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:15px 18px;margin-bottom:18px}.cabinet-banner strong{display:block;font-size:17px;color:var(--navy)}.cabinet-banner small{display:block;font-size:12px;color:var(--muted);margin-top:3px}.cabinet-banner .btn{flex-shrink:0}@media(max-width:760px){.cabinet-banner{display:grid;gap:8px;padding:12px;margin-bottom:15px}.cabinet-banner .btn{width:100%;min-height:44px}.cabinet-banner small{font-size:12px}}
 .site-footer .footer-email-label{font-size:12px;color:#d9e6f0;margin-top:4px}.site-footer .footer-email{font-size:clamp(17px,1.65vw,22px);border:1px solid #ffffff45;background:#21415f;border-radius:9px;padding:9px 10px;min-height:44px;letter-spacing:-.025em;overflow-wrap:anywhere}.site-footer .footer-email:hover,.site-footer .footer-email:focus-visible{background:#2b5070}@media(max-width:760px){.site-footer .footer-email{font-size:22px}}@media(max-width:350px){.site-footer .footer-email{font-size:19px}}
 </style>
-<meta name="preview-version" content="lab-v2.8"></head>
+<style>
+/* Lab V2.9: compact, understandable comparison on small screens */
+#services .section-title,#cases .section-title{margin-bottom:22px}
+#offerResult strong,#offerResult span{display:block}#offerResult strong{font-size:clamp(17px,2.2vw,23px);line-height:1.3}#offerResult span{font-size:13px;font-weight:500;margin-top:5px}
+#offerVisual[hidden]{display:none!important}#offerVisual>summary{cursor:pointer;font-weight:700;color:var(--navy)}#offerVisual[open]>summary{margin-bottom:12px}
+.offer-breakdown{margin-bottom:18px;overflow-x:auto}.offer-breakdown table{border-collapse:collapse;width:100%;font-size:13px;font-variant-numeric:tabular-nums}.offer-breakdown th,.offer-breakdown td{padding:8px 5px;border-bottom:1px solid var(--border);text-align:right;overflow-wrap:anywhere}.offer-breakdown th:first-child{text-align:left;font-weight:600;width:38%}.offer-breakdown tr:last-child{font-weight:800;color:var(--navy)}
+@media(max-width:420px){.offer-breakdown table{font-size:12px}.offer-breakdown th,.offer-breakdown td{padding:7px 3px}}
+</style>
+<meta name="preview-version" content="lab-v2.9"></head>
 <body>
 <a class="skip-link" href="#main">Перейти к содержанию</a>
-<div class="preview-notice"><div class="container"><span class="preview-dot"></span><strong>Вариант №2 · V2.8</strong><span>Условия примерные · заявки не принимаются</span></div></div>
+<div class="preview-notice"><div class="container"><span class="preview-dot"></span><strong>Вариант №2 · V2.9</strong><span>Предпросмотр · заявки пока не принимаются</span></div></div>
 
 <div id="toast" class="toast">Заявка отправлена!</div>
 
@@ -594,9 +602,9 @@ html{scroll-padding-bottom:100px}
     </div>
   </div>
 </section>
-<div class="container route-section"><div class="cabinet-banner"><div><strong>Личный кабинет клиента</strong><small>Заявка, документы, предложение, договор и сделка — тестовый маршрут</small></div><a class="btn btn-outline" href="./cabinet.html?v=27">Войти в тестовый кабинет →</a></div><h2 class="route-title">С чего начнём?</h2><div class="quick-paths" aria-label="Выбор задачи">
+<div class="container route-section"><div class="cabinet-banner"><div><strong>Личный кабинет клиента</strong></div><a class="btn btn-outline" href="./cabinet.html?v=27">Войти в тестовый кабинет →</a></div><h2 class="route-title">С чего начнём?</h2><div class="quick-paths" aria-label="Выбор задачи">
   <a href="#services"><span class="route-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v14H4zM8 9h8M8 13h3M15 13h1"/></svg></span><span class="route-copy"><strong>Нужен новый лизинг</strong><small>Выбрать имущество</small></span><b>→</b></a>
-  <a href="#offer-compare"><span class="route-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V4M4 20h16M8 15l4-5 4 2 4-7"/></svg></span><span class="route-copy"><strong>Есть предложение от ЛК</strong><small>Сравнить полную стоимость</small></span><b>→</b></a>
+  <a href="#offer-compare"><span class="route-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V4M4 20h16M8 15l4-5 4 2 4-7"/></svg></span><span class="route-copy"><strong>Есть предложение от лизинговой компании</strong><small>Сравнить полную стоимость</small></span><b>→</b></a>
   <a href="./self-service.html?v=27"><span class="route-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 9l2 2 4-4M9 15h6M9 18h4"/></svg></span><span class="route-copy"><strong>Подготовить заявку</strong><small>Бюджет, документы, кредитная история</small></span><b>→</b></a>
   <a href="#support-route"><span class="route-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-5 8-8 9-3-1-8-4-8-9V6l8-3Zm-4 9 3 3 5-6"/></svg></span><span class="route-copy"><strong>Уже есть договор</strong><small>Выкуп, страхование, график</small></span><b>→</b></a>
 </div></div>
@@ -606,7 +614,7 @@ html{scroll-padding-bottom:100px}
   <div class="container">
     <div class="eyebrow">01 / НАПРАВЛЕНИЯ</div>
     <h2 class="section-title">Что вы хотите профинансировать?</h2>
-    <p class="section-sub">Выберите имущество или финансовую задачу — покажем параметры расчёта и варианты сопровождения сделки.</p>
+    
     <div class="grid-3" id="servicesGrid"></div>
   </div>
 </section>
@@ -664,12 +672,9 @@ html{scroll-padding-bottom:100px}
               <div class="toggle-row">
                 <button type="button" class="chip active" id="vatYes" aria-pressed="true" onclick="setVat(true)">Плательщик НДС</button>
                 <button type="button" class="chip" id="vatNo" aria-pressed="false" onclick="setVat(false)">Без вычета НДС</button>
-              </div><p class="calculation-explain" style="margin:6px 0 0">В этой модели налоговый режим не меняет платёж. Налоговый эффект рассчитывается отдельно.</p>
+              </div>
             </div>
-            <label class="check-row">
-              <input type="checkbox" id="cOpts" onchange="recalc()">
-              <span>Условно включить доп. услуги в финансирование (+4% к стоимости)</span>
-            </label>
+            
           </div>
 
           <div>
@@ -689,11 +694,11 @@ html{scroll-padding-bottom:100px}
                 <tr><th scope="col">Сценарий</th><th scope="col">Платёж/мес.</th><th scope="col">Всего</th><th scope="col">Переплата</th></tr>
               </thead>
               <tbody id="lkCompareBody"></tbody>
-            </table></div></details><p class="calculation-explain">Модель равных ежемесячных платежей: аванс + платежи. Выкупная цена, комиссии и налоги отдельно не моделируются. Налоговый эффект и реальный график зависят от договора.</p><button type="button" class="sample-link" onclick="downloadSampleKP()">↓ Скачать пример сравнения без регистрации</button><button type="button" class="sample-link" id="saveCurrentCalc">↓ Скачать текущий расчёт (CSV)</button><button type="button" class="sample-link" id="resetCalc">Сбросить параметры</button>
+            </table></div></details><button type="button" class="sample-link" onclick="downloadSampleKP()">↓ Скачать пример сравнения без регистрации</button><button type="button" class="sample-link" id="saveCurrentCalc">↓ Скачать текущий расчёт (CSV)</button><button type="button" class="sample-link" id="resetCalc">Сбросить параметры</button>
 
-            <form class="calc-lead-box" onsubmit="submitForm(event, 'Калькулятор 5 ЛК')">
+            <form class="calc-lead-box" onsubmit="submitForm(event, 'Калькулятор пяти сценариев')">
               <h4>Получить индивидуальный расчёт</h4>
-              <p style="font-size:12.5px;color:var(--muted);margin-bottom:10px;">Демо: параметры не передаются. Сохраните текущий расчёт в CSV или сравните условия ниже.</p>
+              
               <div class="grid-2" style="gap:10px;">
                 <div class="field" style="margin:0;"><input type="text" name="name" placeholder="Ваше имя / Компания" required></div>
                 <div class="field" style="margin:0;"><input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required></div>
@@ -712,7 +717,7 @@ html{scroll-padding-bottom:100px}
               <div class="consent-block">
   <div class="consent-choice"><input type="checkbox" id="pdConsent1" name="pdConsent" value="1" required><label for="pdConsent1">Даю согласие на обработку моих персональных данных</label></div>
   <div class="consent-links"><a href="./consent.html" target="_blank" rel="noopener">Текст согласия</a><span aria-hidden="true">·</span><a href="./privacy.html" target="_blank" rel="noopener">Политика обработки персональных данных</a></div>
-  <small>Демонстрация: согласие и заявка не сохраняются.</small>
+  
 </div>
               <button type="submit" class="btn btn-primary" style="width:100%;">Запросить расчёт — демо</button>
             </form>
@@ -782,7 +787,7 @@ html{scroll-padding-bottom:100px}
             <div class="consent-block">
   <div class="consent-choice"><input type="checkbox" id="pdConsent2" name="pdConsent" value="1" required><label for="pdConsent2">Даю согласие на обработку моих персональных данных</label></div>
   <div class="consent-links"><a href="./consent.html" target="_blank" rel="noopener">Текст согласия</a><span aria-hidden="true">·</span><a href="./privacy.html" target="_blank" rel="noopener">Политика обработки персональных данных</a></div>
-  <small>Демонстрация: согласие и заявка не сохраняются.</small>
+  
 </div>
             <div style="display:flex;gap:10px;flex-wrap:wrap;">
               <button type="button" class="btn btn-outline" onclick="goQuiz(3)">← Назад</button>
@@ -795,7 +800,7 @@ html{scroll-padding-bottom:100px}
   </div>
 </section>
 
-<section class="section section-alt" id="offer-compare"><div class="container"><div class="eyebrow">СРАВНЕНИЕ КП</div><h2 class="section-title">Какое предложение выгоднее?</h2><p class="section-sub">Введите суммы из двух коммерческих предложений. Сравнение выполняется на устройстве, без регистрации и отправки данных.</p><div class="model-note">Предзаполнен учебный пример. Сравнивайте одинаковое имущество, комплектацию и условия. Вводите выкуп и дополнительные расходы только если они не входят в график. Для неравных платежей включите точный график.</div><div class="offer-grid"><fieldset class="offer-card"><legend>Предложение 1</legend><div class="field"><label for="offerAadvance">Аванс, ₽</label><input type="number" id="offerAadvance" data-offer="A" data-part="advance" value="900000" min="0" max="1000000000" step="1" inputmode="numeric"></div><div class="field"><label for="offerAmonths">Число ежемесячных платежей</label><input type="number" id="offerAmonths" data-offer="A" data-part="months" value="36" min="1" max="120" step="1" inputmode="numeric"></div><div class="field"><label for="offerApayment">Платёж в месяц, ₽</label><input type="number" id="offerApayment" data-offer="A" data-part="payment" value="130000" min="0" max="1000000000" step="1" inputmode="numeric"></div><div class="field"><label for="offerAbuyout">Выкуп сверх графика, ₽</label><input type="number" id="offerAbuyout" data-offer="A" data-part="buyout" value="1000" min="0" max="1000000000" step="1" inputmode="numeric"></div><div class="field"><label for="offerAextras">Прочие расходы сверх графика, ₽</label><input type="number" id="offerAextras" data-offer="A" data-part="extras" value="0" min="0" max="1000000000" step="1" inputmode="numeric"></div><details class="schedule-detail"><summary>Неравномерный график платежей</summary><label for="scheduleA">Платежи по месяцам, ₽ (через точку с запятой или с новой строки)</label><textarea id="scheduleA" rows="4" maxlength="3000" placeholder="130000; 125000; 120000"></textarea><label class="schedule-check"><input type="checkbox" id="useScheduleA"> Использовать этот график вместо равных платежей</label><small id="scheduleHintA">Аванс и выкуп указываются отдельно.</small></details><div class="offer-total"><small>Всего</small><strong id="offerTotalA">—</strong></div></fieldset><fieldset class="offer-card"><legend>Предложение 2</legend><div class="field"><label for="offerBadvance">Аванс, ₽</label><input type="number" id="offerBadvance" data-offer="B" data-part="advance" value="900000" min="0" max="1000000000" step="1" inputmode="numeric"></div><div class="field"><label for="offerBmonths">Число ежемесячных платежей</label><input type="number" id="offerBmonths" data-offer="B" data-part="months" value="36" min="1" max="120" step="1" inputmode="numeric"></div><div class="field"><label for="offerBpayment">Платёж в месяц, ₽</label><input type="number" id="offerBpayment" data-offer="B" data-part="payment" value="128000" min="0" max="1000000000" step="1" inputmode="numeric"></div><div class="field"><label for="offerBbuyout">Выкуп сверх графика, ₽</label><input type="number" id="offerBbuyout" data-offer="B" data-part="buyout" value="100000" min="0" max="1000000000" step="1" inputmode="numeric"></div><div class="field"><label for="offerBextras">Прочие расходы сверх графика, ₽</label><input type="number" id="offerBextras" data-offer="B" data-part="extras" value="30000" min="0" max="1000000000" step="1" inputmode="numeric"></div><details class="schedule-detail"><summary>Неравномерный график платежей</summary><label for="scheduleB">Платежи по месяцам, ₽ (через точку с запятой или с новой строки)</label><textarea id="scheduleB" rows="4" maxlength="3000" placeholder="130000; 125000; 120000"></textarea><label class="schedule-check"><input type="checkbox" id="useScheduleB"> Использовать этот график вместо равных платежей</label><small id="scheduleHintB">Аванс и выкуп указываются отдельно.</small></details><div class="offer-total"><small>Всего</small><strong id="offerTotalB">—</strong></div></fieldset></div><div class="offer-visual" id="offerVisual" hidden><h3>Из чего складываются расходы</h3><div class="offer-bars"><div><span>Предложение 1</span><div class="offer-bar" id="offerBarA"></div></div><div><span>Предложение 2</span><div class="offer-bar" id="offerBarB"></div></div></div><div class="offer-key"><span><i></i>Аванс</span><span><i></i>Платежи</span><span><i></i>Выкуп</span><span><i></i>Доп. расходы</span></div></div><div class="offer-result" role="status" aria-live="polite" id="offerResult">—</div><details class="discount-detail"><summary>Учитывать стоимость денег во времени (для финансового анализа)</summary><div class="field"><label for="discountRate">Годовая ставка дисконтирования, %</label><input id="discountRate" type="number" min="0" max="100" step="0.1" value="15" inputmode="decimal"></div><p class="calculation-explain">Ставка задаётся вами, а не лизинговой компанией. Аванс и дополнительные расходы считаются уплаченными сейчас, платежи — в конце каждого месяца, выкуп — в конце срока.</p><div class="discount-result" id="discountResult">—</div></details><p class="calculation-explain">Сумма расходов = аванс + все платежи + отдельный выкуп + отдельные расходы. Без налогового эффекта и оценки договорных рисков. Дисконтирование доступно отдельно. CSV содержит суммы, помесячные платежи и приведённую стоимость при корректной ставке. Не является рекомендацией заключить сделку.</p><button class="btn btn-outline" id="offerExport" type="button">Скачать подробное сравнение (CSV)</button> <button class="btn btn-outline" id="offerReset" type="button">Вернуть пример</button> <button class="btn btn-primary" type="button" onclick="document.getElementById('callbackTrigger').click()">Обсудить предложения</button></div></section>
+<section class="section section-alt" id="offer-compare"><div class="container"><div class="eyebrow">СРАВНЕНИЕ КП</div><h2 class="section-title">Какое предложение выгоднее?</h2><p class="section-sub">Введите данные двух предложений и узнайте, сколько составят общие расходы.</p><div class="offer-grid"><fieldset class="offer-card"><legend>Предложение №1</legend><div class="field"><label for="offerAadvance">Аванс, ₽</label><input type="number" id="offerAadvance" data-offer="A" data-part="advance" value="900000" min="0" max="1000000000" step="1" inputmode="numeric"></div><div class="field"><label for="offerAmonths">Число ежемесячных платежей</label><input type="number" id="offerAmonths" data-offer="A" data-part="months" value="36" min="1" max="120" step="1" inputmode="numeric"></div><div class="field"><label for="offerApayment">Платёж в месяц, ₽</label><input type="number" id="offerApayment" data-offer="A" data-part="payment" value="130000" min="0" max="1000000000" step="1" inputmode="numeric"></div><div class="field"><label for="offerAbuyout">Выкуп (если не включён в платежи), ₽</label><input type="number" id="offerAbuyout" data-offer="A" data-part="buyout" value="1000" min="0" max="1000000000" step="1" inputmode="numeric"></div><div class="field"><label for="offerAextras">Доп. расходы (если не включены в платежи), ₽</label><input type="number" id="offerAextras" data-offer="A" data-part="extras" value="0" min="0" max="1000000000" step="1" inputmode="numeric"></div><details class="schedule-detail"><summary>Неравномерный график платежей</summary><label for="scheduleA">Платежи по месяцам, ₽ (через точку с запятой или с новой строки)</label><textarea id="scheduleA" rows="4" maxlength="3000" placeholder="130000; 125000; 120000"></textarea><label class="schedule-check"><input type="checkbox" id="useScheduleA"> Использовать этот график вместо равных платежей</label><small id="scheduleHintA">Аванс и выкуп указываются отдельно.</small></details><div class="offer-total"><small>Всего к оплате</small><strong id="offerTotalA">—</strong></div></fieldset><fieldset class="offer-card"><legend>Предложение №2</legend><div class="field"><label for="offerBadvance">Аванс, ₽</label><input type="number" id="offerBadvance" data-offer="B" data-part="advance" value="900000" min="0" max="1000000000" step="1" inputmode="numeric"></div><div class="field"><label for="offerBmonths">Число ежемесячных платежей</label><input type="number" id="offerBmonths" data-offer="B" data-part="months" value="36" min="1" max="120" step="1" inputmode="numeric"></div><div class="field"><label for="offerBpayment">Платёж в месяц, ₽</label><input type="number" id="offerBpayment" data-offer="B" data-part="payment" value="128000" min="0" max="1000000000" step="1" inputmode="numeric"></div><div class="field"><label for="offerBbuyout">Выкуп (если не включён в платежи), ₽</label><input type="number" id="offerBbuyout" data-offer="B" data-part="buyout" value="100000" min="0" max="1000000000" step="1" inputmode="numeric"></div><div class="field"><label for="offerBextras">Доп. расходы (если не включены в платежи), ₽</label><input type="number" id="offerBextras" data-offer="B" data-part="extras" value="30000" min="0" max="1000000000" step="1" inputmode="numeric"></div><details class="schedule-detail"><summary>Неравномерный график платежей</summary><label for="scheduleB">Платежи по месяцам, ₽ (через точку с запятой или с новой строки)</label><textarea id="scheduleB" rows="4" maxlength="3000" placeholder="130000; 125000; 120000"></textarea><label class="schedule-check"><input type="checkbox" id="useScheduleB"> Использовать этот график вместо равных платежей</label><small id="scheduleHintB">Аванс и выкуп указываются отдельно.</small></details><div class="offer-total"><small>Всего к оплате</small><strong id="offerTotalB">—</strong></div></fieldset></div><div class="offer-result" role="status" aria-live="polite" id="offerResult">—</div><details class="offer-visual" id="offerVisual" hidden><summary>Подробно: из чего складываются расходы</summary><div class="offer-breakdown"><table><thead><tr><th scope="col">Расходы</th><th scope="col">№1</th><th scope="col">№2</th></tr></thead><tbody id="offerBreakdown"></tbody></table></div><div class="offer-bars"><div><span>Предложение 1</span><div class="offer-bar" id="offerBarA"></div></div><div><span>Предложение 2</span><div class="offer-bar" id="offerBarB"></div></div></div><div class="offer-key"><span><i></i>Аванс</span><span><i></i>Платежи</span><span><i></i>Выкуп</span><span><i></i>Доп. расходы</span></div></details><details class="discount-detail"><summary>Дополнительный финансовый расчёт (дисконтирование)</summary><div class="field"><label for="discountRate">Годовая ставка дисконтирования, %</label><input id="discountRate" type="number" min="0" max="100" step="0.1" value="15" inputmode="decimal"></div><p class="calculation-explain">Ставка задаётся вами, а не лизинговой компанией. Аванс и дополнительные расходы считаются уплаченными сейчас, платежи — в конце каждого месяца, выкуп — в конце срока.</p><div class="discount-result" id="discountResult">—</div></details><button class="btn btn-outline" id="offerExport" type="button">Скачать подробное сравнение (CSV)</button> <button class="btn btn-outline" id="offerReset" type="button">Вернуть пример</button> <button class="btn btn-primary" type="button" onclick="document.getElementById('callbackTrigger').click()">Обсудить предложения</button></div></section>
 <!-- WHY BROKER -->
 <section class="section">
   <div class="container">
@@ -814,7 +819,7 @@ html{scroll-padding-bottom:100px}
 <details><summary>Досрочный выкуп</summary><p>Подготовьте действующий график, остаток обязательств и условия выкупа. Сравните итоговые расходы до и после выкупа.</p></details>
 <details><summary>Изменение графика платежей</summary><p>Уточните задолженность, желаемый платёж и период изменения графика. Новые условия зависят от согласия сторон.</p></details>
 <details><summary>Страховой случай</summary><p>Подготовьте договор лизинга, страховой полис и документы о событии. Не отправляйте их через демонстрационный сайт.</p></details>
-<details><summary>Завершение договора</summary><p>Проверьте остаток платежей, выкупную стоимость, порядок передачи имущества и закрывающие документы.</p></details></div><button class="btn btn-primary" type="button" onclick="document.getElementById('callbackTrigger').click()">Обсудить договор →</button></div></section>
+<details><summary>Завершение договора</summary><p>Проверьте остаток платежей, выкупную стоимость, порядок передачи имущества и закрывающие документы.</p></details></div><button class="btn btn-primary" type="button" onclick="document.getElementById('callbackTrigger').click()">Обсудить условия →</button></div></section>
 <!-- HOW WE WORK -->
 <section class="section section-alt">
   <div class="container">
@@ -835,7 +840,7 @@ html{scroll-padding-bottom:100px}
   <div class="container">
     <div class="eyebrow">05 / ПРИМЕРЫ</div>
     <h2 class="section-title">Примеры задач по лизингу</h2>
-    <p class="section-sub">Условные сценарии для понимания услуги, не история совершённых сделок.</p>
+    
     <div class="grid-2" id="casesGrid"></div>
   </div>
 </section>
@@ -866,7 +871,7 @@ html{scroll-padding-bottom:100px}
   <div class="container">
     <div class="badge">Для B2B-партнеров</div>
     <h2 class="section-title">Партнерская программа: автосалонам, поставщикам и брокерам</h2>
-    <p class="section-sub">Помогаем закрывать сделки, которые срываются из-за отказа одной ЛК или нехватки оборотных средств у вашего покупателя.</p>
+    <p class="section-sub">Помогаем закрывать сделки, которые срываются из-за отказа одной лизинговой компании или нехватки оборотных средств у вашего покупателя.</p>
 
     <div class="tabs">
       <button class="tab-btn active" onclick="switchB2B('b2bAuto', this)">Автосалонам</button>
@@ -878,7 +883,7 @@ html{scroll-padding-bottom:100px}
       <div class="card">
         <div id="b2bAuto" class="b2b-pane">
           <h3>Механика «Спасение отказников» для МОПов и РОПов</h3>
-          <p>Если штатная ЛК салона отказала клиенту или предложила высокий аванс — не теряйте продажу. Пришлите ИНН и ПТС/счет: подберём возможные варианты финансирования после запуска сервиса.</p>
+          <p>Если лизинговая компания салона отказала клиенту или предложила высокий аванс — не теряйте продажу. Пришлите ИНН и ПТС/счет: подберём возможные варианты финансирования после запуска сервиса.</p>
           <ul style="padding-left:18px;font-size:14px;display:grid;gap:8px;color:var(--slate);">
             <li>Выплата партнерского бонуса после выдачи авто.</li>
             <li>Встречный поток наших клиентов с одобренным лимитом в ваш салон.</li>
@@ -889,7 +894,7 @@ html{scroll-padding-bottom:100px}
           <h3>«Лизинговый отдел на аутсорсе» для поставщиков</h3>
           <p>Дополните ваши коммерческие предложения расчётом: встроим расчет лизинга прямо в ваши КП и на сайт, чтобы покупатель видел комфортный ежемесячный платеж вместо 100% предоплаты.</p>
           <ul style="padding-left:18px;font-size:14px;display:grid;gap:8px;color:var(--slate);">
-            <li>Помогаем с аккредитацией поставщика в ЛК и авансированием поставок.</li>
+            <li>Помогаем с аккредитацией поставщика в лизинговых компаниях и авансированием поставок.</li>
             <li>Финансируем станки, медоборудование, складские и пищевые линии.</li>
             <li>Консультация отдела продаж.</li>
           </ul>
@@ -898,7 +903,7 @@ html{scroll-padding-bottom:100px}
           <h3>Лизинг коммерческой недвижимости (чеки 15–150+ млн ₽)</h3>
           <p>Когда коммерческая ипотека недоступна или невыгодна, лизинг складов, цехов, клиник и офисов позволяет клиенту выкупить объект с индивидуальной оценкой налоговых условий.</p>
           <ul style="padding-left:18px;font-size:14px;display:grid;gap:8px;color:var(--slate);">
-            <li>Структурирование сделки под ключ через профильные ЛК.</li>
+            <li>Структурирование сделки под ключ через профильные лизинговые компании.</li>
             <li>Прозрачный агентский договор с брокером недвижимости.</li>
           </ul>
         </div>
@@ -913,7 +918,7 @@ html{scroll-padding-bottom:100px}
         <div class="consent-block">
   <div class="consent-choice"><input type="checkbox" id="pdConsent3" name="pdConsent" value="1" required><label for="pdConsent3">Даю согласие на обработку моих персональных данных</label></div>
   <div class="consent-links"><a href="./consent.html" target="_blank" rel="noopener">Текст согласия</a><span aria-hidden="true">·</span><a href="./privacy.html" target="_blank" rel="noopener">Политика обработки персональных данных</a></div>
-  <small>Демонстрация: согласие и заявка не сохраняются.</small>
+  
 </div>
         <button type="submit" class="btn btn-primary" style="width:100%;">Отправить партнерскую заявку</button>
       </form>
@@ -929,7 +934,7 @@ html{scroll-padding-bottom:100px}
       <div>
         <div class="eyebrow">О КОМПАНИИ</div>
         <h2 class="section-title">О брокере «Лизинг Компас»</h2>
-        <p class="about-text">«Лизинг Компас» — проект независимого брокера по подбору и сопровождению лизинговых сделок. Коммерческую деятельность будет вести ИП Гасанов Тариэль Алиевич.</p><p class="about-text">ИНН 231207234403 · ОГРНИП 323237500416632. Условия вознаграждения и договоры будут опубликованы перед коммерческим запуском. Демо не принимает заявки.</p><div class="about-points"><div>✓ Сравнение на единых параметрах</div><div>✓ Индивидуальные условия сопровождения</div><div>✓ Работа с договором и графиком платежей</div></div>
+        <p class="about-text">«Лизинг Компас» — проект независимого брокера по подбору и сопровождению лизинговых сделок. </p><p class="about-text">ИНН 231207234403 · ОГРНИП 323237500416632.</p><div class="about-points"><div>✓ Сравнение на единых параметрах</div><div>✓ Индивидуальные условия сопровождения</div><div>✓ Работа с договором и графиком платежей</div></div>
       </div>
     </div>
   </div>
@@ -988,7 +993,7 @@ html{scroll-padding-bottom:100px}
         <div class="consent-block">
   <div class="consent-choice"><input type="checkbox" id="pdConsent4" name="pdConsent" value="1" required><label for="pdConsent4">Даю согласие на обработку моих персональных данных</label></div>
   <div class="consent-links"><a href="./consent.html" target="_blank" rel="noopener">Текст согласия</a><span aria-hidden="true">·</span><a href="./privacy.html" target="_blank" rel="noopener">Политика обработки персональных данных</a></div>
-  <small>Демонстрация: согласие и заявка не сохраняются.</small>
+  
 </div>
         <button type="submit" class="btn btn-primary" style="width:100%;">Отправить данные для КП</button>
       </form>
@@ -1148,22 +1153,22 @@ html{scroll-padding-bottom:100px}
   {
     "title": "Автомобиль для ООО",
     "save": "Пример 01",
-    "body": "Сравнение двух графиков для одинакового автомобиля: аванс, платежи, выкупная цена и страховка."
+    "body": "Подберём условия лизинга автомобиля для бизнеса: размер аванса, ежемесячный платёж, страхование и выкуп."
   },
   {
     "title": "Оборудование для производства",
     "save": "Пример 02",
-    "body": "Подбор структуры финансирования с учётом поставки, запуска и выхода на плановую загрузку."
+    "body": "Поможем подобрать график платежей с учётом сроков поставки и запуска оборудования."
   },
   {
     "title": "Коммерческая недвижимость",
     "save": "Пример 03",
-    "body": "Сопоставление первоначального взноса, графика и договорных условий."
+    "body": "Сравним размер первоначального взноса, ежемесячные платежи и условия выкупа недвижимости."
   },
   {
     "title": "Возвратный лизинг спецтехники",
     "save": "Пример 04",
-    "body": "Оценка возможности получить оборотные средства, сохраняя возможность использовать технику."
+    "body": "Рассмотрим возможность получить оборотные средства и продолжить пользоваться своей техникой."
   }
 ];
   const DEFAULT_ARTICLES = [
@@ -1359,8 +1364,7 @@ html{scroll-padding-bottom:100px}
     const advRub=advMode==="rub"?Math.min(price*.49,raw):price*Math.min(49,raw)/100;
     const pct=advRub/price*100;
     const term=Number(document.getElementById("cTerm").value)||36;
-    const extra=document.getElementById("cOpts").checked?price*.04:0;
-    const financed=price+extra-advRub;
+    const financed=price-advRub;
     document.getElementById("cPriceOut").textContent=fmt(price);
     document.getElementById("cAdvOut").textContent=pct.toLocaleString("ru-RU",{maximumFractionDigits:2})+"% — "+fmt(advRub);
     document.getElementById("cTermOut").textContent=term+" мес.";
@@ -1369,7 +1373,7 @@ html{scroll-padding-bottom:100px}
       const total=advRub+mPay*term;
       return {name:lk.name,rate:lk.rate,mPay,total,overpay:total-price};
     }).sort((a,b)=>a.total-b.total);
-    const best=rows[0]; calcRows=rows; calcSnapshot={price,advRub,term,extra};
+    const best=rows[0]; calcRows=rows; calcSnapshot={price,advRub,term};
     document.getElementById("resMonthly").textContent=fmt(best.mPay);
     document.getElementById("resTaxLabel").textContent="Всего по модели (с авансом)";
     document.getElementById("resTax").textContent=fmt(best.total);
@@ -1472,7 +1476,7 @@ document.querySelectorAll('[data-bind="ipName"]').forEach(x=>x.textContent='ИП
 
 
 document.querySelector('#cases .section-title').textContent='Примеры задач по лизингу';
-document.querySelector('#cases .section-sub').textContent='Иллюстративные сценарии, не подтверждённые реальные сделки.';
+
 document.querySelectorAll('.partners-strip').forEach(x=>{x.parentElement.querySelector('.eyebrow').textContent='УЧАСТНИКИ РЫНКА';x.parentElement.querySelector('h2').textContent='Лизинговые компании: примеры';x.parentElement.querySelector('.section-sub').textContent='Партнёрские отношения не подтверждены.';});
 </script>
 <dialog id="callbackDialog" class="callback-dialog" aria-labelledby="callbackTitle">
@@ -1484,7 +1488,7 @@ document.querySelectorAll('.partners-strip').forEach(x=>{x.parentElement.querySe
 <div class="consent-block">
   <div class="consent-choice"><input type="checkbox" id="callbackConsent" name="pdConsent" value="1" required><label for="callbackConsent">Даю согласие на обработку моих персональных данных</label></div>
   <div class="consent-links"><a href="./consent.html" target="_blank" rel="noopener">Текст согласия</a><span aria-hidden="true">·</span><a href="./privacy.html" target="_blank" rel="noopener">Политика обработки персональных данных</a></div>
-  <small>Демонстрация: согласие и заявка не сохраняются.</small>
+  
 </div>
 <button type="button" class="btn" id="callbackDemo" disabled>Заказать звонок — демо</button>
 <p id="callbackResult" role="status" aria-live="polite"></p><div class="direct-contact"><span>Или позвоните самостоятельно</span><a href="tel:+79604844141" data-bind="phone" class="direct-call">+7 (960) 484-41-41</a></div>
@@ -1541,8 +1545,8 @@ document.querySelectorAll('form').forEach(form=>{
 (() => {
  const byId=id=>document.getElementById(id);
  document.querySelectorAll('[data-term]').forEach(b=>b.addEventListener('click',()=>{byId('cTerm').value=b.dataset.term;recalc();}));
- byId('resetCalc').addEventListener('click',()=>{byId('cPriceNum').value=4500000;byId('cPriceRange').value=4500000;byId('cAdvRange').value=20;setAdvMode('pct');byId('cAdvInput').value=20;byId('cTerm').value=36;byId('cOpts').checked=false;setVat(true);recalc();});
- byId('saveCurrentCalc').addEventListener('click',()=>{paintCalc();const x=calcSnapshot;const lines=['Лизинг Компас — учебная модель, не оферта','Стоимость;Аванс;Срок (мес.);Доп. услуги',[Math.round(x.price),Math.round(x.advRub),x.term,Math.round(x.extra)].join(';'),'Условная ставка (%);Платёж в месяц;Всего с авансом;Переплата',...calcRows.map(r=>[r.rate,Math.round(r.mPay),Math.round(r.total),Math.round(r.overpay)].join(';'))];const u=URL.createObjectURL(new Blob(['\uFEFF'+lines.join('\r\n')],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=u;a.download='Leasing_Compass_calculation.csv';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);});
+ byId('resetCalc').addEventListener('click',()=>{byId('cPriceNum').value=4500000;byId('cPriceRange').value=4500000;byId('cAdvRange').value=20;setAdvMode('pct');byId('cAdvInput').value=20;byId('cTerm').value=36;setVat(true);recalc();});
+ byId('saveCurrentCalc').addEventListener('click',()=>{paintCalc();const x=calcSnapshot;const lines=['Лизинг Компас — учебная модель, не оферта','Стоимость;Аванс;Срок (мес.)',[Math.round(x.price),Math.round(x.advRub),x.term].join(';'),'Условная ставка (%);Платёж в месяц;Всего с авансом;Переплата',...calcRows.map(r=>[r.rate,Math.round(r.mPay),Math.round(r.total),Math.round(r.overpay)].join(';'))];const u=URL.createObjectURL(new Blob(['\uFEFF'+lines.join('\r\n')],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=u;a.download='Leasing_Compass_calculation.csv';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);});
  // Native scrolling: adapted from KASKAD mobile process controls, no gesture interception.
  const track=document.querySelector('.steps-grid');
  if(track){const cards=[...track.children];const nav=document.createElement('div');nav.className='process-controls';nav.innerHTML='<button type="button">← Назад</button><span aria-live="polite"></span><button type="button">Далее →</button>';track.after(nav);const [prev,next]=nav.querySelectorAll('button');const count=nav.querySelector('span');const near=()=>{if(track.scrollLeft<=2)return 0;if(track.scrollLeft>=track.scrollWidth-track.clientWidth-2)return cards.length-1;return cards.reduce((best,c,i)=>Math.abs(c.offsetLeft-cards[0].offsetLeft-track.scrollLeft)<Math.abs(cards[best].offsetLeft-cards[0].offsetLeft-track.scrollLeft)?i:best,0)};const sync=()=>{const i=near();count.textContent='Этап '+(i+1)+' из '+cards.length;prev.disabled=i===0;next.disabled=i===cards.length-1;};const go=d=>{const i=Math.max(0,Math.min(cards.length-1,near()+d));track.scrollTo({left:cards[i].offsetLeft-cards[0].offsetLeft,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});};prev.onclick=()=>go(-1);next.onclick=()=>go(1);let pending=false;track.addEventListener('scroll',()=>{if(!pending){pending=true;requestAnimationFrame(()=>{pending=false;sync()})}},{passive:true});window.addEventListener('resize',sync,{passive:true});sync();}
@@ -1555,7 +1559,7 @@ document.querySelectorAll('form').forEach(form=>{
 (() => {
  const $=id=>document.getElementById(id);
  const inputs=[...document.querySelectorAll('[data-offer]')];let frame=0,latest=null;
- const money=n=>fmt(n);
+ const money=n=>n.toLocaleString('ru-RU',{minimumFractionDigits:Number.isInteger(n)?0:2,maximumFractionDigits:2})+' ₽';
  function schedule(a,v){
    if(!$('useSchedule'+a).checked){if(!Number.isInteger(v.months)||v.months<1||v.months>120||!Number.isFinite(v.payment)||v.payment<0||v.payment>1e9)return null;return Array.from({length:v.months},()=>v.payment);}
    const raw=$('schedule'+a).value.trim();if(!raw)return null;
@@ -1589,7 +1593,14 @@ document.querySelectorAll('form').forEach(form=>{
      bar.setAttribute('role','img');bar.setAttribute('aria-label','Аванс '+money(v.advance)+', платежи '+money(v.sum)+', выкуп '+money(v.buyout)+', расходы '+money(v.extras));
    }
    const d=all.A.total-all.B.total;
-   $('offerResult').textContent=Math.abs(d)<.005?'Итоговые суммы равны.':(d>0?'Предложение 2':'Предложение 1')+' дешевле по номинальной сумме на '+money(Math.abs(d))+'.'+(all.A.months!==all.B.months?' Сроки различаются: '+all.A.months+' и '+all.B.months+' мес.':'')+' Учитывайте договорные условия.';
+   const result=$('offerResult');const heading=document.createElement('strong'),note=document.createElement('span');
+   heading.textContent=Math.abs(d)<.005?'Общие расходы одинаковые':(d>0?'Предложение №2':'Предложение №1')+' — экономия '+money(Math.abs(d));
+   note.textContent='По общей сумме введённых платежей'+(all.A.months!==all.B.months?'. Сроки различаются: '+all.A.months+' и '+all.B.months+' мес.':'')+'.';
+   result.replaceChildren(heading,note);
+   $('offerBreakdown').replaceChildren(...[['advance','Аванс'],['sum','Все ежемесячные платежи'],['buyout','Выкуп'],['extras','Доп. расходы'],['total','Всего к оплате']].map(([key,label])=>{
+     const row=document.createElement('tr');const th=document.createElement('th');th.scope='row';th.textContent=label;row.append(th);
+     for(const a of ['A','B']){const td=document.createElement('td');td.textContent=money(all[a][key]);row.append(td);}return row;
+   }));
    const rate=$('discountRate');if(!rate.value.trim()||!rate.checkValidity()){$('discountResult').textContent='Укажите корректную годовую ставку.';return;}
    const m=Math.pow(1+Number(rate.value)/100,1/12)-1;
    const pv=v=>v.advance+v.extras+v.p.reduce((sum,p,i)=>sum+p/Math.pow(1+m,i+1),0)+v.buyout/Math.pow(1+m,v.months);
