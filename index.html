@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta name="robots" content="noindex,nofollow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лизинг Компас — Подбор лизинга авто, оборудования и недвижимости по всей РФ за 2 часа</title>
+  <meta name="description" content="Независимый лизинговый брокер Лизинг Компас. Сравнение реальных ставок от 10+ лизинговых компаний за 2 часа. Авто, оборудование, недвижимость, рефинансирование и возвратный лизинг по всей России.">
+  <meta property="og:title" content="Лизинг Компас — Лизинговые решения по всей России">
+  <meta property="og:description" content="Подберем лизинг на авто, оборудование и недвижимость за 2 часа. Сводный расчет от 5–10 ЛК без наценки.">
+  <meta property="og:type" content="website">
+  <style>
+    :root {
+      --navy: #0F2342;
+      --navy-2: #1B3B6F;
+      --slate: #2D3748;
+      --muted: #5A677A;
+      --bg: #F4F7FA;
+      --white: #FFFFFF;
+      --border: #E2E8F0;
+      --accent: #EA580C;
+      --accent-hover: #C2410C;
+      --green: #059669;
+      --green-bg: #ECFDF5;
+      --radius: 14px;
+      --shadow: 0 10px 30px rgba(15, 35, 66, 0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+      color: var(--slate);
+      background: var(--white);
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font-family: inherit; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    .section { padding: 76px 0; }
+    .section-alt { background: var(--bg); }
+    .section-title { font-size: clamp(26px, 3.2vw, 38px); color: var(--navy); font-weight: 800; margin-bottom: 12px; line-height: 1.2; }
+    .section-sub { color: var(--muted); font-size: 16px; max-width: 720px; margin-bottom: 36px; }
+    .badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 999px; font-size: 13px; font-weight: 600; background: rgba(234,88,12,0.12); color: var(--accent); margin-bottom: 14px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 13px 24px; border-radius: 10px; font-weight: 700; font-size: 15px;
+      border: none; cursor: pointer; transition: .2s ease; text-align: center;
+    }
+    .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 6px 18px rgba(234,88,12,0.28); }
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+    .btn-outline { background: transparent; color: var(--navy); border: 1.5px solid var(--navy); }
+    .btn-outline:hover { background: var(--navy); color: #fff; }
+    .btn-outline-light { background: rgba(255,255,255,0.08); color: #fff; border: 1.5px solid rgba(255,255,255,0.45); }
+    .btn-outline-light:hover { background: #fff; color: var(--navy); }
+    .btn-sm { padding: 9px 16px; font-size: 13px; border-radius: 8px; }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 900; background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(10px); border-bottom: 1px solid var(--border);
+    }
+    .nav-wrap { display: flex; align-items: center; justify-content: space-between; min-height: 74px; gap: 14px; }
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 19px; color: var(--navy); }
+    .logo-mark {
+      width: 38px; height: 38px; border-radius: 10px; background: linear-gradient(135deg, var(--navy), var(--navy-2));
+      color: #fff; display: grid; place-items: center; font-weight: 900; font-size: 17px; flex-shrink: 0;
+    }
+    .logo small { display: block; font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: .3px; }
+    nav.desktop-nav { display: flex; gap: 20px; font-size: 14px; font-weight: 600; color: var(--slate); }
+    nav.desktop-nav a:hover { color: var(--accent); }
+    .nav-right { display: flex; align-items: center; gap: 10px; }
+    .phone-link { font-weight: 800; color: var(--navy); font-size: 15px; white-space: nowrap; }
+    .msg-ico {
+      width: 34px; height: 34px; border-radius: 8px; display: inline-grid; place-items: center;
+      font-size: 13px; font-weight: 800; color: #fff; transition: .2s;
+    }
+    .msg-tg { background: #0088CC; }
+    .msg-wa { background: #25D366; }
+    .msg-max { background: #4F46E5; }
+    .msg-ico:hover { opacity: .85; transform: translateY(-1px); }
+    .burger { display: none; background: none; border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; font-size: 18px; cursor: pointer; color: var(--navy); }
+    .mobile-menu { display: none; padding: 16px 20px 22px; border-top: 1px solid var(--border); background: #fff; }
+    .mobile-menu.open { display: grid; gap: 12px; }
+    .mobile-menu a { font-weight: 600; padding: 6px 0; border-bottom: 1px solid #F1F5F9; }
+
+    /* Hero */
+    .hero {
+      background: radial-gradient(circle at 85% 20%, #1E4480 0%, var(--navy) 65%);
+      color: #fff; padding: 68px 0 76px; position: relative; overflow: hidden;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 36px; align-items: center; }
+    .hero h1 { font-size: clamp(28px, 4vw, 46px); font-weight: 800; line-height: 1.15; margin-bottom: 18px; }
+    .hero p.lead { font-size: 17px; color: #CBD5E1; margin-bottom: 26px; max-width: 650px; }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 30px; }
+    .hero-bullets { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .hero-bullet {
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14);
+      padding: 12px 14px; border-radius: 10px; font-size: 13.5px; display: flex; gap: 8px; align-items: flex-start;
+    }
+    .hero-bullet span { color: #FB923C; font-weight: 800; }
+    .hero-card {
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 18px; padding: 26px; backdrop-filter: blur(8px);
+    }
+    .hero-card h3 { font-size: 18px; margin-bottom: 14px; }
+    .stat-row { display: flex; justify-content: space-between; padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,0.12); font-size: 14px; }
+    .stat-row:last-of-type { border-bottom: none; }
+    .stat-row strong { color: #34D399; font-size: 15px; }
+
+    /* Cards & Grids */
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .card {
+      background: var(--white); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 24px; box-shadow: var(--shadow); display: flex; flex-direction: column; justify-content: space-between;
+      transition: .2s;
+    }
+    .card:hover { transform: translateY(-3px); border-color: #CBD5E1; }
+    .card-ico {
+      width: 44px; height: 44px; border-radius: 10px; background: #EFF6FF; color: var(--navy-2);
+      display: grid; place-items: center; font-size: 20px; font-weight: 800; margin-bottom: 14px;
+    }
+    .card h3 { font-size: 18px; color: var(--navy); margin-bottom: 8px; }
+    .card p { font-size: 14px; color: var(--muted); margin-bottom: 16px; }
+    .card-meta { font-size: 13px; font-weight: 700; color: var(--green); margin-bottom: 14px; }
+
+    /* Calc & Quiz Tabs */
+    .tabs { display: inline-flex; background: #E2E8F0; padding: 5px; border-radius: 12px; margin-bottom: 24px; gap: 6px; flex-wrap: wrap; }
+    .tab-btn {
+      padding: 10px 20px; border-radius: 9px; border: none; background: transparent;
+      font-weight: 700; font-size: 14px; color: var(--slate); cursor: pointer; transition: .2s;
+    }
+    .tab-btn.active { background: var(--navy); color: #fff; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .calc-box {
+      background: #fff; border: 1px solid var(--border); border-radius: 18px;
+      padding: 28px; box-shadow: var(--shadow);
+    }
+    .calc-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 30px; }
+    .field { margin-bottom: 16px; }
+    .field label { display: flex; justify-content: space-between; font-size: 13.5px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+    .field input[type="text"], .field input[type="tel"], .field input[type="email"], .field input[type="number"], .field select, .field textarea {
+      width: 100%; padding: 11px 13px; border: 1.5px solid var(--border); border-radius: 9px; font-size: 14.5px; color: var(--slate);
+    }
+    .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--navy-2); }
+    .field input[type="range"] { width: 100%; accent-color: var(--accent); margin-top: 6px; cursor: pointer; }
+    .toggle-row { display: flex; gap: 8px; }
+    .chip {
+      flex: 1; padding: 9px 10px; border: 1.5px solid var(--border); border-radius: 8px;
+      background: #fff; font-size: 13px; font-weight: 700; cursor: pointer; text-align: center;
+    }
+    .chip.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+    .check-row { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; color: var(--muted); cursor: pointer; margin: 12px 0; }
+    .check-row input { margin-top: 3px; width: 16px; height: 16px; accent-color: var(--navy); flex-shrink: 0; }
+
+    .result-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 18px; }
+    .res-card { background: var(--bg); border-radius: 12px; padding: 16px; border: 1px solid var(--border); }
+    .res-card.green { background: var(--green-bg); border-color: #A7F3D0; }
+    .res-card small { display: block; font-size: 12px; color: var(--muted); font-weight: 600; margin-bottom: 4px; }
+    .res-card strong { font-size: 22px; color: var(--navy); }
+    .res-card.green strong { color: var(--green); }
+
+    .lk-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 18px; }
+    .lk-table th, .lk-table td { padding: 9px 8px; border-bottom: 1px solid var(--border); text-align: right; }
+    .lk-table th:first-child, .lk-table td:first-child { text-align: left; }
+    .lk-table th { background: var(--bg); color: var(--navy); font-weight: 700; }
+    .lk-table tr.best td { background: var(--green-bg); font-weight: 700; }
+
+    .calc-lead-box { background: #F8FAFC; border: 1.5px dashed var(--navy-2); border-radius: 12px; padding: 18px; margin-top: 10px; }
+    .calc-lead-box h4 { color: var(--navy); margin-bottom: 8px; font-size: 16px; }
+
+    /* Quiz */
+    .quiz-progress { height: 8px; background: #E2E8F0; border-radius: 99px; overflow: hidden; margin-bottom: 22px; }
+    .quiz-bar { height: 100%; background: var(--accent); width: 25%; transition: .3s; }
+    .quiz-step { display: none; }
+    .quiz-step.active { display: block; }
+    .quiz-opts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 16px 0 22px; }
+    .quiz-opt {
+      padding: 15px; border: 1.5px solid var(--border); border-radius: 10px; cursor: pointer;
+      font-weight: 700; font-size: 14.5px; background: #fff; text-align: left; transition: .15s;
+    }
+    .quiz-opt.selected, .quiz-opt:hover { border-color: var(--accent); background: #FFF7ED; color: var(--navy); }
+
+    /* Compare & Steps */
+    .compare-card { border-radius: 16px; padding: 26px; }
+    .compare-bad { background: #FFF5F5; border: 1px solid #FED7D7; }
+    .compare-good { background: #F0FDF4; border: 1.5px solid #86EFAC; }
+    .compare-card ul { list-style: none; display: grid; gap: 11px; margin-top: 14px; font-size: 14.5px; }
+    .steps-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+    .step-item { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 20px; position: relative; }
+    .step-num {
+      width: 34px; height: 34px; border-radius: 50%; background: var(--navy); color: #fff;
+      display: grid; place-items: center; font-weight: 800; font-size: 14px; margin-bottom: 12px;
+    }
+
+    /* Partners Logos */
+    .partners-strip { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+    .partner-pill {
+      background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 18px 14px;
+      text-align: center; font-weight: 800; color: var(--navy); font-size: 14.5px;
+      box-shadow: 0 4px 12px rgba(15,35,66,0.04);
+    }
+    .partner-pill small { display: block; font-size: 11px; font-weight: 600; color: var(--muted); margin-top: 4px; }
+
+    /* About & Cases */
+    .case-saving { display: inline-block; background: var(--green-bg); color: var(--green); font-weight: 800; font-size: 14px; padding: 6px 12px; border-radius: 8px; margin-bottom: 12px; }
+    .about-box { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 32px; align-items: center; background: #fff; border: 1px solid var(--border); border-radius: 18px; padding: 32px; box-shadow: var(--shadow); }
+    .avatar-placeholder {
+      background: linear-gradient(145deg, var(--navy), var(--navy-2)); color: #fff;
+      border-radius: 16px; padding: 36px 24px; text-align: center;
+    }
+    .avatar-circle {
+      width: 96px; height: 96px; border-radius: 50%; background: rgba(255,255,255,0.15);
+      border: 2px solid rgba(255,255,255,0.4); margin: 0 auto 14px; display: grid; place-items: center;
+      font-size: 32px; font-weight: 800;
+    }
+
+    /* Footer */
+    footer { background: var(--navy); color: #CBD5E1; padding: 54px 0 28px; font-size: 14px; }
+    .footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 28px; margin-bottom: 32px; }
+    footer h4 { color: #fff; margin-bottom: 12px; font-size: 15px; }
+    footer ul { list-style: none; display: grid; gap: 8px; }
+    footer a:hover { color: #fff; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.14); padding-top: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px; font-size: 12.5px; color: #94A3B8; }
+
+    /* Floating buttons & Cookie */
+    .fab-wrap { position: fixed; right: 18px; bottom: 20px; z-index: 850; display: flex; flex-direction: column; gap: 9px; }
+    .fab {
+      width: 48px; height: 48px; border-radius: 50%; color: #fff; display: grid; place-items: center;
+      font-weight: 800; font-size: 13px; box-shadow: 0 8px 20px rgba(0,0,0,0.22); transition: .2s;
+    }
+    .fab:hover { transform: scale(1.07); }
+    .cookie-bar {
+      position: fixed; left: 18px; bottom: 18px; max-width: 420px; z-index: 860;
+      background: var(--navy); color: #fff; padding: 16px 18px; border-radius: 12px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.28); font-size: 13px; display: none; gap: 12px; align-items: center;
+    }
+    .cookie-bar.show { display: flex; }
+
+    /* Modal */
+    .modal-bg {
+      position: fixed; inset: 0; background: rgba(15, 35, 66, 0.65); z-index: 1000;
+      display: none; align-items: center; justify-content: center; padding: 16px; backdrop-filter: blur(4px);
+    }
+    .modal-bg.open { display: flex; }
+    .modal {
+      background: #fff; width: 100%; max-width: 640px; max-height: 90vh; overflow-y: auto;
+      border-radius: 16px; padding: 28px; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    }
+    .modal.modal-lg { max-width: 920px; }
+    .modal-close {
+      position: absolute; right: 16px; top: 14px; background: #F1F5F9; border: none;
+      width: 34px; height: 34px; border-radius: 50%; font-size: 20px; cursor: pointer; color: var(--slate);
+    }
+    .toast {
+      position: fixed; top: 86px; right: 20px; z-index: 1100; background: var(--green); color: #fff;
+      padding: 14px 20px; border-radius: 10px; font-weight: 700; font-size: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2); display: none;
+    }
+    .toast.show { display: block; }
+
+    /* CMS Table */
+    .cms-table { width: 100%; border-collapse: collapse; font-size: 12.5px; margin-top: 10px; }
+    .cms-table th, .cms-table td { border: 1px solid var(--border); padding: 7px; text-align: left; }
+    .cms-table th { background: var(--bg); }
+
+    @media (max-width: 980px) {
+      nav.desktop-nav, .nav-right .phone-link { display: none; }
+      .burger { display: inline-block; }
+      .hero-grid, .calc-grid, .about-box, .footer-grid { grid-template-columns: 1fr; }
+      .grid-3, .grid-4, .steps-grid, .partners-strip { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 620px) {
+      .section { padding: 52px 0; }
+      .grid-2, .grid-3, .grid-4, .steps-grid, .hero-bullets, .quiz-opts, .result-cards, .partners-strip { grid-template-columns: 1fr; }
+      .cookie-bar { left: 12px; right: 76px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+<div style="padding:12px 20px;background:#fff0d8;color:#633900;text-align:center;font-weight:700;font-size:14px">ДЕМОНСТРАЦИОННАЯ ВЕРСИЯ — только для ознакомления. Ставки, кейсы, партнёры и сроки являются примерами, не подтверждены. Заявки не принимаются.</div>
+
+<div id="toast" class="toast">Заявка отправлена!</div>
+
+<!-- HEADER -->
+<header>
+  <div class="container nav-wrap">
+    <a href="#" class="logo">
+      <div class="logo-mark">ЛК</div>
+      <div>
+        Лизинг Компас
+        <small>Лизинговые решения по всей РФ</small>
+      </div>
+    </a>
+    <nav class="desktop-nav">
+      <a href="#services">Услуги</a>
+      <a href="#calc-section">Калькулятор</a>
+      <a href="#cases">Кейсы</a>
+      <a href="#b2b">Партнерам</a>
+      <a href="#blog">Блог</a>
+      <a href="#about">О брокере</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="nav-right">
+      <a href="tel:+78000000000" class="phone-link" data-bind="phone">+7 (800) 000-00-00</a>
+      <a class="msg-ico msg-tg" data-bind-href="tg" target="_blank" rel="noopener" title="Telegram">TG</a>
+      <a class="msg-ico msg-wa" data-bind-href="wa" target="_blank" rel="noopener" title="WhatsApp">WA</a>
+      <a class="msg-ico msg-max" data-bind-href="max" target="_blank" rel="noopener" title="Макс">MX</a>
+      <a href="#calc-section" class="btn btn-primary btn-sm">Расчет</a>
+      <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services">Услуги</a>
+    <a href="#calc-section">Калькулятор и Квиз</a>
+    <a href="#cases">Кейсы экономии</a>
+    <a href="#b2b">Партнерам (B2B)</a>
+    <a href="#blog">База знаний</a>
+    <a href="#about">О брокере</a>
+    <a href="#contacts">Контакты</a>
+    <a href="tel:+78000000000" class="phone-link" data-bind="phone">+7 (800) 000-00-00</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="badge" style="background:rgba(255,255,255,0.14);color:#FDBA74;">Работаем по всей территории России • ООО, ИП и физлица</div>
+      <h1 data-bind="heroTitle">Подберем лизинг на авто, оборудование и недвижимость за 2 часа</h1>
+      <p class="lead">Сравниваем реальные ставки от 10+ проверенных лизинговых компаний и сводим графики в одну понятную таблицу — без скрытых комиссий, с максимумом налоговой выгоды и дилерскими скидками.</p>
+      <div class="hero-cta">
+        <a href="#calc-section" class="btn btn-primary">Получить расчет лизинга</a>
+        <button class="btn btn-outline-light" onclick="openModal('kpMagnetModal')">Скачать пример сводного КП</button>
+      </div>
+      <div class="hero-bullets">
+        <div class="hero-bullet"><span>✓</span><div><strong>0 ₽ для клиента</strong> — по стандартным сделкам нашу работу оплачивает ЛК</div></div>
+        <div class="hero-bullet"><span>✓</span><div><strong>До 40% экономии</strong> — возврат НДС 20% и снижение налога на прибыль</div></div>
+        <div class="hero-bullet"><span>✓</span><div><strong>10+ ЛК за 1 заявку</strong> — ВТБ, Сбер, Европлан, Газпромбанк, Каркаде и др.</div></div>
+        <div class="hero-bullet"><span>✓</span><div><strong>Сложные кейсы</strong> — б/у авто, оборудование, недвижимость, возвратный лизинг</div></div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Средние показатели сделок</h3>
+      <div class="stat-row"><span>Срок подготовки сводного КП</span><strong>от 2 часов</strong></div>
+      <div class="stat-row"><span>Аванс по программам ЛК</span><strong>от 0% до 49%</strong></div>
+      <div class="stat-row"><span>Срок договора лизинга</span><strong>12 – 84 мес.</strong></div>
+      <div class="stat-row"><span>Субсидии по госпрограммам</span><strong>до 925 000 ₽</strong></div>
+      <div class="stat-row"><span>Средняя выгода клиента</span><strong>240 000 – 1,4 млн ₽</strong></div>
+      <a href="#calc-section" class="btn btn-primary" style="width:100%;margin-top:16px;">Рассчитать платеж онлайн →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="badge">7 направлений финансирования</div>
+    <h2 class="section-title">Услуги «Лизинг Компас»</h2>
+    <p class="section-sub">Подбираем оптимальную структуру сделки с учетом вашей системы налогообложения (ОСНО / УСН), требований к учету (ФСБУ 25/2018) и опций в графике (КАСКО, ОСАГО, шины, ТО).</p>
+    <div class="grid-3" id="servicesGrid"></div>
+  </div>
+</section>
+
+<!-- CALCULATOR & QUIZ -->
+<section class="section section-alt" id="calc-section">
+  <div class="container">
+    <div class="badge">Онлайн-подбор за 2 минуты</div>
+    <h2 class="section-title">Калькулятор лизинга и быстрый квиз</h2>
+    <p class="section-sub">Оцените ориентировочный платеж, налоговую выгоду и сравнение по 5 лизинговым компаниям — затем получите точные официальные графики в Telegram, WhatsApp или Макс.</p>
+
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab('calcTab', this)">1. Лизинговый калькулятор (5 ЛК)</button>
+      <button class="tab-btn" onclick="switchTab('quizTab', this)">2. Пошаговый квиз (4 вопроса)</button>
+    </div>
+
+    <!-- TAB 1: CALCULATOR -->
+    <div class="tab-panel active" id="calcTab">
+      <div class="calc-box">
+        <div class="calc-grid">
+          <div>
+            <div class="field">
+              <label>Тип имущества</label>
+              <select id="cType" onchange="recalc()">
+                <option value="Новое легковое авто">Новое легковое авто</option>
+                <option value="Авто с пробегом">Автомобиль с пробегом</option>
+                <option value="Оборудование">Оборудование</option>
+                <option value="Коммерческая недвижимость">Коммерческая недвижимость</option>
+                <option value="Спецтехника / Грузовой">Спецтехника / Грузовой транспорт</option>
+                <option value="Рефинансирование / Возвратный лизинг">Рефинансирование / Возвратный лизинг</option>
+              </select>
+            </div>
+            <div class="field">
+              <label><span>Стоимость имущества (ДКП), ₽</span><strong id="cPriceOut">4 500 000 ₽</strong></label>
+              <input type="number" id="cPriceNum" value="4500000" min="500000" max="150000000" step="50000" oninput="syncPrice(this.value)">
+              <input type="range" id="cPriceRange" min="500000" max="30000000" step="100000" value="4500000" oninput="syncPrice(this.value)">
+            </div>
+            <div class="field">
+              <label>
+                <span>Аванс (<span id="cAdvOut">20% — 900 000 ₽</span>)</span>
+                <span style="display:flex;gap:6px;">
+                  <button type="button" class="btn btn-sm" id="advPctBtn" style="padding:2px 8px;background:var(--navy);color:#fff;" onclick="setAdvMode('pct')">%</button>
+                  <button type="button" class="btn btn-sm" id="advRubBtn" style="padding:2px 8px;background:#E2E8F0;" onclick="setAdvMode('rub')">₽</button>
+                </span>
+              </label>
+              <input type="number" id="cAdvInput" value="20" min="0" max="49" oninput="syncAdvInput()">
+              <input type="range" id="cAdvRange" min="0" max="49" value="20" oninput="syncAdvRange()">
+            </div>
+            <div class="field">
+              <label><span>Срок лизинга</span><strong id="cTermOut">36 мес.</strong></label>
+              <input type="range" id="cTerm" min="12" max="84" step="6" value="36" oninput="recalc()">
+            </div>
+            <div class="field">
+              <label>Режим налогообложения</label>
+              <div class="toggle-row">
+                <button type="button" class="chip active" id="vatYes" onclick="setVat(true)">С НДС (ОСНО)</button>
+                <button type="button" class="chip" id="vatNo" onclick="setVat(false)">Без НДС (УСН / Физлицо)</button>
+              </div>
+            </div>
+            <label class="check-row">
+              <input type="checkbox" id="cOpts" onchange="recalc()">
+              <span>Включить в график КАСКО + ОСАГО / шины / ТО (+4% к базе ориентировочно)</span>
+            </label>
+          </div>
+
+          <div>
+            <div class="result-cards">
+              <div class="res-card">
+                <small>Ежемесячный платеж (от)</small>
+                <strong id="resMonthly">0 ₽</strong>
+              </div>
+              <div class="res-card green">
+                <small id="resTaxLabel">Налоговая выгода (НДС 20% + Прибыль 25%)</small>
+                <strong id="resTax">0 ₽</strong>
+              </div>
+            </div>
+
+            <table class="lk-table">
+              <thead>
+                <tr><th>Лизинговая компания</th><th>Платеж/мес.</th><th>Сумма договора</th><th>Удорожание/год</th></tr>
+              </thead>
+              <tbody id="lkCompareBody"></tbody>
+            </table>
+
+            <form class="calc-lead-box" onsubmit="submitForm(event, 'Калькулятор 5 ЛК')">
+              <h4>Получить точный расчет от 5 компаний за 2 часа</h4>
+              <p style="font-size:12.5px;color:var(--muted);margin-bottom:10px;">Параметры калькулятора прикрепятся к заявке автоматически.</p>
+              <div class="grid-2" style="gap:10px;">
+                <div class="field" style="margin:0;"><input type="text" name="name" placeholder="Ваше имя / Компания" required></div>
+                <div class="field" style="margin:0;"><input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required></div>
+              </div>
+              <div class="grid-2" style="gap:10px;margin-top:10px;">
+                <div class="field" style="margin:0;"><input type="text" name="inn" placeholder="ИНН (необязательно)"></div>
+                <div class="field" style="margin:0;">
+                  <select name="messenger">
+                    <option value="Telegram">Прислать в Telegram</option>
+                    <option value="WhatsApp">Прислать в WhatsApp</option>
+                    <option value="Макс">Прислать в Макс</option>
+                    <option value="Телефон">Перезвонить</option>
+                  </select>
+                </div>
+              </div>
+              <label class="check-row">
+                <input type="checkbox" required>
+                <span>Даю согласие на обработку персональных данных в соответствии с <a href="#" onclick="openModal('privacyModal');return false;" style="text-decoration:underline;color:var(--navy);">Политикой конфиденциальности</a> (152-ФЗ)</span>
+              </label>
+              <button type="submit" class="btn btn-primary" style="width:100%;">Получить точный расчет от 5 ЛК</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: 4-STEP QUIZ -->
+    <div class="tab-panel" id="quizTab">
+      <div class="calc-box" style="max-width:780px;margin:0 auto;">
+        <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:700;color:var(--muted);margin-bottom:8px;">
+          <span id="quizStepLabel">Шаг 1 из 4</span>
+          <span>Подбор по 10+ ЛК за 2 часа</span>
+        </div>
+        <div class="quiz-progress"><div class="quiz-bar" id="quizBar"></div></div>
+
+        <div class="quiz-step active" data-step="1">
+          <h3>1. Что планируете приобрести в лизинг?</h3>
+          <div class="quiz-opts">
+            <button type="button" class="quiz-opt" onclick="pickQuiz(1,'Новое легковое авто',this)">Новое легковое авто</button>
+            <button type="button" class="quiz-opt" onclick="pickQuiz(1,'Автомобиль с пробегом',this)">Автомобиль с пробегом</button>
+            <button type="button" class="quiz-opt" onclick="pickQuiz(1,'Оборудование / Спецтехника',this)">Оборудование / Спецтехника</button>
+            <button type="button" class="quiz-opt" onclick="pickQuiz(1,'Коммерческая недвижимость',this)">Коммерческая недвижимость</button>
+            <button type="button" class="quiz-opt" onclick="pickQuiz(1,'Выкуп / Рефинансирование',this)">Выкуп / Рефинансирование</button>
+            <button type="button" class="quiz-opt" onclick="pickQuiz(1,'Возвратный лизинг',this)">Возвратный лизинг</button>
+          </div>
+        </div>
+
+        <div class="quiz-step" data-step="2">
+          <h3>2. Ориентировочный бюджет и желаемый аванс</h3>
+          <div class="quiz-opts">
+            <button type="button" class="quiz-opt" onclick="pickQuiz(2,'До 3 млн ₽',this)">До 3 млн ₽</button>
+            <button type="button" class="quiz-opt" onclick="pickQuiz(2,'3 – 7 млн ₽',this)">3 – 7 млн ₽</button>
+            <button type="button" class="quiz-opt" onclick="pickQuiz(2,'7 – 20 млн ₽',this)">7 – 20 млн ₽</button>
+            <button type="button" class="quiz-opt" onclick="pickQuiz(2,'Свыше 20 млн ₽',this)">Свыше 20 млн ₽</button>
+          </div>
+          <div class="field"><label>Желаемый аванс</label><input type="text" id="qAdv" placeholder="Например: 15% или 1 000 000 ₽"></div>
+          <div style="display:flex;gap:10px;"><button type="button" class="btn btn-outline btn-sm" onclick="goQuiz(1)">← Назад</button><button type="button" class="btn btn-primary btn-sm" onclick="goQuiz(3)">Далее →</button></div>
+        </div>
+
+        <div class="quiz-step" data-step="3">
+          <h3>3. Статус покупателя и опции в графике</h3>
+          <div class="quiz-opts">
+            <button type="button" class="quiz-opt" onclick="pickQuiz(3,'ООО с НДС (ОСНО)',this)">ООО с НДС (ОСНО)</button>
+            <button type="button" class="quiz-opt" onclick="pickQuiz(3,'ООО / ИП на УСН (без НДС)',this)">ООО / ИП на УСН (без НДС)</button>
+            <button type="button" class="quiz-opt" onclick="pickQuiz(3,'Физическое лицо',this)">Физическое лицо</button>
+            <button type="button" class="quiz-opt" onclick="pickQuiz(3,'Нужна консультация по налогам',this)">Нужна консультация по налогам</button>
+          </div>
+          <div class="field"><label>Опции (КАСКО, ОСАГО, шины, ТО)</label><input type="text" id="qOpts" placeholder="Например: включить КАСКО + ОСАГО в график"></div>
+          <div style="display:flex;gap:10px;"><button type="button" class="btn btn-outline btn-sm" onclick="goQuiz(2)">← Назад</button><button type="button" class="btn btn-primary btn-sm" onclick="goQuiz(4)">Далее →</button></div>
+        </div>
+
+        <div class="quiz-step" data-step="4">
+          <h3>4. Куда прислать сводную таблицу КП от 5 ЛК?</h3>
+          <form onsubmit="submitForm(event, 'Квиз 4 шага')" style="margin-top:14px;">
+            <div class="grid-2" style="gap:12px;">
+              <div class="field"><label>Куда отправить</label>
+                <select name="messenger"><option>Telegram</option><option>WhatsApp</option><option>Макс</option><option>Позвонить по телефону</option></select>
+              </div>
+              <div class="field"><label>Телефон *</label><input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required></div>
+            </div>
+            <div class="grid-2" style="gap:12px;">
+              <div class="field"><label>Ваше имя *</label><input type="text" name="name" placeholder="Иван Петров" required></div>
+              <div class="field"><label>ИНН компании (ускорит скоринг)</label><input type="text" name="inn" placeholder="Необязательно"></div>
+            </div>
+            <label class="check-row">
+              <input type="checkbox" required>
+              <span>Даю согласие на обработку персональных данных в соответствии с <a href="#" onclick="openModal('privacyModal');return false;" style="text-decoration:underline;color:var(--navy);">Политикой конфиденциальности</a> (152-ФЗ)</span>
+            </label>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <button type="button" class="btn btn-outline" onclick="goQuiz(3)">← Назад</button>
+              <button type="submit" class="btn btn-primary">Получить сводное КП</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY BROKER -->
+<section class="section">
+  <div class="container">
+    <div class="badge">Честное сравнение</div>
+    <h2 class="section-title">Почему брокер, а не обращение напрямую в одну ЛК</h2>
+    <div class="grid-2">
+      <div class="compare-card compare-bad">
+        <h3 style="color:#991B1B;">Напрямую в одну лизинговую компанию</h3>
+        <ul>
+          <li>✕ Менеджер продает только свой прайс и скрывает, что у конкурента на 3–5% дешевле.</li>
+          <li>✕ Приходится заполнять 5–10 анкет и общаться с десятком разных менеджеров.</li>
+          <li>✕ Сложно сравнить реальное удорожание из-за скрытых комиссий, выкупа и навязанного КАСКО.</li>
+          <li>✕ При отказе по одному стоп-фактору приходится начинать поиск заново.</li>
+        </ul>
+      </div>
+      <div class="compare-card compare-good">
+        <h3 style="color:#065F46;">Через «Лизинг Компас»</h3>
+        <ul>
+          <li>✓ Одна заявка одновременно в 5–10 проверенных ЛК — реальные, а не рекламные ставки за 2 часа.</li>
+          <li>✓ Единая понятная таблица КП: честный платеж, итоговая переплата и налоговая экономия.</li>
+          <li>✓ Доступ к партнерским скидкам дилеров, госпрограммам и субсидиям.</li>
+          <li>✓ Помогаем одобрить сложные кейсы и сопровождаем сделку после выдачи (выкуп, реструктуризация).</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="badge">Прозрачный процесс</div>
+    <h2 class="section-title">Как мы работаем</h2>
+    <div class="steps-grid">
+      <div class="step-item"><div class="step-num">1</div><h4>Заявка и брифинг</h4><p style="font-size:13.5px;color:var(--muted);margin-top:6px;">Уточняем имущество, аванс, срок, КАСКО/ОСАГО/ТО и систему налогообложения.</p></div>
+      <div class="step-item"><div class="step-num">2</div><h4>Скоринг в 5–10 ЛК</h4><p style="font-size:13.5px;color:var(--muted);margin-top:6px;">Отправляем запрос в профильные ЛК, где выше шанс одобрения и ниже ставка.</p></div>
+      <div class="step-item"><div class="step-num">3</div><h4>Сводное КП за 2 часа</h4><p style="font-size:13.5px;color:var(--muted);margin-top:6px;">Сводим реальные графики в одну таблицу с расчетом налоговой выгоды.</p></div>
+      <div class="step-item"><div class="step-num">4</div><h4>Одобрение и сделка</h4><p style="font-size:13.5px;color:var(--muted);margin-top:6px;">Помогаем с пакетом документов, проверяем договор и доводим до выдачи.</p></div>
+      <div class="step-item"><div class="step-num">5</div><h4>Постпродажка</h4><p style="font-size:13.5px;color:var(--muted);margin-top:6px;">Поддержка по досрочному выкупу, реструктуризации и страховым случаям.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section class="section" id="cases">
+  <div class="container">
+    <div class="badge">Подтвержденная экономия</div>
+    <h2 class="section-title">Реальные кейсы наших клиентов</h2>
+    <p class="section-sub">Обезличенные примеры сделок, где сравнение 5–10 лизинговых компаний принесло прямую экономию.</p>
+    <div class="grid-2" id="casesGrid"></div>
+  </div>
+</section>
+
+<!-- PARTNERS LOGOS -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="badge">Прямые агентские договоры</div>
+    <h2 class="section-title">Лизинговые компании-партнеры</h2>
+    <p class="section-sub">Работаем напрямую с ведущими федеральными и отраслевыми лизинговыми компаниями России.</p>
+    <div class="partners-strip">
+      <div class="partner-pill">ВТБ Лизинг<small>Авто, техника, субсидии</small></div>
+      <div class="partner-pill">СберЛизинг<small>Все типы имущества</small></div>
+      <div class="partner-pill">Европлан<small>Авто и автосервис</small></div>
+      <div class="partner-pill">Газпромбанк Автолизинг<small>Экспресс-скоринг</small></div>
+      <div class="partner-pill">Каркаде (CARCADE)<small>Новые и б/у авто</small></div>
+      <div class="partner-pill">Балтийский лизинг<small>Оборудование и возвратный</small></div>
+      <div class="partner-pill">Альфа-Лизинг<small>Быстрая онлайн-выдача</small></div>
+      <div class="partner-pill">Совкомбанк Лизинг<small>Спецтехника и авто</small></div>
+      <div class="partner-pill">Интерлизинг<small>Оборудование и транспорт</small></div>
+      <div class="partner-pill">Росагролизинг<small>Сельхозтехника</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- B2B PARTNERS -->
+<section class="section" id="b2b">
+  <div class="container">
+    <div class="badge">Для B2B-партнеров</div>
+    <h2 class="section-title">Партнерская программа: автосалонам, поставщикам и брокерам</h2>
+    <p class="section-sub">Помогаем закрывать сделки, которые срываются из-за отказа одной ЛК или нехватки оборотных средств у вашего покупателя.</p>
+
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchB2B('b2bAuto', this)">Автосалонам</button>
+      <button class="tab-btn" onclick="switchB2B('b2bEquip', this)">Поставщикам оборудования</button>
+      <button class="tab-btn" onclick="switchB2B('b2bRealty', this)">Брокерам недвижимости</button>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div id="b2bAuto" class="b2b-pane">
+          <h3>Механика «Спасение отказников» для МОПов и РОПов</h3>
+          <p>Если штатная ЛК салона отказала клиенту или предложила высокий аванс — не теряйте продажу. Пришлите ИНН и ПТС/счет: за 2 часа проведем сделку через 10+ ЛК (включая авто с пробегом и параллельный импорт).</p>
+          <ul style="padding-left:18px;font-size:14px;display:grid;gap:8px;color:var(--slate);">
+            <li>Выплата партнерского бонуса после выдачи авто.</li>
+            <li>Встречный поток наших клиентов с одобренным лимитом в ваш салон.</li>
+            <li>Быстрая передача лида в Telegram за 30 секунд.</li>
+          </ul>
+        </div>
+        <div id="b2bEquip" class="b2b-pane" style="display:none;">
+          <h3>«Лизинговый отдел на аутсорсе» для поставщиков</h3>
+          <p>Увеличьте конверсию ваших коммерческих предложений на 20–30%: встроим расчет лизинга прямо в ваши КП и на сайт, чтобы покупатель видел комфортный ежемесячный платеж вместо 100% предоплаты.</p>
+          <ul style="padding-left:18px;font-size:14px;display:grid;gap:8px;color:var(--slate);">
+            <li>Помогаем с аккредитацией поставщика в ЛК и авансированием поставок.</li>
+            <li>Финансируем станки, медоборудование, складские и пищевые линии.</li>
+            <li>Обучаем ваш отдел продаж за 15 минут.</li>
+          </ul>
+        </div>
+        <div id="b2bRealty" class="b2b-pane" style="display:none;">
+          <h3>Лизинг коммерческой недвижимости (чеки 15–150+ млн ₽)</h3>
+          <p>Когда коммерческая ипотека недоступна или невыгодна, лизинг складов, цехов, клиник и офисов позволяет клиенту выкупить объект с возвратом НДС и оптимизацией налога на прибыль.</p>
+          <ul style="padding-left:18px;font-size:14px;display:grid;gap:8px;color:var(--slate);">
+            <li>Структурирование сделки под ключ через профильные ЛК.</li>
+            <li>Прозрачный агентский договор с брокером недвижимости.</li>
+          </ul>
+        </div>
+      </div>
+
+      <form class="card" onsubmit="submitForm(event, 'B2B Партнер')">
+        <h3>Передать клиента или стать партнером</h3>
+        <p>Ответим в течение 30 минут и подключим рабочий чат.</p>
+        <div class="field"><input type="text" name="name" placeholder="Имя / Организация (автосалон, поставщик)" required></div>
+        <div class="field"><input type="tel" name="phone" placeholder="Телефон / Telegram *" required></div>
+        <div class="field"><textarea name="comment" rows="2" placeholder="Коротко о задаче или клиенте (можно указать ИНН)"></textarea></div>
+        <label class="check-row">
+          <input type="checkbox" required>
+          <span>Согласен с <a href="#" onclick="openModal('privacyModal');return false;" style="text-decoration:underline;color:var(--navy);">Политикой конфиденциальности</a> (152-ФЗ)</span>
+        </label>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Отправить партнерскую заявку</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section section-alt" id="about">
+  <div class="container">
+    <div class="about-box">
+      <div class="avatar-placeholder">
+        <div class="avatar-circle">ЛК</div>
+        <h3 data-bind="ipName">ИП Иванов Иван Иванович</h3>
+        <p style="font-size:13.5px;color:#CBD5E1;margin-top:6px;">Независимый лизинговый брокер • Работа по всей РФ</p>
+        <div style="margin-top:16px;font-size:13px;background:rgba(255,255,255,0.1);padding:10px;border-radius:10px;">
+          ИНН: <span data-bind="ipInn">000000000000</span><br>
+          ОГРНИП: <span data-bind="ipOgrnip">000000000000000</span>
+        </div>
+      </div>
+      <div>
+        <div class="badge">Прозрачность и экспертиза</div>
+        <h2 class="section-title">О брокере «Лизинг Компас»</h2>
+        <p style="margin-bottom:14px;font-size:15px;">Мы работаем на стороне клиента как независимый финансовый посредник. По прямым агентским договорам с лизинговыми компаниями наше вознаграждение (0,5%–4%) оплачивает сама ЛК — для клиента ставка такая же или ниже, чем при прямом обращении.</p>
+        <p style="margin-bottom:18px;font-size:15px;">В сложных/срочных сделках или когда мы добиваемся подтвержденной экономии по итоговому графику свыше <strong>200 000 ₽</strong>, условия консультационного сопровождения обсуждаются прозрачно и индивидуально до подписания договора.</p>
+        <div style="display:grid;gap:8px;font-size:14px;font-weight:600;color:var(--navy);">
+          <div>✓ Гарантия конфиденциальности финансовых данных (152-ФЗ / NDA)</div>
+          <div>✓ Официальная работа по договору в статусе ИП (УСН 6%)</div>
+          <div>✓ Сопровождение от первого расчета до выкупа имущества</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="section" id="blog">
+  <div class="container">
+    <div class="badge">База знаний</div>
+    <h2 class="section-title">Полезные материалы о лизинге</h2>
+    <div class="grid-4" id="blogGrid"></div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section class="section section-alt" id="contacts">
+  <div class="container">
+    <div class="badge">Свяжитесь удобным способом</div>
+    <h2 class="section-title">Контакты и расширенная заявка для КП</h2>
+    <div class="grid-2">
+      <div class="card">
+        <div>
+          <h3>Прямая связь по всей России</h3>
+          <p>Работаем с учетом всех часовых поясов РФ: Пн–Сб с 08:00 до 20:00 (МСК).</p>
+          <div style="display:grid;gap:12px;margin:18px 0;font-size:15px;">
+            <div><strong>Телефон:</strong> <a href="tel:+78000000000" data-bind="phone" style="color:var(--navy);font-weight:800;">+7 (800) 000-00-00</a></div>
+            <div><strong>E-mail:</strong> <a href="mailto:lizingkompas@mail.ru" data-bind="email" style="color:var(--navy-2);font-weight:700;">lizingkompas@mail.ru</a></div>
+            <div><strong>Реквизиты:</strong> <span data-bind="ipName">ИП Иванов Иван Иванович</span>, ИНН <span data-bind="ipInn">000000000000</span>, ОГРНИП <span data-bind="ipOgrnip">000000000000000</span></div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;">
+            <a class="btn btn-sm" style="background:#0088CC;color:#fff;" data-bind-href="tg" target="_blank" rel="noopener">Telegram</a>
+            <a class="btn btn-sm" style="background:#25D366;color:#fff;" data-bind-href="wa" target="_blank" rel="noopener">WhatsApp</a>
+            <a class="btn btn-sm" style="background:#4F46E5;color:#fff;" data-bind-href="max" target="_blank" rel="noopener">Макс</a>
+            <a class="btn btn-sm" style="background:#0077FF;color:#fff;" href="https://vk.com/" target="_blank" rel="noopener">VK</a>
+            <a class="btn btn-sm" style="background:#100943;color:#fff;" href="https://rutube.ru/" target="_blank" rel="noopener">Rutube</a>
+            <a class="btn btn-sm" style="background:#DC2626;color:#fff;" href="https://youtube.com/" target="_blank" rel="noopener">YouTube</a>
+          </div>
+        </div>
+      </div>
+
+      <form class="card" onsubmit="submitForm(event, 'Расширенная форма КП')">
+        <h3>Расширенная заявка на подготовку КП</h3>
+        <div class="grid-2" style="gap:10px;margin-top:10px;">
+          <div class="field"><select name="clientType"><option>Юридическое лицо (ООО)</option><option>ИП</option><option>Физическое лицо</option></select></div>
+          <div class="field"><input type="text" name="inn" placeholder="ИНН (опционально)"></div>
+        </div>
+        <div class="grid-2" style="gap:10px;">
+          <div class="field"><input type="text" name="asset" placeholder="Авто / оборудование / объект *" required></div>
+          <div class="field"><input type="text" name="budget" placeholder="Бюджет и срок (напр. 5 млн, 36 мес.)"></div>
+        </div>
+        <div class="grid-2" style="gap:10px;">
+          <div class="field"><input type="text" name="name" placeholder="Ваше имя *" required></div>
+          <div class="field"><input type="tel" name="phone" placeholder="Телефон / Мессенджер *" required></div>
+        </div>
+        <div class="field"><textarea name="comment" rows="2" placeholder="Опции: КАСКО/ОСАГО/шины/ТО, учет на балансе или досрочный выкуп"></textarea></div>
+        <label class="check-row">
+          <input type="checkbox" required>
+          <span>Даю согласие на обработку персональных данных в соответствии с <a href="#" onclick="openModal('privacyModal');return false;" style="text-decoration:underline;color:var(--navy);">Политикой конфиденциальности</a> (152-ФЗ)</span>
+        </label>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Отправить данные для КП</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Лизинг Компас</h4>
+        <p style="font-size:13px;line-height:1.6;">Независимый лизинговый брокер. Подбор оптимальных условий лизинга авто, оборудования и недвижимости по всей территории Российской Федерации.</p>
+      </div>
+      <div>
+        <h4>Навигация</h4>
+        <ul>
+          <li><a href="#services">Услуги</a></li>
+          <li><a href="#calc-section">Калькулятор и квиз</a></li>
+          <li><a href="#cases">Кейсы экономии</a></li>
+          <li><a href="#b2b">Партнерам</a></li>
+          <li><a href="#blog">База знаний</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Документы (152-ФЗ)</h4>
+        <ul>
+          <li><a href="#" onclick="openModal('privacyModal');return false;">Политика конфиденциальности</a></li>
+          <li><a href="#" onclick="openModal('consentModal');return false;">Согласие на обработку ПДн</a></li>
+          <li></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Реквизиты ИП</h4>
+        <p style="font-size:13px;">
+          <span data-bind="ipName">ИП Иванов Иван Иванович</span><br>
+          ИНН: <span data-bind="ipInn">000000000000</span><br>
+          ОГРНИП: <span data-bind="ipOgrnip">000000000000000</span><br>
+          <span data-bind="phone">+7 (800) 000-00-00</span>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 «Лизинг Компас». Все права защищены.</span>
+      <span>Расчеты на сайте носят информационный характер и не являются публичной офертой (ст. 437 ГК РФ).</span>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING QUICK CONTACT -->
+<div class="fab-wrap">
+  <a class="fab msg-tg" data-bind-href="tg" target="_blank" rel="noopener" title="Написать в Telegram">TG</a>
+  <a class="fab msg-wa" data-bind-href="wa" target="_blank" rel="noopener" title="Написать в WhatsApp">WA</a>
+  <a class="fab msg-max" data-bind-href="max" target="_blank" rel="noopener" title="Написать в Макс">MX</a>
+</div>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-bar" id="cookieBar">
+  <span>Мы используем файлы cookie для корректной работы калькулятора и аналитики (Яндекс.Метрика). Продолжая работу, вы соглашаетесь с <a href="#" onclick="openModal('privacyModal');return false;" style="text-decoration:underline;">Политикой</a>.</span>
+  <button class="btn btn-primary btn-sm" onclick="acceptCookie()">Принять</button>
+</div>
+
+<!-- MODAL: GENERIC DETAIL (SERVICE / CASE / ARTICLE) -->
+<div class="modal-bg" id="detailModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('detailModal')">×</button>
+    <div id="detailContent"></div>
+  </div>
+</div>
+
+<!-- MODAL: LEAD MAGNET KP -->
+<div class="modal-bg" id="kpMagnetModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('kpMagnetModal')">×</button>
+    <div class="badge">Бесплатный образец</div>
+    <h3 style="color:var(--navy);margin-bottom:8px;">Скачать пример сводного КП от 5 ЛК</h3>
+    <p style="font-size:14px;color:var(--muted);margin-bottom:14px;">Посмотрите, как мы сравниваем реальные графики платежей, удорожание и налоговую выгоду (НДС + прибыль). Файл скачается сразу после отправки формы.</p>
+    <form onsubmit="submitForm(event, 'Скачать пример КП', true)">
+      <div class="field"><input type="text" name="name" placeholder="Ваше имя *" required></div>
+      <div class="field"><input type="tel" name="phone" placeholder="Телефон / Telegram *" required></div>
+      <label class="check-row">
+        <input type="checkbox" required>
+        <span>Даю согласие на обработку персональных данных в соответствии с <a href="#" onclick="openModal('privacyModal');return false;" style="text-decoration:underline;color:var(--navy);">Политикой конфиденциальности</a> (152-ФЗ)</span>
+      </label>
+      <button type="submit" class="btn btn-primary" style="width:100%;">Скачать пример КП</button>
+    </form>
+  </div>
+</div>
+
+<!-- MODAL: EXIT INTENT -->
+<div class="modal-bg" id="exitModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('exitModal')">×</button>
+    <div class="badge">Бесплатный аудит КП</div>
+    <h3 style="color:var(--navy);margin-bottom:8px;">Уже есть расчет от другой лизинговой компании?</h3>
+    <p style="font-size:14px;color:var(--muted);margin-bottom:14px;">Пришлите график — проверим на скрытые комиссии и за 2 часа покажем, можно ли снизить переплату на 150 000 – 500 000 ₽.</p>
+    <form onsubmit="submitForm(event, 'Exit Pop-up Аудит КП')">
+      <div class="field"><input type="text" name="name" placeholder="Ваше имя *" required></div>
+      <div class="field"><input type="tel" name="phone" placeholder="Телефон или Telegram *" required></div>
+      <label class="check-row">
+        <input type="checkbox" required>
+        <span>Даю согласие на обработку персональных данных согласно <a href="#" onclick="openModal('privacyModal');return false;" style="text-decoration:underline;color:var(--navy);">Политике конфиденциальности</a> (152-ФЗ)</span>
+      </label>
+      <button type="submit" class="btn btn-primary" style="width:100%;">Проверить мое КП бесплатно</button>
+    </form>
+  </div>
+</div>
+
+<!-- MODAL: PRIVACY & CONSENT -->
+<div class="modal-bg" id="privacyModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('privacyModal')">×</button>
+    <h3 style="color:var(--navy);margin-bottom:12px;">Политика обработки персональных данных (152-ФЗ)</h3>
+    <p style="font-size:13.5px;color:var(--slate);margin-bottom:10px;">Настоящая Политика составлена в соответствии с Федеральным законом от 27.07.2006 № 152-ФЗ «О персональных данных» и определяет порядок обработки персональных данных оператором <strong data-bind="ipName">ИП Иванов Иван Иванович</strong> (ИНН <span data-bind="ipInn">000000000000</span>, ОГРНИП <span data-bind="ipOgrnip">000000000000000</span>).</p>
+    <p style="font-size:13.5px;color:var(--slate);margin-bottom:10px;">Оператор обрабатывает имя, номер телефона, адрес электронной почты, ИНН и параметры запроса исключительно с целью подготовки расчетов лизинга, обратной связи и оказания консультационных услуг. Данные хранятся на территории РФ и не передаются третьим лицам, за исключением лизинговых компаний-партнеров строго по поручению пользователя.</p>
+    <p style="font-size:13.5px;color:var(--slate);">Пользователь вправе отозвать согласие, направив уведомление на <strong data-bind="email">lizingkompas@mail.ru</strong>.</p>
+  </div>
+</div>
+
+<div class="modal-bg" id="consentModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('consentModal')">×</button>
+    <h3 style="color:var(--navy);margin-bottom:12px;">Согласие на обработку персональных данных</h3>
+    <p style="font-size:13.5px;color:var(--slate);">Проставляя галочку в формах сайта «Лизинг Компас», субъект персональных данных свободно, своей волей и в своем интересе дает согласие оператору <strong data-bind="ipName">ИП Иванов Иван Иванович</strong> на сбор, запись, систематизацию, хранение, уточнение, использование и удаление предоставленных данных в целях подбора программ лизинга и обратной связи до момента отзыва согласия.</p>
+  </div>
+</div>
+
+<!-- MODAL: BUILT-IN CMS ADMIN PANEL -->
+<div class="modal-bg" id="cmsModal">
+  <div class="modal modal-lg">
+    <button class="modal-close" onclick="closeModal('cmsModal')">×</button>
+    <h3 style="color:var(--navy);margin-bottom:14px;">Панель управления сайтом (CMS) — «Лизинг Компас»</h3>
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchCmsTab('cmsLeads', this)">Заявки (<span id="leadsCount">0</span>)</button>
+      <button class="tab-btn" onclick="switchCmsTab('cmsSettings', this)">Реквизиты и Telegram-бот</button>
+      <button class="tab-btn" onclick="switchCmsTab('cmsRates', this)">Ставки калькулятора</button>
+      <button class="tab-btn" onclick="switchCmsTab('cmsContent', this)">Добавить статью / кейс</button>
+    </div>
+
+    <div id="cmsLeads" class="cms-pane">
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px;">
+        <button class="btn btn-primary btn-sm" onclick="exportLeadsCSV()">Скачать заявки CSV (для Excel-CRM)</button>
+        <button class="btn btn-outline btn-sm" onclick="clearLeads()">Очистить журнал</button>
+      </div>
+      <div style="overflow-x:auto;"><table class="cms-table" id="leadsTable"></table></div>
+    </div>
+
+    <div id="cmsSettings" class="cms-pane" style="display:none;">
+      <div class="grid-2" style="gap:12px;">
+        <div class="field"><label>Заголовок первого экрана (УТП)</label><input type="text" id="setHero"></div>
+        <div class="field"><label>Телефон на сайте</label><input type="text" id="setPhone"></div>
+        <div class="field"><label>E-mail</label><input type="email" id="setEmail"></div>
+        <div class="field"><label>Наименование ИП</label><input type="text" id="setIpName"></div>
+        <div class="field"><label>ИНН</label><input type="text" id="setInn"></div>
+        <div class="field"><label>ОГРНИП</label><input type="text" id="setOgrnip"></div>
+        <div class="field"><label>Telegram (ник без @)</label><input type="text" id="setTg"></div>
+        <div class="field"><label>WhatsApp (цифры, напр. 79001234567)</label><input type="text" id="setWa"></div>
+        <div class="field"><label>Ссылка на Макс</label><input type="text" id="setMax"></div>
+        <div class="field"><label>Webhook URL (n8n / Make / CRM)</label><input type="text" id="setWebhook" placeholder="https://..."></div>
+        <div class="field"><label>Telegram Bot Token (опционально)</label><input type="text" id="setBotToken" placeholder="123456:ABC..."></div>
+        <div class="field"><label>Telegram Chat ID (опционально)</label><input type="text" id="setChatId" placeholder="123456789"></div>
+      </div>
+      <button class="btn btn-primary btn-sm" onclick="saveSettings()">Сохранить настройки</button>
+    </div>
+
+    <div id="cmsRates" class="cms-pane" style="display:none;">
+      <p style="font-size:13px;color:var(--muted);margin-bottom:12px;">Измените ориентировочные годовые ставки (%) для 5 ЛК в таблице калькулятора:</p>
+      <div id="ratesInputs" class="grid-2" style="gap:10px;"></div>
+      <button class="btn btn-primary btn-sm" style="margin-top:12px;" onclick="saveRates()">Обновить ставки</button>
+    </div>
+
+    <div id="cmsContent" class="cms-pane" style="display:none;">
+      <div class="grid-2" style="gap:18px;">
+        <div>
+          <h4 style="margin-bottom:8px;color:var(--navy);">Добавить статью в блог</h4>
+          <div class="field"><input type="text" id="newArtTitle" placeholder="Заголовок статьи"></div>
+          <div class="field"><input type="text" id="newArtTag" placeholder="Рубрика (напр. Налоги)"></div>
+          <div class="field"><textarea id="newArtBody" rows="3" placeholder="Текст статьи"></textarea></div>
+          <button class="btn btn-primary btn-sm" onclick="addArticle()">Опубликовать статью</button>
+        </div>
+        <div>
+          <h4 style="margin-bottom:8px;color:var(--navy);">Добавить кейс экономии</h4>
+          <div class="field"><input type="text" id="newCaseTitle" placeholder="Название (напр. BMW X5 для ООО)"></div>
+          <div class="field"><input type="text" id="newCaseSave" placeholder="Экономия (напр. Экономия 420 000 ₽)"></div>
+          <div class="field"><textarea id="newCaseBody" rows="3" placeholder="Задача → Решение → Результат"></textarea></div>
+          <button class="btn btn-primary btn-sm" onclick="addCase()">Добавить кейс</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const DEFAULTS = {
+    heroTitle: "Подберем лизинг на авто, оборудование и недвижимость за 2 часа",
+    phone: "+7 (800) 000-00-00",
+    email: "lizingkompas@mail.ru",
+    ipName: "ИП Иванов Иван Иванович",
+    ipInn: "000000000000",
+    ipOgrnip: "000000000000000",
+    tg: "leasing_kompas",
+    wa: "78000000000",
+    max: "https://max.ru/",
+    webhook: "",
+    botToken: "",
+    chatId: "",
+    rates: [
+      { name: "ВТБ Лизинг", rate: 20.5 },
+      { name: "СберЛизинг", rate: 21.0 },
+      { name: "Европлан", rate: 21.5 },
+      { name: "Газпромбанк Автолизинг", rate: 22.0 },
+      { name: "Каркаде (CARCADE)", rate: 22.5 }
+    ]
+  };
+
+  const SERVICES = [
+    { ico: "🚗", title: "Новые легковые авто", type: "Новое легковое авто", meta: "Аванс от 0% • Скидки дилеров до 12%", desc: "Подбор для ООО, ИП и физлиц по корпоративным программам и субсидиям.", full: "Работаем с дилерами по всей РФ. Включаем при необходимости КАСКО, ОСАГО, шины и ТО в единый график. Сравниваем предложения от 10+ ЛК за 2 часа." },
+    { ico: "🚘", title: "Автомобили с пробегом", type: "Авто с пробегом", meta: "От дилера, юрлица или физлица", desc: "Одобрение лизинга на проверенные б/у автомобили и параллельный импорт.", full: "Подбираем ЛК, которые лояльно финансируют автомобили с пробегом (с НДС и без НДС), проверяем юридическую чистоту и историю авто." },
+    { ico: "⚙️", title: "Лизинг оборудования", type: "Оборудование", meta: "Станки, медицина, производство", desc: "Промышленное, медицинское, пищевое, складское и торговое оборудование.", full: "Помогаем с аккредитацией поставщика и авансированием поставок из РФ и Китая. Оптимизируем график под окупаемость и сезонность бизнеса." },
+    { ico: "🏢", title: "Коммерческая недвижимость", type: "Коммерческая недвижимость", meta: "Чеки от 10 до 150+ млн ₽", desc: "Склады, производственные цеха, офисы, клиники и торговые помещения.", full: "Альтернатива коммерческой ипотеке со сроком до 84 месяцев, возмещением НДС 20% и отнесением платежей на расходы по налогу на прибыль." },
+    { ico: "🔄", title: "Рефинансирование и выкуп", type: "Рефинансирование / Возвратный лизинг", meta: "Снижение текущего платежа", desc: "Выкуп автомобиля или техники из текущего лизинга на более выгодных условиях.", full: "Переведем действующий договор в другую ЛК с уменьшением ежемесячной нагрузки или организуем корректный выкуп на юрлицо / физлицо." },
+    { ico: "💼", title: "Возвратный лизинг", type: "Рефинансирование / Возвратный лизинг", meta: "Оборотные средства за 3–5 дней", desc: "Пополнение оборотки под имеющийся в собственности транспорт или технику.", full: "Вы продаете актив ЛК и сразу берете его обратно в лизинг, продолжая пользоваться техникой и получая живые деньги на развитие бизнеса." },
+    { ico: "🛡️", title: "Постпродажное сопровождение", type: "Новое легковое авто", meta: "Поддержка на весь срок договора", desc: "Досрочный выкуп, реструктуризация графика, помощь по страховым случаям.", full: "Не бросаем клиента после выдачи: помогаем снизить тариф при пролонгации КАСКО, пересмотреть график при сезонности и выгодно закрыть договор." }
+  ];
+
+  const DEFAULT_CASES = [
+    { title: "Geely Monjaro для ООО (Москва)", save: "Экономия 340 000 ₽", body: "Задача: клиент получил расчет в одном автосалоне со скрытой комиссией и дорогим КАСКО. Решение: за 2 часа собрали 6 КП, применили корпоративную скидку дилера 7% и согласовали КАСКО по партнерскому тарифу. Итог: выгода 340 000 ₽ по графику + 1,4 млн ₽ налоговой экономии." },
+    { title: "УЗИ-аппарат для частной клиники (СПб)", save: "Экономия 480 000 ₽", body: "Задача: поставка импортного медоборудования без НДС за 5,2 млн ₽, две ЛК отказали из-за сложности поставщика. Решение: аккредитовали поставщика в профильной ЛК с авансом 20% на 36 мес. Итог: клиника запустила кабинет без вымывания оборотки." },
+    { title: "Складской бокс 650 м² (Московская обл.)", save: "Экономия 1 420 000 ₽", body: "Задача: выкуп помещения за 32 млн ₽ на 7 лет вместо дорогой коммерческой ипотеки. Решение: провели тендер среди 5 федеральных ЛК, снизили эффективную ставку на 1,8 п.п. и сэкономили свыше 1,4 млн ₽ по итоговому графику." },
+    { title: "Возвратный лизинг спецтехники (Казань)", save: "Высвобождено 6,8 млн ₽", body: "Задача: строительной компании срочно требовались оборотные средства под выигранный тендер. Решение: оформили возвратный лизинг на самосвал за 4 рабочих дня с сохранением техники в работе." }
+  ];
+
+  const DEFAULT_ARTICLES = [
+    { tag: "Налоги и ФСБУ 25/2018", title: "Как лизинг экономит до 40% за счет НДС и налога на прибыль", body: "На ОСНО компания принимает к вычету НДС 20% со всех лизинговых платежей и относит сами платежи на расходы, уменьшая налог на прибыль (25%). По ФСБУ 25/2018 важно заранее определить право на упрощенный бухучет — мы согласовываем структуру сделки вместе с вашим бухгалтером." },
+    { tag: "Госпрограммы", title: "Субсидии на лизинг: как получить скидку до 925 000 ₽ на аванс", body: "По действующим программам Минпромторга на отдельные категории отечественного транспорта, электромобилей и спецтехники государство субсидирует от 10% до 35% стоимости (до 925 000 ₽). Мы отслеживаем лимиты субсидий в ЛК-партнерах в реальном времени." },
+    { tag: "Проверка КП", title: "5 скрытых ловушек в коммерческих предложениях лизинговых компаний", body: "Низкое «рекламное удорожание» часто компенсируется завышенным тарифом КАСКО, обязательным страхованием жизни, комиссией за оформление 2–3%, высокой выкупной стоимостью и штрафами за досрочное погашение. В нашей сводной таблице все эти строки выведены отдельно." },
+    { tag: "Оборотный капитал", title: "Возвратный лизинг vs кредит: что быстрее и дешевле для ООО и ИП", body: "В отличие от банковского кредита, возвратный лизинг оформляется под залог собственного имущества за 3–5 дней, не требует дополнительного обеспечения и дает налоговый щит по НДС и прибыли." }
+  ];
+
+  let state = JSON.parse(localStorage.getItem("lk_cms_state") || "null") || JSON.parse(JSON.stringify(DEFAULTS));
+  // Обновляем прежний демонстрационный адрес, не затрагивая другие настройки CMS.
+  if (state.email === "info@leasing-kompas.ru") {
+    state.email = DEFAULTS.email;
+    localStorage.setItem("lk_cms_state", JSON.stringify(state));
+  }
+  let casesData = JSON.parse(localStorage.getItem("lk_cms_cases") || "null") || DEFAULT_CASES;
+  let articlesData = JSON.parse(localStorage.getItem("lk_cms_articles") || "null") || DEFAULT_ARTICLES;
+  let leads = JSON.parse(localStorage.getItem("lk_cms_leads") || "[]");
+
+  let advMode = "pct";
+  let isVat = true;
+  let quizAnswers = { q1: "", q2: "", q3: "" };
+
+  const fmt = n => Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " ₽";
+
+  function applyBindings() {
+    document.querySelectorAll("[data-bind]").forEach(el => {
+      const k = el.getAttribute("data-bind");
+      if (state[k]) el.textContent = state[k];
+      if (k === "phone" && el.tagName === "A") el.href = "tel:" + state.phone.replace(/[^\d+]/g, "");
+      if (k === "email" && el.tagName === "A") el.href = "mailto:" + state.email;
+    });
+    const preText = encodeURIComponent("Здравствуйте! Хочу рассчитать лизинг на ");
+    document.querySelectorAll("[data-bind-href]").forEach(el => {
+      const k = el.getAttribute("data-bind-href");
+      if (k === "tg") el.href = `https://t.me/${state.tg}?text=${preText}`;
+      if (k === "wa") el.href = `https://wa.me/${state.wa}?text=${preText}`;
+      if (k === "max") el.href = state.max || "https://max.ru/";
+    });
+  }
+
+  function renderServices() {
+    document.getElementById("servicesGrid").innerHTML = SERVICES.map((s, i) => `
+      <div class="card">
+        <div>
+          <div class="card-ico">${s.ico}</div>
+          <h3>${s.title}</h3>
+          <div class="card-meta">${s.meta}</div>
+          <p>${s.desc}</p>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button class="btn btn-primary btn-sm" onclick="selectServiceCalc('${s.type}')">Рассчитать</button>
+          <button class="btn btn-outline btn-sm" onclick="openServiceDetail(${i})">Подробнее</button>
+        </div>
+      </div>
+    `).join("");
+  }
+
+  function renderCases() {
+    document.getElementById("casesGrid").innerHTML = casesData.map((c, i) => `
+      <div class="card">
+        <div>
+          <div class="case-saving">${c.save}</div>
+          <h3>${c.title}</h3>
+          <p>${c.body}</p>
+        </div>
+        <button class="btn btn-outline btn-sm" style="align-self:flex-start;" onclick="openCaseDetail(${i})">Смотреть разбор</button>
+      </div>
+    `).join("");
+  }
+
+  function renderBlog() {
+    document.getElementById("blogGrid").innerHTML = articlesData.map((a, i) => `
+      <div class="card">
+        <div>
+          <div class="badge" style="font-size:11.5px;margin-bottom:10px;">${a.tag}</div>
+          <h3 style="font-size:16px;">${a.title}</h3>
+          <p style="font-size:13.5px;">${a.body.slice(0, 110)}...</p>
+        </div>
+        <button class="btn btn-outline btn-sm" style="align-self:flex-start;" onclick="openArticleDetail(${i})">Читать статью</button>
+      </div>
+    `).join("");
+  }
+
+  function selectServiceCalc(type) {
+    document.getElementById("cType").value = type;
+    recalc();
+    document.getElementById("calc-section").scrollIntoView({ behavior: "smooth" });
+  }
+
+  function openServiceDetail(i) {
+    const s = SERVICES[i];
+    document.getElementById("detailContent").innerHTML = `
+      <div class="badge">${s.meta}</div>
+      <h3 style="color:var(--navy);margin-bottom:10px;">${s.title}</h3>
+      <p style="margin-bottom:16px;font-size:15px;">${s.full}</p>
+      <button class="btn btn-primary" onclick="closeModal('detailModal');selectServiceCalc('${s.type}')">Перейти к расчету →</button>
+    `;
+    openModal("detailModal");
+  }
+
+  function openCaseDetail(i) {
+    const c = casesData[i];
+    document.getElementById("detailContent").innerHTML = `
+      <div class="case-saving">${c.save}</div>
+      <h3 style="color:var(--navy);margin-bottom:10px;">${c.title}</h3>
+      <p style="margin-bottom:18px;font-size:15px;">${c.body}</p>
+      <a href="#calc-section" class="btn btn-primary" onclick="closeModal('detailModal')">Рассчитать такой же вариант</a>
+    `;
+    openModal("detailModal");
+  }
+
+  function openArticleDetail(i) {
+    const a = articlesData[i];
+    document.getElementById("detailContent").innerHTML = `
+      <div class="badge">${a.tag}</div>
+      <h3 style="color:var(--navy);margin-bottom:12px;">${a.title}</h3>
+      <p style="margin-bottom:18px;font-size:15px;line-height:1.65;">${a.body}</p>
+      <a href="#calc-section" class="btn btn-primary" onclick="closeModal('detailModal')">Запросить расчет под ваш бизнес</a>
+    `;
+    openModal("detailModal");
+  }
+
+  // Calculator Logic
+  function syncPrice(v) {
+    const val = Math.max(500000, Number(v) || 500000);
+    document.getElementById("cPriceNum").value = val;
+    document.getElementById("cPriceRange").value = Math.min(val, 30000000);
+    if (advMode === "rub") {
+      const pct = Number(document.getElementById("cAdvRange").value);
+      document.getElementById("cAdvInput").value = Math.round(val * pct / 100);
+    }
+    recalc();
+  }
+
+  function setAdvMode(mode) {
+    advMode = mode;
+    const price = Number(document.getElementById("cPriceNum").value) || 4500000;
+    const pct = Number(document.getElementById("cAdvRange").value);
+    document.getElementById("advPctBtn").style.background = mode === "pct" ? "var(--navy)" : "#E2E8F0";
+    document.getElementById("advPctBtn").style.color = mode === "pct" ? "#fff" : "var(--slate)";
+    document.getElementById("advRubBtn").style.background = mode === "rub" ? "var(--navy)" : "#E2E8F0";
+    document.getElementById("advRubBtn").style.color = mode === "rub" ? "#fff" : "var(--slate)";
+    document.getElementById("cAdvInput").value = mode === "pct" ? pct : Math.round(price * pct / 100);
+    recalc();
+  }
+
+  function syncAdvRange() {
+    const price = Number(document.getElementById("cPriceNum").value) || 4500000;
+    const pct = Number(document.getElementById("cAdvRange").value);
+    document.getElementById("cAdvInput").value = advMode === "pct" ? pct : Math.round(price * pct / 100);
+    recalc();
+  }
+
+  function syncAdvInput() {
+    const price = Number(document.getElementById("cPriceNum").value) || 4500000;
+    const val = Number(document.getElementById("cAdvInput").value) || 0;
+    const pct = advMode === "pct" ? Math.min(49, Math.max(0, val)) : Math.min(49, Math.max(0, Math.round(val / price * 100)));
+    document.getElementById("cAdvRange").value = pct;
+    recalc();
+  }
+
+  function setVat(v) {
+    isVat = v;
+    document.getElementById("vatYes").classList.toggle("active", v);
+    document.getElementById("vatNo").classList.toggle("active", !v);
+    recalc();
+  }
+
+  function pmt(annualRate, months, principal) {
+    const r = (annualRate / 100) / 12;
+    if (r === 0) return principal / months;
+    return principal * (r * Math.pow(1 + r, months)) / (Math.pow(1 + r, months) - 1);
+  }
+
+  function recalc() {
+    const price = Number(document.getElementById("cPriceNum").value) || 4500000;
+    const pct = Number(document.getElementById("cAdvRange").value) || 0;
+    const advRub = price * pct / 100;
+    const term = Number(document.getElementById("cTerm").value) || 36;
+    const optsAdd = document.getElementById("cOpts").checked ? price * 0.04 : 0;
+    const financed = Math.max(0, price + optsAdd - advRub);
+
+    document.getElementById("cPriceOut").textContent = fmt(price);
+    document.getElementById("cAdvOut").textContent = `${pct}% — ${fmt(advRub)}`;
+    document.getElementById("cTermOut").textContent = `${term} мес.`;
+
+    const rows = state.rates.map(lk => {
+      const mPay = pmt(lk.rate, term, financed);
+      const total = advRub + mPay * term + 1000;
+      const appYear = (((total - price) / price) / (term / 12)) * 100;
+      return { name: lk.name, mPay, total, appYear };
+    }).sort((a, b) => a.total - b.total);
+
+    const best = rows[0];
+    document.getElementById("resMonthly").textContent = fmt(best.mPay);
+    const vatSave = isVat ? best.total * (0.20 / 1.20) : 0;
+    const profitSave = isVat ? (best.total / 1.20) * 0.25 : 0;
+    document.getElementById("resTaxLabel").textContent = isVat ? "Налоговая выгода (НДС 20% + Прибыль 25%)" : "Без НДС (вычет НДС не применяется)";
+    document.getElementById("resTax").textContent = isVat ? fmt(vatSave + profitSave) : "Индивидуально (УСН)";
+
+    document.getElementById("lkCompareBody").innerHTML = rows.map((r, i) => `
+      <tr class="${i === 0 ? 'best' : ''}">
+        <td>${i === 0 ? '★ ' : ''}${r.name}</td>
+        <td>${fmt(r.mPay)}</td>
+        <td>${fmt(r.total)}</td>
+        <td>${r.appYear.toFixed(1)}%</td>
+      </tr>
+    `).join("");
+  }
+
+  // Tabs & Quiz
+  function switchTab(id, btn) {
+    document.querySelectorAll("#calc-section .tab-btn").forEach(b => b.classList.remove("active"));
+    document.querySelectorAll("#calc-section .tab-panel").forEach(p => p.classList.remove("active"));
+    btn.classList.add("active");
+    document.getElementById(id).classList.add("active");
+  }
+
+  function switchB2B(id, btn) {
+    document.querySelectorAll("#b2b .tab-btn").forEach(b => b.classList.remove("active"));
+    document.querySelectorAll(".b2b-pane").forEach(p => p.style.display = "none");
+    btn.classList.add("active");
+    document.getElementById(id).style.display = "block";
+  }
+
+  function pickQuiz(step, val, btn) {
+    quizAnswers["q" + step] = val;
+    btn.parentElement.querySelectorAll(".quiz-opt").forEach(b => b.classList.remove("selected"));
+    btn.classList.add("selected");
+    if (step === 1) goQuiz(2);
+  }
+
+  function goQuiz(step) {
+    document.querySelectorAll(".quiz-step").forEach(s => s.classList.toggle("active", Number(s.dataset.step) === step));
+    document.getElementById("quizStepLabel").textContent = `Шаг ${step} из 4`;
+    document.getElementById("quizBar").style.width = (step * 25) + "%";
+  }
+
+  // Lead Submission + Optional Telegram Bot / Webhook + Sample KP download
+  async function submitForm(e, source, downloadSample = false) {
+    e.preventDefault();
+    showToast("Демонстрация: заявка не отправляется.");
+    if (downloadSample) downloadSampleKP();
+  }
+
+  function downloadSampleKP() {
+    const html = `<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><title>Пример сводного КП — Лизинг Компас</title>
+    <style>body{font-family:Arial,sans-serif;padding:30px;color:#1A202C}h1{color:#0F2342}table{width:100%;border-collapse:collapse;margin-top:20px}th,td{border:1px solid #CBD5E0;padding:10px;text-align:right}th:first-child,td:first-child{text-align:left}th{background:#0F2342;color:#fff}.best{background:#ECFDF5;font-weight:bold}</style></head>
+    <body><h1>Сводное коммерческое предложение — Лизинг Компас</h1>
+    <p><strong>Объект:</strong> Geely Monjaro Flagship (4 550 000 ₽ с НДС) | <strong>Аванс:</strong> 20% (910 000 ₽) | <strong>Срок:</strong> 36 мес.</p>
+    <table><tr><th>Лизинговая компания</th><th>Платеж/мес.</th><th>Общая сумма</th><th>Удорожание/год</th><th>Налоговая выгода (ОСНО)</th></tr>
+    <tr class="best"><td>★ ВТБ Лизинг (Рекомендуем)</td><td>136 120 ₽</td><td>5 811 820 ₽</td><td>9,24%</td><td>2 179 432 ₽</td></tr>
+    <tr><td>СберЛизинг</td><td>137 090 ₽</td><td>5 846 240 ₽</td><td>9,50%</td><td>2 192 340 ₽</td></tr>
+    <tr><td>Европлан</td><td>138 065 ₽</td><td>5 881 340 ₽</td><td>9,75%</td><td>2 205 502 ₽</td></tr>
+    <tr><td>Газпромбанк Автолизинг</td><td>139 045 ₽</td><td>5 916 620 ₽</td><td>10,01%</td><td>2 218 732 ₽</td></tr>
+    <tr><td>Каркаде (CARCADE)</td><td>140 030 ₽</td><td>5 952 580 ₽</td><td>10,28%</td><td>2 232 217 ₽</td></tr></table>
+    <p style="margin-top:20px;font-size:13px;color:#555;">Подготовлено сервисом «Лизинг Компас» (${state.phone}, ${state.email}). Не является публичной офертой.</p>
+</body></html>`;
+    const blob = new Blob([html], { type: "text/html;charset=utf-8" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "Primer_Svodnogo_KP_Leasing_Kompas.html";
+    a.click();
+  }
+
+  // CMS Panel Functions
+  function switchCmsTab(id, btn) {
+    document.querySelectorAll("#cmsModal .tab-btn").forEach(b => b.classList.remove("active"));
+    document.querySelectorAll(".cms-pane").forEach(p => p.style.display = "none");
+    btn.classList.add("active");
+    document.getElementById(id).style.display = "block";
+  }
+
+  function renderCMS() {
+    document.getElementById("leadsCount").textContent = leads.length;
+    document.getElementById("leadsTable").innerHTML = `<tr><th>Дата</th><th>Источник</th><th>Имя</th><th>Телефон</th><th>ИНН</th><th>Детали</th></tr>` +
+      (leads.length ? leads.map(l => `<tr><td>${l.date}</td><td>${l.source}</td><td>${l.name}</td><td>${l.phone}</td><td>${l.inn}</td><td>${l.details}</td></tr>`).join("") : `<tr><td colspan="6">Заявок пока нет</td></tr>`);
+
+    document.getElementById("setHero").value = state.heroTitle;
+    document.getElementById("setPhone").value = state.phone;
+    document.getElementById("setEmail").value = state.email;
+    document.getElementById("setIpName").value = state.ipName;
+    document.getElementById("setInn").value = state.ipInn;
+    document.getElementById("setOgrnip").value = state.ipOgrnip;
+    document.getElementById("setTg").value = state.tg;
+    document.getElementById("setWa").value = state.wa;
+    document.getElementById("setMax").value = state.max;
+    document.getElementById("setWebhook").value = state.webhook || "";
+    document.getElementById("setBotToken").value = state.botToken || "";
+    document.getElementById("setChatId").value = state.chatId || "";
+
+    document.getElementById("ratesInputs").innerHTML = state.rates.map((r, i) => `
+      <div class="field"><label>${r.name} (%)</label><input type="number" step="0.1" id="rate_${i}" value="${r.rate}"></div>
+    `).join("");
+  }
+
+  function saveSettings() {
+    state.heroTitle = document.getElementById("setHero").value;
+    state.phone = document.getElementById("setPhone").value;
+    state.email = document.getElementById("setEmail").value;
+    state.ipName = document.getElementById("setIpName").value;
+    state.ipInn = document.getElementById("setInn").value;
+    state.ipOgrnip = document.getElementById("setOgrnip").value;
+    state.tg = document.getElementById("setTg").value;
+    state.wa = document.getElementById("setWa").value;
+    state.max = document.getElementById("setMax").value;
+    state.webhook = document.getElementById("setWebhook").value.trim();
+    state.botToken = document.getElementById("setBotToken").value.trim();
+    state.chatId = document.getElementById("setChatId").value.trim();
+    localStorage.setItem("lk_cms_state", JSON.stringify(state));
+    applyBindings();
+    showToast("Настройки сохранены!");
+  }
+
+  function saveRates() {
+    state.rates.forEach((r, i) => { r.rate = parseFloat(document.getElementById("rate_" + i).value) || r.rate; });
+    localStorage.setItem("lk_cms_state", JSON.stringify(state));
+    recalc();
+    showToast("Ставки калькулятора обновлены!");
+  }
+
+  function addArticle() {
+    const title = document.getElementById("newArtTitle").value.trim();
+    const tag = document.getElementById("newArtTag").value.trim() || "Аналитика";
+    const body = document.getElementById("newArtBody").value.trim();
+    if (!title || !body) return;
+    articlesData.unshift({ tag, title, body });
+    localStorage.setItem("lk_cms_articles", JSON.stringify(articlesData));
+    renderBlog();
+    document.getElementById("newArtTitle").value = "";
+    document.getElementById("newArtBody").value = "";
+    showToast("Статья опубликована!");
+  }
+
+  function addCase() {
+    const title = document.getElementById("newCaseTitle").value.trim();
+    const save = document.getElementById("newCaseSave").value.trim() || "Выгода подтверждена";
+    const body = document.getElementById("newCaseBody").value.trim();
+    if (!title || !body) return;
+    casesData.unshift({ title, save, body });
+    localStorage.setItem("lk_cms_cases", JSON.stringify(casesData));
+    renderCases();
+    document.getElementById("newCaseTitle").value = "";
+    document.getElementById("newCaseBody").value = "";
+    showToast("Кейс добавлен на сайт!");
+  }
+
+  function exportLeadsCSV() {
+    const header = "Дата;Источник;Имя;Телефон;ИНН;Мессенджер;Детали;UTM\n";
+    const rows = leads.map(l => [l.date, l.source, l.name, l.phone, l.inn, l.messenger, l.details, l.utm].map(v => `"${String(v||"").replace(/"/g,'""')}"`).join(";")).join("\n");
+    const blob = new Blob(["\uFEFF" + header + rows], { type: "text/csv;charset=utf-8;" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "Leasing_Kompas_Leads.csv";
+    a.click();
+  }
+
+  function clearLeads() {
+    if (!confirm("Очистить журнал заявок?")) return;
+    leads = [];
+    localStorage.setItem("lk_cms_leads", "[]");
+    renderCMS();
+  }
+
+  // UI Helpers
+  function openModal(id) { document.getElementById(id).classList.add("open"); }
+  function closeModal(id) { document.getElementById(id).classList.remove("open"); }
+  function showToast(txt) {
+    const t = document.getElementById("toast");
+    t.textContent = txt;
+    t.classList.add("show");
+    setTimeout(() => t.classList.remove("show"), 3600);
+  }
+  function acceptCookie() {
+    localStorage.setItem("lk_cookie_ok", "1");
+    document.getElementById("cookieBar").classList.remove("show");
+  }
+
+  document.getElementById("burgerBtn").addEventListener("click", () => {
+    document.getElementById("mobileMenu").classList.toggle("open");
+  });
+  document.querySelectorAll("#mobileMenu a").forEach(a => a.addEventListener("click", () => {
+    document.getElementById("mobileMenu").classList.remove("open");
+  }));
+  document.querySelectorAll(".modal-bg").forEach(bg => bg.addEventListener("click", e => {
+    if (e.target === bg) bg.classList.remove("open");
+  }));
+
+  // Exit-intent pop-up (once per session)
+  document.addEventListener("mouseleave", e => {
+    if (e.clientY < 10 && !sessionStorage.getItem("lk_exit_shown")) {
+      sessionStorage.setItem("lk_exit_shown", "1");
+      openModal("exitModal");
+    }
+  });
+
+  // Init
+  applyBindings();
+  renderServices();
+  renderCases();
+  renderBlog();
+  recalc();
+  if (!localStorage.getItem("lk_cookie_ok")) document.getElementById("cookieBar").classList.add("show");
+</script>
+<script>
+document.querySelectorAll('form').forEach(f=>{
+  f.querySelectorAll('input:not([type=checkbox]),textarea').forEach(x=>{x.readOnly=true;x.removeAttribute('required');x.placeholder='Демо: данные не вводятся';});
+  f.querySelectorAll('[required]').forEach(x=>x.removeAttribute('required'));
+});
+document.querySelectorAll('[data-bind-href], a[href^="tel:"], a[href^="mailto:"],a[href="https://vk.com/"],a[href="https://rutube.ru/"],a[href="https://youtube.com/"]').forEach(x=>{x.removeAttribute('href');x.removeAttribute('target');x.setAttribute('aria-disabled','true');});
+document.querySelectorAll('[data-bind="ipName"],[data-bind="ipInn"],[data-bind="ipOgrnip"],[data-bind="phone"]').forEach(x=>x.textContent='Уточняется');
+document.getElementById('cmsModal')?.remove();
+document.getElementById('cookieBar')?.remove();
+document.querySelector('#cases .section-title').textContent='Демонстрационные примеры сделок';
+document.querySelector('#cases .section-sub').textContent='Иллюстративные сценарии, не подтверждённые реальные сделки.';
+document.querySelectorAll('.partners-strip').forEach(x=>{x.parentElement.querySelector('.badge').textContent='Примеры участников рынка';x.parentElement.querySelector('h2').textContent='Лизинговые компании: примеры';x.parentElement.querySelector('.section-sub').textContent='Партнёрские отношения не подтверждены.';});
+</script>
+</body>
+</html>
