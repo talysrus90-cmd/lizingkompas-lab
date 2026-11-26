@@ -377,8 +377,37 @@ footer{padding:48px 0 24px}.footer-grid{grid-template-columns:1.3fr 1fr 1fr 1.1f
 .sample-link{display:block;border:0;background:none;color:#21415F;font-size:14px;font-weight:700;text-align:left;padding:8px 0 15px;cursor:pointer;min-height:44px}.sample-link:hover{text-decoration:underline}.callback-icon::after{opacity:0}
 .direct-contact{border-top:1px solid var(--border);margin-top:16px;padding-top:12px;text-align:center;display:grid;gap:4px}.direct-contact span{font-size:13px;color:var(--muted)}.direct-call{display:flex;justify-content:center;align-items:center;min-height:44px;font-weight:750;color:var(--navy);font-size:18px}.mobile-menu .phone-link{display:block}.mobile-menu .phone-link:before{content:"Позвонить: ";font-weight:600}footer a[data-bind="phone"]{display:inline-block;color:#fff;min-height:32px;padding-top:6px}
 @media(min-width:1280px){.nav-right .phone-link{display:block;font-size:13px;min-height:44px;align-content:center;padding-inline:5px}.nav-wrap{gap:12px}nav.desktop-nav{gap:13px}}
+
+/* V4.4: independent consent and prominent brand/contact footer */
+.consent-block{border:1px solid #DCE4EA;border-radius:10px;padding:13px 12px;background:#fff;margin:14px 0;color:#25384A}
+.consent-choice{display:flex;align-items:flex-start;gap:11px}
+.consent-choice input{width:22px;height:22px;flex:0 0 22px;accent-color:#142B45;margin:3px 0;cursor:pointer}
+.consent-choice label{font-weight:650;font-size:14px;line-height:1.5;min-height:34px;cursor:pointer}
+.consent-links{display:flex;gap:5px 9px;flex-wrap:wrap;margin:6px 0 5px 33px;font-size:12.5px;line-height:1.6}
+.consent-links a{color:#21415F;text-decoration:underline;text-underline-offset:3px;padding-block:3px}
+.consent-block small{display:block;margin-left:33px;color:#526579;font-size:11.5px}
+button:disabled,.callback-dialog .btn:disabled{background:#E2E8F0!important;color:#526579!important;box-shadow:none;cursor:not-allowed;transform:none}
+.site-footer{background:#142B45;color:#D9E6F0;padding:48px 0 28px}
+.site-footer .footer-grid{grid-template-columns:1.35fr .85fr 1fr 1.25fr;gap:24px;align-items:start}
+.footer-brand{display:flex;align-items:center;gap:12px;color:white;line-height:1.13;margin-bottom:16px}
+.footer-mark{display:grid;place-items:center;width:58px;height:58px;border:1px solid #ffffff38;border-radius:15px;flex-shrink:0;background:#1E3B57}
+.footer-mark svg{width:50px;height:50px;color:white}
+.footer-brand strong{display:block;font-size:clamp(20px,2vw,25px);font-weight:800;letter-spacing:-.035em}
+.footer-brand small{display:block;font-size:10px;letter-spacing:.12em;margin-top:6px;color:#CFDFEC}
+.footer-identity p{font-size:14px;color:#D0DCE8;max-width:280px}
+.site-footer h4{font-size:15px;color:white;margin-bottom:13px}
+.site-footer li a{font-size:14px;display:inline-block;line-height:1.5;min-height:32px;padding:4px 0}
+.footer-contacts{display:grid;gap:8px;min-width:0}
+.footer-contacts h4{margin:0 0 3px}
+.site-footer .footer-phone,.site-footer .footer-email{display:block;color:white;font-weight:750;line-height:1.3;min-height:44px;align-content:center;text-decoration:none}
+.site-footer .footer-phone{font-size:clamp(19px,2.1vw,26px);white-space:nowrap;letter-spacing:-.025em;font-variant-numeric:tabular-nums}
+.site-footer .footer-email{font-size:clamp(14px,1.4vw,18px);overflow-wrap:anywhere}
+.footer-callback{border:1px solid #ffffff55;border-radius:9px;background:transparent;color:#fff;min-height:44px;padding:9px 12px;font-weight:650;font-size:13px;cursor:pointer;text-align:left}
+.footer-callback:hover{background:#ffffff12}
+@media(max-width:1000px){.site-footer .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.footer-contacts{grid-column:2;grid-row:1}}
+@media(max-width:760px){.site-footer{padding:32px 0 20px}.site-footer .footer-grid{grid-template-columns:minmax(0,1fr);gap:24px}.footer-identity{grid-row:1}.footer-contacts{grid-column:1;grid-row:2;border-top:1px solid #ffffff25;border-bottom:1px solid #ffffff25;padding:18px 0}.site-footer .footer-phone{font-size:29px}.site-footer .footer-email{font-size:19px}.footer-brand strong{font-size:26px}.footer-brand small{font-size:11px}.footer-mark{width:60px;height:60px}.footer-identity p{max-width:none}.consent-links,.consent-block small{margin-left:0}}
 </style>
-<meta name="preview-version" content="fintech-v4.3"></head>
+<meta name="preview-version" content="fintech-v4.4"></head>
 <body>
 <a class="skip-link" href="#main">Перейти к содержанию</a>
 <div class="preview-notice"><div class="container"><span class="preview-dot"></span><strong>Демонстрационная версия</strong><span>Условия примерные · заявки не принимаются</span></div></div>
@@ -563,10 +592,11 @@ footer{padding:48px 0 24px}.footer-grid{grid-template-columns:1.3fr 1fr 1fr 1.1f
                   </select>
                 </div>
               </div>
-              <label class="check-row">
-                <input type="checkbox" required>
-                <span>Даю согласие на обработку персональных данных в соответствии с <a href="#" onclick="openModal('privacyModal');return false;" style="text-decoration:underline;color:var(--navy);">Политикой конфиденциальности</a> (152-ФЗ)</span>
-              </label>
+              <div class="consent-block">
+  <div class="consent-choice"><input type="checkbox" id="pdConsent1" name="pdConsent" value="1" required><label for="pdConsent1">Даю согласие на обработку моих персональных данных</label></div>
+  <div class="consent-links"><a href="./consent.html" target="_blank" rel="noopener">Текст согласия</a><span aria-hidden="true">·</span><a href="./privacy.html" target="_blank" rel="noopener">Политика обработки персональных данных</a></div>
+  <small>Демонстрация: согласие и заявка не сохраняются.</small>
+</div>
               <button type="submit" class="btn btn-primary" style="width:100%;">Запросить расчёт — демо</button>
             </form>
           </div>
@@ -632,10 +662,11 @@ footer{padding:48px 0 24px}.footer-grid{grid-template-columns:1.3fr 1fr 1fr 1.1f
               <div class="field"><label>Ваше имя *</label><input type="text" name="name" placeholder="Иван Петров" required></div>
               <div class="field"><label>ИНН компании (ускорит скоринг)</label><input type="text" name="inn" placeholder="Необязательно"></div>
             </div>
-            <label class="check-row">
-              <input type="checkbox" required>
-              <span>Даю согласие на обработку персональных данных в соответствии с <a href="#" onclick="openModal('privacyModal');return false;" style="text-decoration:underline;color:var(--navy);">Политикой конфиденциальности</a> (152-ФЗ)</span>
-            </label>
+            <div class="consent-block">
+  <div class="consent-choice"><input type="checkbox" id="pdConsent2" name="pdConsent" value="1" required><label for="pdConsent2">Даю согласие на обработку моих персональных данных</label></div>
+  <div class="consent-links"><a href="./consent.html" target="_blank" rel="noopener">Текст согласия</a><span aria-hidden="true">·</span><a href="./privacy.html" target="_blank" rel="noopener">Политика обработки персональных данных</a></div>
+  <small>Демонстрация: согласие и заявка не сохраняются.</small>
+</div>
             <div style="display:flex;gap:10px;flex-wrap:wrap;">
               <button type="button" class="btn btn-outline" onclick="goQuiz(3)">← Назад</button>
               <button type="submit" class="btn btn-primary">Получить сводное КП</button>
@@ -756,10 +787,11 @@ footer{padding:48px 0 24px}.footer-grid{grid-template-columns:1.3fr 1fr 1fr 1.1f
         <div class="field"><input type="text" name="name" placeholder="Имя / Организация (автосалон, поставщик)" required></div>
         <div class="field"><input type="tel" name="phone" placeholder="Телефон / Telegram *" required></div>
         <div class="field"><textarea name="comment" rows="2" placeholder="Коротко о задаче или клиенте (можно указать ИНН)"></textarea></div>
-        <label class="check-row">
-          <input type="checkbox" required>
-          <span>Согласен с <a href="#" onclick="openModal('privacyModal');return false;" style="text-decoration:underline;color:var(--navy);">Политикой конфиденциальности</a> (152-ФЗ)</span>
-        </label>
+        <div class="consent-block">
+  <div class="consent-choice"><input type="checkbox" id="pdConsent3" name="pdConsent" value="1" required><label for="pdConsent3">Даю согласие на обработку моих персональных данных</label></div>
+  <div class="consent-links"><a href="./consent.html" target="_blank" rel="noopener">Текст согласия</a><span aria-hidden="true">·</span><a href="./privacy.html" target="_blank" rel="noopener">Политика обработки персональных данных</a></div>
+  <small>Демонстрация: согласие и заявка не сохраняются.</small>
+</div>
         <button type="submit" class="btn btn-primary" style="width:100%;">Отправить партнерскую заявку</button>
       </form>
     </div>
@@ -830,10 +862,11 @@ footer{padding:48px 0 24px}.footer-grid{grid-template-columns:1.3fr 1fr 1fr 1.1f
           <div class="field"><input type="tel" name="phone" placeholder="Телефон / Мессенджер *" required></div>
         </div>
         <div class="field"><textarea name="comment" rows="2" placeholder="Опции: КАСКО/ОСАГО/шины/ТО, учет на балансе или досрочный выкуп"></textarea></div>
-        <label class="check-row">
-          <input type="checkbox" required>
-          <span>Даю согласие на обработку персональных данных в соответствии с <a href="#" onclick="openModal('privacyModal');return false;" style="text-decoration:underline;color:var(--navy);">Политикой конфиденциальности</a> (152-ФЗ)</span>
-        </label>
+        <div class="consent-block">
+  <div class="consent-choice"><input type="checkbox" id="pdConsent4" name="pdConsent" value="1" required><label for="pdConsent4">Даю согласие на обработку моих персональных данных</label></div>
+  <div class="consent-links"><a href="./consent.html" target="_blank" rel="noopener">Текст согласия</a><span aria-hidden="true">·</span><a href="./privacy.html" target="_blank" rel="noopener">Политика обработки персональных данных</a></div>
+  <small>Демонстрация: согласие и заявка не сохраняются.</small>
+</div>
         <button type="submit" class="btn btn-primary" style="width:100%;">Отправить данные для КП</button>
       </form>
     </div>
@@ -842,45 +875,29 @@ footer{padding:48px 0 24px}.footer-grid{grid-template-columns:1.3fr 1fr 1fr 1.1f
 </main>
 
 <!-- FOOTER -->
-<footer>
+<footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
-      <div>
-        <h4>Лизинг Компас</h4>
-        <p style="font-size:13px;line-height:1.6;">Независимый лизинговый брокер. Подбор оптимальных условий лизинга авто, оборудования и недвижимости по всей территории Российской Федерации.</p>
+      <div class="footer-identity">
+        <a href="#main" class="footer-brand" aria-label="Лизинг Компас — на главную"><span class="footer-mark"><svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="17" stroke="currentColor" stroke-width="1.4" opacity=".65"/><path d="m32.8 13.6-5.6 13.6-12 7.2 5.6-13.6 12-7.2Z" fill="#F28B49"/><path d="m32.8 13.6-5.6 13.6-6.4-6.4 12-7.2Z" fill="#fff"/><circle cx="24" cy="24" r="2.3" fill="#142b45"/><path d="M24 5v4M24 39v4M5 24h4M39 24h4" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/></svg></span><span><strong>Лизинг Компас</strong><small>LEASING COMPASS</small></span></a>
+        <p>Подбор, сравнение и сопровождение лизинговых сделок по всей России.</p>
       </div>
       <div>
         <h4>Навигация</h4>
-        <ul>
-          <li><a href="#services">Услуги</a></li>
-          <li><a href="#calc-section">Калькулятор и квиз</a></li>
-          <li><a href="#cases">Кейсы экономии</a></li>
-          <li><a href="#b2b">Партнерам</a></li>
-          <li><a href="#blog">База знаний</a></li>
-        </ul>
+        <ul><li><a href="#services">Услуги</a></li><li><a href="#calc-section">Калькулятор</a></li><li><a href="#about">О компании</a></li><li><a href="#b2b">Партнёрам</a></li><li><a href="#contacts">Контакты и реквизиты</a></li></ul>
       </div>
       <div>
-        <h4>Документы (152-ФЗ)</h4>
-        <ul>
-          <li><a href="#" onclick="openModal('privacyModal');return false;">Политика конфиденциальности</a></li>
-          <li><a href="#" onclick="openModal('consentModal');return false;">Согласие на обработку ПДн</a></li>
-          <li></li>
-        </ul>
+        <h4>Правовая информация</h4>
+        <ul><li><a href="./privacy.html" target="_blank" rel="noopener">Политика обработки персональных данных</a></li><li><a href="./consent.html" target="_blank" rel="noopener">Согласие на обработку персональных данных</a></li></ul>
       </div>
-      <div>
-        <h4>Сведения об исполнителе</h4>
-        <p style="font-size:13px;">
-          <span data-bind="ipName">ИП Гасанов Тариэль Алиевич</span><br>
-          ИНН: <span data-bind="ipInn">231207234403</span><br>
-          ОГРНИП: <span data-bind="ipOgrnip">323237500416632</span><br>
-          <a data-bind="phone" href="tel:+79604844141">+7 (960) 484-41-41</a>
-        </p>
+      <div class="footer-contacts">
+        <h4>Связаться с нами</h4>
+        <a class="footer-phone" href="tel:+79604844141" data-bind="phone">+7 (960) 484-41-41</a>
+        <a class="footer-email" href="mailto:lizingkompas@mail.ru" data-bind="email">lizingkompas@mail.ru</a>
+        <button type="button" class="footer-callback" onclick="document.getElementById('callbackTrigger').click()">Заказать обратный звонок →</button>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 «Лизинг Компас». Все права защищены.</span>
-      <span>Расчеты на сайте носят информационный характер и не являются публичной офертой (ст. 437 ГК РФ).</span>
-    </div>
+    <div class="footer-bottom"><span>© 2026 «Лизинг Компас»</span><span>Расчёты носят информационный характер и не являются публичной офертой.</span></div>
   </div>
 </footer>
 
@@ -895,7 +912,7 @@ footer{padding:48px 0 24px}.footer-grid{grid-template-columns:1.3fr 1fr 1fr 1.1f
 
 <!-- COOKIE BANNER -->
 <div class="cookie-bar" id="cookieBar">
-  <span>Мы используем файлы cookie для корректной работы калькулятора и аналитики (Яндекс.Метрика). Продолжая работу, вы соглашаетесь с <a href="#" onclick="openModal('privacyModal');return false;" style="text-decoration:underline;">Политикой</a>.</span>
+  <span>Мы используем файлы cookie для корректной работы калькулятора и аналитики (Яндекс.Метрика). Продолжая работу, вы соглашаетесь с <a href="./privacy.html" target="_blank" rel="noopener" style="text-decoration:underline;">Политикой</a>.</span>
   <button class="btn btn-primary btn-sm" onclick="acceptCookie()">Принять</button>
 </div>
 
@@ -926,25 +943,7 @@ footer{padding:48px 0 24px}.footer-grid{grid-template-columns:1.3fr 1fr 1fr 1.1f
   </div>
 </div>
 
-<!-- MODAL: PRIVACY & CONSENT -->
-<div class="modal-bg" id="privacyModal">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('privacyModal')">×</button>
-    <h3 style="color:var(--navy);margin-bottom:12px;">Политика обработки персональных данных (проект)</h3><p style="font-size:13px;margin-bottom:12px;color:#783e00">Проект документа. Приём заявок отключён; условия обработки будут уточнены до коммерческого запуска.</p>
-    <p style="font-size:13.5px;color:var(--slate);margin-bottom:10px;">Настоящая Политика составлена в соответствии с Федеральным законом от 27.07.2006 № 152-ФЗ «О персональных данных» и определяет порядок обработки персональных данных оператором <strong data-bind="ipName">ИП Гасанов Тариэль Алиевич</strong> (ИНН <span data-bind="ipInn">231207234403</span>, ОГРНИП <span data-bind="ipOgrnip">323237500416632</span>).</p>
-    <p style="font-size:13.5px;color:var(--slate);margin-bottom:10px;">Оператор обрабатывает имя, номер телефона, адрес электронной почты, ИНН и параметры запроса исключительно с целью подготовки расчетов лизинга, обратной связи и оказания консультационных услуг. Данные хранятся на территории РФ и не передаются третьим лицам, за исключением лизинговых компаний-партнеров строго по поручению пользователя.</p>
-    <p style="font-size:13.5px;color:var(--slate);">Пользователь вправе отозвать согласие, направив уведомление на <strong data-bind="email">lizingkompas@mail.ru</strong>.</p>
-  </div>
-</div>
-
-<div class="modal-bg" id="consentModal">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('consentModal')">×</button>
-    <h3 style="color:var(--navy);margin-bottom:12px;">Согласие на обработку персональных данных (проект)</h3><p style="font-size:13px;margin-bottom:12px;color:#783e00">Демонстрационный текст. Реальное согласие сейчас не собирается.</p>
-    <p style="font-size:13.5px;color:var(--slate);">Проставляя галочку в формах сайта «Лизинг Компас», субъект персональных данных свободно, своей волей и в своем интересе дает согласие оператору <strong data-bind="ipName">ИП Гасанов Тариэль Алиевич</strong> на сбор, запись, систематизацию, хранение, уточнение, использование и удаление предоставленных данных в целях подбора программ лизинга и обратной связи до момента отзыва согласия.</p>
-  </div>
-</div>
-
+<!-- Legal documents are independent pages: privacy.html and consent.html -->
 <!-- MODAL: BUILT-IN CMS ADMIN PANEL -->
 <div class="modal-bg" id="cmsModal">
   <div class="modal modal-lg">
@@ -1361,6 +1360,7 @@ footer{padding:48px 0 24px}.footer-grid{grid-template-columns:1.3fr 1fr 1fr 1.1f
   // Lead Submission + Optional Telegram Bot / Webhook + Sample KP download
   async function submitForm(e, source, downloadSample = false) {
     e.preventDefault();
+    if(!e.target.querySelector('[name="pdConsent"]:checked')){showToast('Подтвердите согласие отдельно.');return;}
     showToast("Демонстрация: заявка не отправляется.");
     if (downloadSample) downloadSampleKP();
   }
@@ -1510,9 +1510,9 @@ footer{padding:48px 0 24px}.footer-grid{grid-template-columns:1.3fr 1fr 1fr 1.1f
 <script>
 document.querySelectorAll('form').forEach(f=>{
   f.querySelectorAll('input:not([type=checkbox]),textarea').forEach(x=>{x.readOnly=true;x.removeAttribute('required');x.placeholder='Демо: данные не вводятся';});
-  f.querySelectorAll('[required]').forEach(x=>x.removeAttribute('required'));
+  f.querySelectorAll('[required]:not([name="pdConsent"])').forEach(x=>x.removeAttribute('required'));
 });
-document.querySelectorAll('[data-bind-href="tg"],[data-bind-href="max"],a[href^="mailto:"],a[href="https://vk.com/"],a[href="https://rutube.ru/"],a[href="https://youtube.com/"]').forEach(x=>{x.removeAttribute('href');x.removeAttribute('target');x.setAttribute('aria-disabled','true');});
+document.querySelectorAll('[data-bind-href="tg"],[data-bind-href="max"],a[href="https://vk.com/"],a[href="https://rutube.ru/"],a[href="https://youtube.com/"]').forEach(x=>{x.removeAttribute('href');x.removeAttribute('target');x.setAttribute('aria-disabled','true');});
 document.querySelectorAll('[data-bind="ipName"]').forEach(x=>x.textContent='ИП Гасанов Тариэль Алиевич');
 
 document.getElementById('cmsModal')?.remove();
@@ -1527,7 +1527,12 @@ document.querySelectorAll('.partners-strip').forEach(x=>{x.parentElement.querySe
 <p>Оставьте номер телефона, чтобы специалист мог связаться с вами.</p>
 <p class="demo-note">Демонстрация формы. Реальные заявки пока не принимаются; личные данные вводить не нужно.</p>
 <div class="field"><label for="callbackPhone">Ваш телефон</label><input id="callbackPhone" type="tel" placeholder="+7 (___) ___-__-__" readonly aria-describedby="callbackResult"></div>
-<button type="button" class="btn" id="callbackDemo">Заказать звонок — демо</button>
+<div class="consent-block">
+  <div class="consent-choice"><input type="checkbox" id="callbackConsent" name="pdConsent" value="1" required><label for="callbackConsent">Даю согласие на обработку моих персональных данных</label></div>
+  <div class="consent-links"><a href="./consent.html" target="_blank" rel="noopener">Текст согласия</a><span aria-hidden="true">·</span><a href="./privacy.html" target="_blank" rel="noopener">Политика обработки персональных данных</a></div>
+  <small>Демонстрация: согласие и заявка не сохраняются.</small>
+</div>
+<button type="button" class="btn" id="callbackDemo" disabled>Заказать звонок — демо</button>
 <p id="callbackResult" role="status" aria-live="polite"></p><div class="direct-contact"><span>Или позвоните самостоятельно</span><a href="tel:+79604844141" data-bind="phone" class="direct-call">+7 (960) 484-41-41</a></div>
 </dialog>
 <script>
@@ -1535,9 +1540,10 @@ document.querySelectorAll('.partners-strip').forEach(x=>{x.parentElement.querySe
 const dialog=document.getElementById('callbackDialog');
 const result=document.getElementById('callbackResult');
 const trigger=document.getElementById('callbackTrigger');
-let lastTrigger=trigger;[trigger,document.getElementById('callbackDock')].forEach(btn=>btn.addEventListener('click',()=>{lastTrigger=btn;result.textContent='';dialog.showModal();}));
+let lastTrigger=trigger;[trigger,document.getElementById('callbackDock')].forEach(btn=>btn.addEventListener('click',()=>{lastTrigger=btn;result.textContent='';document.getElementById('callbackConsent').checked=false;document.getElementById('callbackDemo').disabled=true;dialog.showModal();}));
 document.getElementById('callbackClose').addEventListener('click',()=>dialog.close());
-document.getElementById('callbackDemo').addEventListener('click',()=>{result.textContent='Так будет работать заказ звонка. В демоверсии заявка не отправляется.';});
+document.getElementById('callbackConsent').addEventListener('change',e=>{document.getElementById('callbackDemo').disabled=!e.target.checked;});
+document.getElementById('callbackDemo').addEventListener('click',()=>{if(!document.getElementById('callbackConsent').checked)return;result.textContent='Так будет работать заказ звонка. В демоверсии заявка не отправляется.';});
 dialog.addEventListener('click',e=>{if(e.target===dialog){const b=dialog.getBoundingClientRect();if(e.clientX<b.left||e.clientX>b.right||e.clientY<b.top||e.clientY>b.bottom)dialog.close();}});
 dialog.addEventListener('close',()=>lastTrigger.focus());
 })();
@@ -1551,6 +1557,15 @@ document.querySelectorAll('form .field').forEach((field,i)=>{
  label.htmlFor=el.id;
 });
 document.querySelectorAll('a[aria-disabled="true"]').forEach(el=>{el.tabIndex=0;el.addEventListener('click',e=>{e.preventDefault();showToast('Демонстрация: канал связи ещё не подключён.');});el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();el.click();}});});
+</script>
+<script>
+document.querySelectorAll('form').forEach(form=>{
+ const check=form.querySelector('[name="pdConsent"]');if(!check)return;
+ const submit=form.querySelector('button[type="submit"]');if(!submit)return;
+ const sync=()=>{submit.disabled=!check.checked;};check.checked=false;sync();
+ check.addEventListener('change',sync);
+ form.addEventListener('reset',()=>{queueMicrotask(sync);});
+});
 </script>
 </body>
 </html>
