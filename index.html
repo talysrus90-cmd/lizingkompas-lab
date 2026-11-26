@@ -460,10 +460,10 @@ body{padding-bottom:86px}
 html{scroll-padding-bottom:100px}
 @media(max-width:760px){.route-section{padding-top:18px}.quick-paths{gap:8px}.quick-paths a,.quick-paths a+a{min-height:66px;padding:10px 12px;border:1px solid var(--border)}.route-copy strong{font-size:14px}.offer-card input:disabled{opacity:.6}.offer-visual{padding:12px}.offer-result{overflow-wrap:anywhere}.discount-detail .field input{width:100%}}
 </style>
-<meta name="preview-version" content="lab-v2.2"></head>
+<meta name="preview-version" content="lab-v2.2.1"></head>
 <body>
 <a class="skip-link" href="#main">Перейти к содержанию</a>
-<div class="preview-notice"><div class="container"><span class="preview-dot"></span><strong>Вариант №2 · V2.2</strong><span>Условия примерные · заявки не принимаются</span></div></div>
+<div class="preview-notice"><div class="container"><span class="preview-dot"></span><strong>Вариант №2 · V2.2.1</strong><span>Условия примерные · заявки не принимаются</span></div></div>
 
 <div id="toast" class="toast">Заявка отправлена!</div>
 
@@ -1493,7 +1493,7 @@ document.querySelectorAll('form').forEach(form=>{
  const inputs=[...document.querySelectorAll('[data-offer]')];let frame=0,latest=null;
  const money=n=>fmt(n);
  function schedule(a,v){
-   if(!$('useSchedule'+a).checked)return Array.from({length:v.months},()=>v.payment);
+   if(!$('useSchedule'+a).checked){if(!Number.isInteger(v.months)||v.months<1||v.months>120||!Number.isFinite(v.payment)||v.payment<0||v.payment>1e9)return null;return Array.from({length:v.months},()=>v.payment);}
    const raw=$('schedule'+a).value.trim();if(!raw)return null;
    const parts=raw.split(/[;\n]+/).map(x=>x.trim().replace(/[\s\u00a0\u202f]/g,'').replace(',','.'));
    if(parts.length<1||parts.length>120||parts.some(x=>!/^\d+(?:\.\d{1,2})?$/.test(x)||Number(x)>1e9))return null;
@@ -1522,7 +1522,7 @@ document.querySelectorAll('form').forEach(form=>{
    for(const a of ['A','B']){
      const v=all[a];$('offerTotal'+a).textContent=money(v.total);
      const bar=$('offerBar'+a);bar.replaceChildren(...[v.advance,v.sum,v.buyout,v.extras].map((n,i)=>{const e=document.createElement('span');e.className='offer-segment seg'+i;e.style.width=(100*n/max)+'%';e.title=money(n);return e;}));
-     bar.setAttribute('aria-label','Аванс '+money(v.advance)+', платежи '+money(v.sum)+', выкуп '+money(v.buyout)+', расходы '+money(v.extras));
+     bar.setAttribute('role','img');bar.setAttribute('aria-label','Аванс '+money(v.advance)+', платежи '+money(v.sum)+', выкуп '+money(v.buyout)+', расходы '+money(v.extras));
    }
    const d=all.A.total-all.B.total;
    $('offerResult').textContent=Math.abs(d)<.005?'Итоговые суммы равны.':(d>0?'Предложение 2':'Предложение 1')+' дешевле по номинальной сумме на '+money(Math.abs(d))+'.'+(all.A.months!==all.B.months?' Сроки различаются: '+all.A.months+' и '+all.B.months+' мес.':'')+' Учитывайте договорные условия.';
