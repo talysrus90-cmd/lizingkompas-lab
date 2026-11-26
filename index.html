@@ -513,11 +513,15 @@ html{scroll-padding-bottom:100px}
   #calc-section .calc-box{padding:10px}
   #calc-section .term-presets button{font-size:11px}
 }
+/* Lab 2.4: self-service route, balanced four-card grid. */
+@media(min-width:761px){.quick-paths{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:1121px){nav.desktop-nav{gap:12px;font-size:13px}nav.desktop-nav a{white-space:nowrap}.nav-wrap{gap:9px}}
+@media(min-width:1121px) and (max-width:1350px){nav.desktop-nav a[href="#b2b"]{display:none}}
 </style>
-<meta name="preview-version" content="lab-v2.3"></head>
+<meta name="preview-version" content="lab-v2.4"></head>
 <body>
 <a class="skip-link" href="#main">Перейти к содержанию</a>
-<div class="preview-notice"><div class="container"><span class="preview-dot"></span><strong>Вариант №2 · V2.3</strong><span>Условия примерные · заявки не принимаются</span></div></div>
+<div class="preview-notice"><div class="container"><span class="preview-dot"></span><strong>Вариант №2 · V2.4</strong><span>Условия примерные · заявки не принимаются</span></div></div>
 
 <div id="toast" class="toast">Заявка отправлена!</div>
 
@@ -534,6 +538,7 @@ html{scroll-padding-bottom:100px}
     <nav class="desktop-nav" aria-label="Основное меню">
       <a href="#services">Услуги</a>
       <a href="#calc-section">Калькулятор</a>
+      <a href="./self-service.html">Самообслуживание</a>
       <a href="#about">О компании</a>
       <a href="#b2b">Партнёрам</a>
     </nav>
@@ -549,6 +554,7 @@ html{scroll-padding-bottom:100px}
   <div class="mobile-menu" id="mobileMenu">
     <a href="#services">Услуги</a>
     <a href="#calc-section">Калькулятор и Квиз</a>
+    <a href="./self-service.html">Подготовить заявку</a>
     <a href="#cases">Кейсы экономии</a>
     <a href="#b2b">Партнерам (B2B)</a>
     <a href="#blog">База знаний</a>
@@ -588,6 +594,7 @@ html{scroll-padding-bottom:100px}
 <div class="container route-section"><h2 class="route-title">С чего начнём?</h2><div class="quick-paths" aria-label="Выбор задачи">
   <a href="#services"><span class="route-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v14H4zM8 9h8M8 13h3M15 13h1"/></svg></span><span class="route-copy"><strong>Нужен новый лизинг</strong><small>Выбрать имущество</small></span><b>→</b></a>
   <a href="#offer-compare"><span class="route-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V4M4 20h16M8 15l4-5 4 2 4-7"/></svg></span><span class="route-copy"><strong>Есть предложение от ЛК</strong><small>Сравнить полную стоимость</small></span><b>→</b></a>
+  <a href="./self-service.html"><span class="route-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 9l2 2 4-4M9 15h6M9 18h4"/></svg></span><span class="route-copy"><strong>Подготовить заявку</strong><small>Бюджет, документы, кредитная история</small></span><b>→</b></a>
   <a href="#support-route"><span class="route-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-5 8-8 9-3-1-8-4-8-9V6l8-3Zm-4 9 3 3 5-6"/></svg></span><span class="route-copy"><strong>Уже есть договор</strong><small>Выкуп, страхование, график</small></span><b>→</b></a>
 </div></div>
 
@@ -997,7 +1004,7 @@ html{scroll-padding-bottom:100px}
       </div>
       <div>
         <h4>Навигация</h4>
-        <ul><li><a href="#services">Услуги</a></li><li><a href="#calc-section">Калькулятор</a></li><li><a href="#about">О компании</a></li><li><a href="#b2b">Партнёрам</a></li><li><a href="#contacts">Контакты и реквизиты</a></li></ul>
+        <ul><li><a href="#services">Услуги</a></li><li><a href="#calc-section">Калькулятор</a></li><li><a href="./self-service.html">Подготовить заявку</a></li><li><a href="#about">О компании</a></li><li><a href="#b2b">Партнёрам</a></li><li><a href="#contacts">Контакты и реквизиты</a></li></ul>
       </div>
       <div>
         <h4>Правовая информация</h4>
