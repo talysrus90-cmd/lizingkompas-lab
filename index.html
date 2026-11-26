@@ -697,7 +697,7 @@ input[data-money]{font-variant-numeric:tabular-nums}
             <div class="field">
               <label for="cPriceNum"><span>Стоимость имущества, ₽</span><strong id="cPriceOut">4 500 000 ₽</strong></label>
               <input type="text" data-money inputmode="numeric" id="cPriceNum" value="4 500 000" data-min="500000" data-max="150000000" oninput="syncPrice(this.value,false)" onchange="syncPrice(this.value,true)">
-              <div class="thumb-slider" style="--range-fill:40.444%"><input type="range" data-curve="4" id="cPriceRange" aria-label="Стоимость имущества" min="500000" max="150000000" step="50000" value="4500000" oninput="syncPrice(this.value)" style="--range-fill:40.444%"><div class="thumb-slider-rail" aria-hidden="true"><div class="thumb-slider-knob"></div></div></div><div class="range-limits" aria-hidden="true"><span>500 тыс. ₽</span><span>150 млн ₽</span></div>
+              <div class="thumb-slider" style="--range-fill:40.444%"><input type="range" data-curve="4" id="cPriceRange" aria-label="Стоимость имущества" min="500000" max="150000000" step="10000" value="4500000" oninput="syncPrice(this.value)" style="--range-fill:40.444%"><div class="thumb-slider-rail" aria-hidden="true"><div class="thumb-slider-knob"></div></div></div><div class="range-limits" aria-hidden="true"><span>500 тыс. ₽</span><span>150 млн ₽</span></div>
             </div>
             <div class="field">
               <label>
