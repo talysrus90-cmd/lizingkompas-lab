@@ -442,11 +442,19 @@ body{padding-bottom:86px}
 .callback-trigger .callback-icon svg,.callback-trigger .callback-icon::before,.callback-trigger .callback-icon::after{animation:none!important}
 .callback-trigger .callback-icon::before,.callback-trigger .callback-icon::after{display:none}
 }
+
+/* Lab 2.0: native interaction, minimal redraws, progressive disclosure. */
+.route-copy{flex:1;display:grid;gap:4px;color:var(--navy)!important;font-size:14px!important;letter-spacing:0!important}.route-copy small{font-weight:400;font-size:12px;color:var(--muted)}
+.quick-paths a{min-height:76px}.term-presets{display:flex;gap:6px;flex-wrap:wrap;margin-top:7px}.term-presets button{border:1px solid var(--border);border-radius:8px;background:white;color:var(--navy);min-height:44px;padding:8px 12px;font-weight:650;cursor:pointer}.term-presets button[aria-pressed=true]{background:var(--navy);color:white;border-color:var(--navy)}
+.scenario-details{border:1px solid var(--border);border-radius:12px;margin-top:14px;padding:12px;background:white}.scenario-details summary{cursor:pointer;min-height:44px;align-content:center;font-weight:750;color:var(--navy)}.scenario-details summary span{display:block;font-weight:400;color:var(--muted);font-size:12px;margin-left:16px}
+.support-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:18px}.support-grid details{padding:16px;border:1px solid var(--border);border-radius:12px;background:white}.support-grid summary{font-weight:700;color:var(--navy);cursor:pointer;min-height:44px;align-content:center}.support-grid p{font-size:14px;color:var(--muted)}
+.process-controls{display:none}.callback-trigger:not(.lab-visible) .callback-icon svg,.callback-trigger:not(.lab-visible) .callback-icon::before,.callback-trigger:not(.lab-visible) .callback-icon::after{animation-play-state:paused}
+@media(max-width:760px){.support-grid{grid-template-columns:1fr}.quick-paths a{min-height:58px}.steps-grid{display:grid;grid-auto-flow:column;grid-auto-columns:min(85%,320px);grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:thin;gap:12px;padding-bottom:8px;touch-action:pan-x pan-y}.steps-grid .step-item{scroll-snap-align:start;min-height:120px;align-content:start}.process-controls{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px}.process-controls button{min-height:44px;padding:8px 12px;border:1px solid var(--border);border-radius:8px;background:white;color:var(--navy)}.process-controls span{font-size:12px;color:var(--muted)}}
 </style>
-<meta name="preview-version" content="fintech-v4.5"></head>
+<meta name="preview-version" content="lab-v2.0"></head>
 <body>
 <a class="skip-link" href="#main">Перейти к содержанию</a>
-<div class="preview-notice"><div class="container"><span class="preview-dot"></span><strong>Демонстрационная версия</strong><span>Условия примерные · заявки не принимаются</span></div></div>
+<div class="preview-notice"><div class="container"><span class="preview-dot"></span><strong>Вариант №2 · Эксперимент</strong><span>Условия примерные · заявки не принимаются</span></div></div>
 
 <div id="toast" class="toast">Заявка отправлена!</div>
 
@@ -515,9 +523,9 @@ body{padding-bottom:86px}
   </div>
 </section>
 <div class="container"><div class="quick-paths" aria-label="Быстрый переход по услугам">
-  <a href="#services"><span>01</span> Выбрать имущество <b>→</b></a>
-  <a href="#calc-section"><span>02</span> Сравнить платежи <b>→</b></a>
-  <a href="#cases"><span>03</span> Посмотреть примеры <b>→</b></a>
+  <a href="#services"><span>01</span><span class="route-copy"><strong>Нужен новый лизинг</strong><small>Выбрать имущество</small></span><b>→</b></a>
+  <a href="#calc-section"><span>02</span><span class="route-copy"><strong>Есть предложение от ЛК</strong><small>Сравнить полную стоимость</small></span><b>→</b></a>
+  <a href="#support-route"><span>03</span><span class="route-copy"><strong>Уже есть договор</strong><small>Выкуп, страхование, график</small></span><b>→</b></a>
 </div></div>
 
 <!-- SERVICES -->
@@ -576,7 +584,7 @@ body{padding-bottom:86px}
             </div>
             <div class="field">
               <label for="cTerm"><span>Срок лизинга</span><strong id="cTermOut">36 мес.</strong></label>
-              <input type="range" id="cTerm" min="12" max="84" step="6" value="36" oninput="recalc()">
+              <input type="range" id="cTerm" min="12" max="84" step="6" value="36" oninput="recalc()"><div class="term-presets" aria-label="Быстрый выбор срока"><button type="button" data-term="24" aria-pressed="false">24 мес.</button><button type="button" data-term="36" aria-pressed="true">36 мес.</button><button type="button" data-term="48" aria-pressed="false">48 мес.</button><button type="button" data-term="60" aria-pressed="false">60 мес.</button></div>
             </div>
             <div class="field">
               <label>Налоговый режим (для консультации)</label>
@@ -603,16 +611,16 @@ body{padding-bottom:86px}
               </div>
             </div>
 
-            <div class="table-caption">Сравнение сценариев <span>номинальная ставка</span></div><div class="table-wrap"><table class="lk-table" aria-label="Иллюстративные сценарии">
+            <details class="scenario-details" id="scenarioDetails"><summary>Сравнить все 5 сценариев <span>условные ставки</span></summary><div class="table-wrap"><table class="lk-table" aria-label="Иллюстративные сценарии">
               <thead>
                 <tr><th scope="col">Сценарий</th><th scope="col">Платёж/мес.</th><th scope="col">Всего</th><th scope="col">Переплата</th></tr>
               </thead>
               <tbody id="lkCompareBody"></tbody>
-            </table></div><p class="calculation-explain">Модель равных ежемесячных платежей: аванс + платежи. Выкупная цена, комиссии и налоги отдельно не моделируются. Налоговый эффект и реальный график зависят от договора.</p><button type="button" class="sample-link" onclick="downloadSampleKP()">↓ Скачать пример сравнения без регистрации</button>
+            </table></div></details><p class="calculation-explain">Модель равных ежемесячных платежей: аванс + платежи. Выкупная цена, комиссии и налоги отдельно не моделируются. Налоговый эффект и реальный график зависят от договора.</p><button type="button" class="sample-link" onclick="downloadSampleKP()">↓ Скачать пример сравнения без регистрации</button><button type="button" class="sample-link" id="saveCurrentCalc">↓ Скачать текущий расчёт (CSV)</button><button type="button" class="sample-link" id="resetCalc">Сбросить параметры</button>
 
             <form class="calc-lead-box" onsubmit="submitForm(event, 'Калькулятор 5 ЛК')">
               <h4>Получить индивидуальный расчёт</h4>
-              <p style="font-size:12.5px;color:var(--muted);margin-bottom:10px;">Параметры калькулятора прикрепятся к заявке автоматически.</p>
+              <p style="font-size:12.5px;color:var(--muted);margin-bottom:10px;">Демо: параметры не передаются. Сохраните текущий расчёт в CSV или сравните условия ниже.</p>
               <div class="grid-2" style="gap:10px;">
                 <div class="field" style="margin:0;"><input type="text" name="name" placeholder="Ваше имя / Компания" required></div>
                 <div class="field" style="margin:0;"><input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required></div>
@@ -728,6 +736,11 @@ body{padding-bottom:86px}
     </div>
   </div>
 </section>
+<section class="section support-route" id="support-route"><div class="container"><div class="eyebrow">СОПРОВОЖДЕНИЕ</div><h2 class="section-title">Уже есть договор лизинга?</h2><p class="section-sub">Выберите задачу, чтобы подготовиться к разговору со специалистом. Без загрузки документов.</p><div class="support-grid">
+<details><summary>Досрочный выкуп</summary><p>Подготовьте действующий график, остаток обязательств и условия выкупа. Сравните итоговые расходы до и после выкупа.</p></details>
+<details><summary>Изменение графика платежей</summary><p>Уточните задолженность, желаемый платёж и период изменения графика. Новые условия зависят от согласия сторон.</p></details>
+<details><summary>Страховой случай</summary><p>Подготовьте договор лизинга, страховой полис и документы о событии. Не отправляйте их через демонстрационный сайт.</p></details>
+<details><summary>Завершение договора</summary><p>Проверьте остаток платежей, выкупную стоимость, порядок передачи имущества и закрывающие документы.</p></details></div><button class="btn btn-primary" type="button" onclick="document.getElementById('callbackTrigger').click()">Обсудить договор →</button></div></section>
 <!-- HOW WE WORK -->
 <section class="section section-alt">
   <div class="container">
@@ -947,12 +960,6 @@ body{padding-bottom:86px}
   <button type="button" class="callback-trigger" id="callbackDock" aria-label="Заказать обратный звонок" aria-haspopup="dialog" aria-controls="callbackDialog"><span class="callback-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7.2 3.5 4.5 4.8c-.7.4-.9 1.2-.7 2C5.6 13.5 10.5 18.4 17.2 20.2c.8.2 1.6 0 2-.7l1.3-2.7c.3-.6.1-1.3-.5-1.7l-3.8-2.4c-.5-.3-1.2-.2-1.6.3l-1.5 1.7a13.4 13.4 0 0 1-3.8-3.8l1.7-1.5c.5-.4.6-1.1.3-1.6L8.9 4c-.4-.6-1.1-.8-1.7-.5Z" fill="currentColor"/><path d="M15 3a7 7 0 0 1 6 6M15 7a3 3 0 0 1 2 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="callback-label">Заказать<br><span>обратный звонок</span></span></button>
 </div>
 
-<!-- COOKIE BANNER -->
-<div class="cookie-bar" id="cookieBar">
-  <span>Мы используем файлы cookie для корректной работы калькулятора и аналитики (Яндекс.Метрика). Продолжая работу, вы соглашаетесь с <a href="./privacy.html" target="_blank" rel="noopener" style="text-decoration:underline;">Политикой</a>.</span>
-  <button class="btn btn-primary btn-sm" onclick="acceptCookie()">Принять</button>
-</div>
-
 <!-- MODAL: GENERIC DETAIL (SERVICE / CASE / ARTICLE) -->
 <div class="modal-bg" id="detailModal">
   <div class="modal">
@@ -981,71 +988,6 @@ body{padding-bottom:86px}
 </div>
 
 <!-- Legal documents are independent pages: privacy.html and consent.html -->
-<!-- MODAL: BUILT-IN CMS ADMIN PANEL -->
-<div class="modal-bg" id="cmsModal">
-  <div class="modal modal-lg">
-    <button class="modal-close" onclick="closeModal('cmsModal')">×</button>
-    <h3 style="color:var(--navy);margin-bottom:14px;">Панель управления сайтом (CMS) — «Лизинг Компас»</h3>
-    <div class="tabs">
-      <button class="tab-btn active" onclick="switchCmsTab('cmsLeads', this)">Заявки (<span id="leadsCount">0</span>)</button>
-      <button class="tab-btn" onclick="switchCmsTab('cmsSettings', this)">Реквизиты и Telegram-бот</button>
-      <button class="tab-btn" onclick="switchCmsTab('cmsRates', this)">Ставки калькулятора</button>
-      <button class="tab-btn" onclick="switchCmsTab('cmsContent', this)">Добавить статью / кейс</button>
-    </div>
-
-    <div id="cmsLeads" class="cms-pane">
-      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px;">
-        <button class="btn btn-primary btn-sm" onclick="exportLeadsCSV()">Скачать заявки CSV (для Excel-CRM)</button>
-        <button class="btn btn-outline btn-sm" onclick="clearLeads()">Очистить журнал</button>
-      </div>
-      <div style="overflow-x:auto;"><table class="cms-table" id="leadsTable"></table></div>
-    </div>
-
-    <div id="cmsSettings" class="cms-pane" style="display:none;">
-      <div class="grid-2" style="gap:12px;">
-        <div class="field"><label>Заголовок первого экрана (УТП)</label><input type="text" id="setHero"></div>
-        <div class="field"><label>Телефон на сайте</label><input type="text" id="setPhone"></div>
-        <div class="field"><label>E-mail</label><input type="email" id="setEmail"></div>
-        <div class="field"><label>Наименование ИП</label><input type="text" id="setIpName"></div>
-        <div class="field"><label>ИНН</label><input type="text" id="setInn"></div>
-        <div class="field"><label>ОГРНИП</label><input type="text" id="setOgrnip"></div>
-        <div class="field"><label>Telegram (ник без @)</label><input type="text" id="setTg"></div>
-        <div class="field"><label>WhatsApp (цифры, напр. 79001234567)</label><input type="text" id="setWa"></div>
-        <div class="field"><label>Ссылка на Макс</label><input type="text" id="setMax"></div>
-        <div class="field"><label>Webhook URL (n8n / Make / CRM)</label><input type="text" id="setWebhook" placeholder="https://..."></div>
-        <div class="field"><label>Telegram Bot Token (опционально)</label><input type="text" id="setBotToken" placeholder="123456:ABC..."></div>
-        <div class="field"><label>Telegram Chat ID (опционально)</label><input type="text" id="setChatId" placeholder="123456789"></div>
-      </div>
-      <button class="btn btn-primary btn-sm" onclick="saveSettings()">Сохранить настройки</button>
-    </div>
-
-    <div id="cmsRates" class="cms-pane" style="display:none;">
-      <p style="font-size:13px;color:var(--muted);margin-bottom:12px;">Измените ориентировочные годовые ставки (%) для 5 ЛК в таблице калькулятора:</p>
-      <div id="ratesInputs" class="grid-2" style="gap:10px;"></div>
-      <button class="btn btn-primary btn-sm" style="margin-top:12px;" onclick="saveRates()">Обновить ставки</button>
-    </div>
-
-    <div id="cmsContent" class="cms-pane" style="display:none;">
-      <div class="grid-2" style="gap:18px;">
-        <div>
-          <h4 style="margin-bottom:8px;color:var(--navy);">Добавить статью в блог</h4>
-          <div class="field"><input type="text" id="newArtTitle" placeholder="Заголовок статьи"></div>
-          <div class="field"><input type="text" id="newArtTag" placeholder="Рубрика (напр. Налоги)"></div>
-          <div class="field"><textarea id="newArtBody" rows="3" placeholder="Текст статьи"></textarea></div>
-          <button class="btn btn-primary btn-sm" onclick="addArticle()">Опубликовать статью</button>
-        </div>
-        <div>
-          <h4 style="margin-bottom:8px;color:var(--navy);">Добавить кейс экономии</h4>
-          <div class="field"><input type="text" id="newCaseTitle" placeholder="Название (напр. BMW X5 для ООО)"></div>
-          <div class="field"><input type="text" id="newCaseSave" placeholder="Экономия (напр. Экономия 420 000 ₽)"></div>
-          <div class="field"><textarea id="newCaseBody" rows="3" placeholder="Задача → Решение → Результат"></textarea></div>
-          <button class="btn btn-primary btn-sm" onclick="addCase()">Добавить кейс</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <script>
   const DEFAULTS = {
     heroTitle: "Лизинг для бизнеса. Выбирайте осознанно.",
@@ -1057,9 +999,7 @@ body{padding-bottom:86px}
     tg: "leasing_kompas",
     wa: "79604844141",
     max: "https://max.ru/",
-    webhook: "",
-    botToken: "",
-    chatId: "",
+
     rates: [{ name: "Сценарий 1", rate: 18 }, { name: "Сценарий 2", rate: 20 }, { name: "Сценарий 3", rate: 22 }, { name: "Сценарий 4", rate: 24 }, { name: "Сценарий 5", rate: 26 }]
   };
 
@@ -1178,7 +1118,7 @@ body{padding-bottom:86px}
   let state = JSON.parse(JSON.stringify(DEFAULTS));
   let casesData = DEFAULT_CASES;
   let articlesData = DEFAULT_ARTICLES;
-  let leads = [];
+
   let advMode = "pct";
   let isVat = true;
   let quizAnswers = { q1: "", q2: "", q3: "" };
@@ -1337,7 +1277,9 @@ body{padding-bottom:86px}
     return principal * (r * Math.pow(1 + r, months)) / (Math.pow(1 + r, months) - 1);
   }
 
-  function recalc() {
+  let calcFrame=0,calcRows=[],calcSnapshot=null;
+  function recalc(){if(calcFrame)return;calcFrame=requestAnimationFrame(()=>{calcFrame=0;paintCalc();});}
+  function paintCalc() {
     const price=Math.min(150000000,Math.max(500000,Number(document.getElementById("cPriceNum").value)||500000));
     const raw=Math.max(0,Number(document.getElementById("cAdvInput").value)||0);
     const advRub=advMode==="rub"?Math.min(price*.49,raw):price*Math.min(49,raw)/100;
@@ -1353,11 +1295,14 @@ body{padding-bottom:86px}
       const total=advRub+mPay*term;
       return {name:lk.name,rate:lk.rate,mPay,total,overpay:total-price};
     }).sort((a,b)=>a.total-b.total);
-    const best=rows[0];
+    const best=rows[0]; calcRows=rows; calcSnapshot={price,advRub,term,extra};
     document.getElementById("resMonthly").textContent=fmt(best.mPay);
     document.getElementById("resTaxLabel").textContent="Всего по модели (с авансом)";
     document.getElementById("resTax").textContent=fmt(best.total);
-    document.getElementById("lkCompareBody").innerHTML=rows.map((x,i)=>'<tr class="'+(i===0?'best':'')+'"><td data-label="Сценарий"><strong>'+x.rate+'%</strong><small>'+(i===0?'Минимум в модели':'Условная ставка')+'</small></td><td data-label="Платёж/мес.">'+fmt(x.mPay)+'</td><td data-label="Всего">'+fmt(x.total)+'</td><td data-label="Переплата">'+fmt(x.overpay)+'</td></tr>').join("");
+    const tbody=document.getElementById("lkCompareBody");
+    if(tbody.children.length!==rows.length){tbody.innerHTML=rows.map((x,i)=>'<tr class="'+(i===0?'best':'')+'"><td data-label="Сценарий"><strong>'+x.rate+'%</strong><small>'+(i===0?'Минимум в модели':'Условная ставка')+'</small></td><td data-label="Платёж/мес."></td><td data-label="Всего"></td><td data-label="Переплата"></td></tr>').join("");}
+    rows.forEach((x,i)=>{const cells=tbody.children[i].cells;[fmt(x.mPay),fmt(x.total),fmt(x.overpay)].forEach((v,j)=>{if(cells[j+1].textContent!==v)cells[j+1].textContent=v;});});
+    document.querySelectorAll("[data-term]").forEach(b=>b.setAttribute("aria-pressed",String(Number(b.dataset.term)===term)));
     document.getElementById("heroPayment").textContent=fmt(best.mPay);
     document.getElementById("heroSummary").textContent=fmt(price)+" · "+term+" мес. · "+best.rate+"% годовых (условно)";
     document.getElementById("heroAdv").textContent=fmt(advRub);
@@ -1410,118 +1355,16 @@ body{padding-bottom:86px}
     const a=document.createElement("a");a.href=url;a.download="Leasing_Compass_Primer.html";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
   }
 
-  // CMS Panel Functions
-  function switchCmsTab(id, btn) {
-    document.querySelectorAll("#cmsModal .tab-btn").forEach(b => b.classList.remove("active"));
-    document.querySelectorAll(".cms-pane").forEach(p => p.style.display = "none");
-    btn.classList.add("active");
-    document.getElementById(id).style.display = "block";
-  }
-
-  function renderCMS() {
-    document.getElementById("leadsCount").textContent = leads.length;
-    document.getElementById("leadsTable").innerHTML = `<tr><th>Дата</th><th>Источник</th><th>Имя</th><th>Телефон</th><th>ИНН</th><th>Детали</th></tr>` +
-      (leads.length ? leads.map(l => `<tr><td>${l.date}</td><td>${l.source}</td><td>${l.name}</td><td>${l.phone}</td><td>${l.inn}</td><td>${l.details}</td></tr>`).join("") : `<tr><td colspan="6">Заявок пока нет</td></tr>`);
-
-    document.getElementById("setHero").value = state.heroTitle;
-    document.getElementById("setPhone").value = state.phone;
-    document.getElementById("setEmail").value = state.email;
-    document.getElementById("setIpName").value = state.ipName;
-    document.getElementById("setInn").value = state.ipInn;
-    document.getElementById("setOgrnip").value = state.ipOgrnip;
-    document.getElementById("setTg").value = state.tg;
-    document.getElementById("setWa").value = state.wa;
-    document.getElementById("setMax").value = state.max;
-    document.getElementById("setWebhook").value = state.webhook || "";
-    document.getElementById("setBotToken").value = state.botToken || "";
-    document.getElementById("setChatId").value = state.chatId || "";
-
-    document.getElementById("ratesInputs").innerHTML = state.rates.map((r, i) => `
-      <div class="field"><label>${r.name} (%)</label><input type="number" step="0.1" id="rate_${i}" value="${r.rate}"></div>
-    `).join("");
-  }
-
-  function saveSettings() {
-    state.heroTitle = document.getElementById("setHero").value;
-    state.phone = document.getElementById("setPhone").value;
-    state.email = document.getElementById("setEmail").value;
-    state.ipName = document.getElementById("setIpName").value;
-    state.ipInn = document.getElementById("setInn").value;
-    state.ipOgrnip = document.getElementById("setOgrnip").value;
-    state.tg = document.getElementById("setTg").value;
-    state.wa = document.getElementById("setWa").value;
-    state.max = document.getElementById("setMax").value;
-    state.webhook = document.getElementById("setWebhook").value.trim();
-    state.botToken = document.getElementById("setBotToken").value.trim();
-    state.chatId = document.getElementById("setChatId").value.trim();
-    localStorage.setItem("lk_cms_state", JSON.stringify(state));
-    applyBindings();
-    showToast("Настройки сохранены!");
-  }
-
-  function saveRates() {
-    state.rates.forEach((r, i) => { r.rate = parseFloat(document.getElementById("rate_" + i).value) || r.rate; });
-    localStorage.setItem("lk_cms_state", JSON.stringify(state));
-    recalc();
-    showToast("Ставки калькулятора обновлены!");
-  }
-
-  function addArticle() {
-    const title = document.getElementById("newArtTitle").value.trim();
-    const tag = document.getElementById("newArtTag").value.trim() || "Аналитика";
-    const body = document.getElementById("newArtBody").value.trim();
-    if (!title || !body) return;
-    articlesData.unshift({ tag, title, body });
-    localStorage.setItem("lk_cms_articles", JSON.stringify(articlesData));
-    renderBlog();
-    document.getElementById("newArtTitle").value = "";
-    document.getElementById("newArtBody").value = "";
-    showToast("Статья опубликована!");
-  }
-
-  function addCase() {
-    const title = document.getElementById("newCaseTitle").value.trim();
-    const save = document.getElementById("newCaseSave").value.trim() || "Выгода подтверждена";
-    const body = document.getElementById("newCaseBody").value.trim();
-    if (!title || !body) return;
-    casesData.unshift({ title, save, body });
-    localStorage.setItem("lk_cms_cases", JSON.stringify(casesData));
-    renderCases();
-    document.getElementById("newCaseTitle").value = "";
-    document.getElementById("newCaseBody").value = "";
-    showToast("Кейс добавлен на сайт!");
-  }
-
-  function exportLeadsCSV() {
-    const header = "Дата;Источник;Имя;Телефон;ИНН;Мессенджер;Детали;UTM\n";
-    const rows = leads.map(l => [l.date, l.source, l.name, l.phone, l.inn, l.messenger, l.details, l.utm].map(v => `"${String(v||"").replace(/"/g,'""')}"`).join(";")).join("\n");
-    const blob = new Blob(["\uFEFF" + header + rows], { type: "text/csv;charset=utf-8;" });
-    const a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
-    a.download = "Leasing_Kompas_Leads.csv";
-    a.click();
-  }
-
-  function clearLeads() {
-    if (!confirm("Очистить журнал заявок?")) return;
-    leads = [];
-    localStorage.setItem("lk_cms_leads", "[]");
-    renderCMS();
-  }
-
   // UI Helpers
-  function openModal(id) { document.getElementById(id).classList.add("open"); }
-  function closeModal(id) { document.getElementById(id).classList.remove("open"); }
+  function openModal(id) { const el=document.getElementById(id); if(!el)return;el.classList.add("open");el.setAttribute("role","dialog");el.setAttribute("aria-modal","true");el.querySelector(".modal-close")?.focus(); }
+  function closeModal(id) { document.getElementById(id)?.classList.remove("open"); }
   function showToast(txt) {
     const t = document.getElementById("toast");
     t.textContent = txt;
     t.classList.add("show");
     setTimeout(() => t.classList.remove("show"), 3600);
   }
-  function acceptCookie() {
-    localStorage.setItem("lk_cookie_ok", "1");
-    document.getElementById("cookieBar").classList.remove("show");
-  }
+
 
   document.getElementById("burgerBtn").addEventListener("click", () => {
     const open=document.getElementById("mobileMenu").classList.toggle("open");document.getElementById("burgerBtn").setAttribute("aria-expanded",String(open));
@@ -1541,8 +1384,8 @@ body{padding-bottom:86px}
   renderServices();
   renderCases();
   renderBlog();
-  recalc();
-  if (!localStorage.getItem("lk_cookie_ok")) document.getElementById("cookieBar").classList.add("show");
+  paintCalc();
+
 </script>
 <script>
 document.querySelectorAll('form').forEach(f=>{
@@ -1552,8 +1395,7 @@ document.querySelectorAll('form').forEach(f=>{
 document.querySelectorAll('[data-bind-href="tg"],[data-bind-href="max"],a[href="https://vk.com/"],a[href="https://rutube.ru/"],a[href="https://youtube.com/"]').forEach(x=>{x.removeAttribute('href');x.removeAttribute('target');x.setAttribute('aria-disabled','true');});
 document.querySelectorAll('[data-bind="ipName"]').forEach(x=>x.textContent='ИП Гасанов Тариэль Алиевич');
 
-document.getElementById('cmsModal')?.remove();
-document.getElementById('cookieBar')?.remove();
+
 document.querySelector('#cases .section-title').textContent='Примеры задач по лизингу';
 document.querySelector('#cases .section-sub').textContent='Иллюстративные сценарии, не подтверждённые реальные сделки.';
 document.querySelectorAll('.partners-strip').forEach(x=>{x.parentElement.querySelector('.eyebrow').textContent='УЧАСТНИКИ РЫНКА';x.parentElement.querySelector('h2').textContent='Лизинговые компании: примеры';x.parentElement.querySelector('.section-sub').textContent='Партнёрские отношения не подтверждены.';});
@@ -1618,6 +1460,20 @@ document.querySelectorAll('form').forEach(form=>{
   toggle.addEventListener('click', () => { document.body.classList.toggle('callback-motion-off'); syncMotion(); });
   if (reduced.addEventListener) reduced.addEventListener('change', syncMotion);
   syncMotion();
+})();
+</script>
+<script>
+(() => {
+ const byId=id=>document.getElementById(id);
+ document.querySelectorAll('[data-term]').forEach(b=>b.addEventListener('click',()=>{byId('cTerm').value=b.dataset.term;recalc();}));
+ byId('resetCalc').addEventListener('click',()=>{byId('cPriceNum').value=4500000;byId('cPriceRange').value=4500000;byId('cAdvRange').value=20;setAdvMode('pct');byId('cAdvInput').value=20;byId('cTerm').value=36;byId('cOpts').checked=false;setVat(true);recalc();});
+ byId('saveCurrentCalc').addEventListener('click',()=>{paintCalc();const x=calcSnapshot;const lines=['Лизинг Компас — учебная модель, не оферта','Стоимость;Аванс;Срок (мес.);Доп. услуги',[Math.round(x.price),Math.round(x.advRub),x.term,Math.round(x.extra)].join(';'),'Условная ставка (%);Платёж в месяц;Всего с авансом;Переплата',...calcRows.map(r=>[r.rate,Math.round(r.mPay),Math.round(r.total),Math.round(r.overpay)].join(';'))];const u=URL.createObjectURL(new Blob(['\uFEFF'+lines.join('\r\n')],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=u;a.download='Leasing_Compass_calculation.csv';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);});
+ // Native scrolling: adapted from KASKAD mobile process controls, no gesture interception.
+ const track=document.querySelector('.steps-grid');
+ if(track){const cards=[...track.children];const nav=document.createElement('div');nav.className='process-controls';nav.innerHTML='<button type="button">← Назад</button><span aria-live="polite"></span><button type="button">Далее →</button>';track.after(nav);const [prev,next]=nav.querySelectorAll('button');const count=nav.querySelector('span');const near=()=>{if(track.scrollLeft<=2)return 0;if(track.scrollLeft>=track.scrollWidth-track.clientWidth-2)return cards.length-1;return cards.reduce((best,c,i)=>Math.abs(c.offsetLeft-cards[0].offsetLeft-track.scrollLeft)<Math.abs(cards[best].offsetLeft-cards[0].offsetLeft-track.scrollLeft)?i:best,0)};const sync=()=>{const i=near();count.textContent='Этап '+(i+1)+' из '+cards.length;prev.disabled=i===0;next.disabled=i===cards.length-1;};const go=d=>{const i=Math.max(0,Math.min(cards.length-1,near()+d));track.scrollTo({left:cards[i].offsetLeft-cards[0].offsetLeft,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});};prev.onclick=()=>go(-1);next.onclick=()=>go(1);let pending=false;track.addEventListener('scroll',()=>{if(!pending){pending=true;requestAnimationFrame(()=>{pending=false;sync()})}},{passive:true});window.addEventListener('resize',sync,{passive:true});sync();}
+ // Do not consume animation frames for invisible phone icons.
+ const triggers=[...document.querySelectorAll('.callback-trigger')];if('IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>entries.forEach(e=>e.target.classList.toggle('lab-visible',e.isIntersecting)),{threshold:.1});triggers.forEach(x=>observer.observe(x));}else triggers.forEach(x=>x.classList.add('lab-visible'));
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.modal-bg.open').forEach(m=>closeModal(m.id));}});
 })();
 </script>
 </body>
