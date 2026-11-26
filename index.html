@@ -557,10 +557,26 @@ html{scroll-padding-bottom:100px}
 #calc-section .thumb-slider-knob:active{cursor:grabbing}
 #calc-section .thumb-slider:has(input:focus-visible){outline:2px solid var(--navy-2);outline-offset:2px;border-radius:8px}
 </style>
-<meta name="preview-version" content="lab-v2.9.4"></head>
+<meta name="preview-version" content="lab-v2.10"><script>
+function financeNumber(el){const v=String(el.value).replace(/\s/g,'');return /^\d+$/.test(v)?Number(v):NaN}
+function financeFormat(n){return Number.isFinite(n)?String(n).replace(/\B(?=(\d{3})+(?!\d))/g,' '):''}
+function setFinance(el,n){el.value=financeFormat(n)}
+function financeValid(el){const n=financeNumber(el);return Number.isSafeInteger(n)&&n>=Number(el.dataset.min)&&n<=Number(el.dataset.max)}
+function refreshFinance(){window.syncFinanceSliders?.()}
+</script><style>
+.thumb-slider{position:relative;width:100%;height:46px;margin:3px 0 0;--range-fill:0%}
+.thumb-slider input[type="range"]{position:absolute!important;inset:auto!important;left:0!important;top:0!important;width:1px!important;height:1px!important;min-width:0!important;min-height:0!important;max-width:1px!important;margin:0!important;padding:0!important;border:0!important;opacity:0!important;clip-path:inset(50%)!important;pointer-events:none!important;touch-action:auto!important;overflow:hidden!important}
+.thumb-slider-rail{position:absolute;inset:0 14px;pointer-events:none}
+.thumb-slider-rail::before{content:"";position:absolute;left:0;right:0;top:50%;height:8px;transform:translateY(-50%);border-radius:999px;background:linear-gradient(to right,var(--accent) 0%,var(--accent) var(--range-fill),#CBD5E1 var(--range-fill),#CBD5E1 100%)}
+.thumb-slider-knob{position:absolute;left:var(--range-fill);top:50%;transform:translate(-50%,-50%);width:28px;height:28px;box-sizing:border-box;border:3px solid #fff;border-radius:50%;background:var(--accent);box-shadow:0 0 0 1px var(--accent),0 2px 5px #0f234233;pointer-events:auto;touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none}
+.thumb-slider:has(input:focus-visible){outline:2px solid var(--navy);outline-offset:2px;border-radius:8px}
+.thumb-slider.is-disabled{opacity:.35}.thumb-slider.is-disabled .thumb-slider-knob{pointer-events:none}
+.finance-limits{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin:-3px 0 6px}
+input[data-money]{font-variant-numeric:tabular-nums}
+</style></head>
 <body>
 <a class="skip-link" href="#main">Перейти к содержанию</a>
-<div class="preview-notice"><div class="container"><span class="preview-dot"></span><strong>Вариант №2 · V2.9.4</strong><span>Предпросмотр · заявки пока не принимаются</span></div></div>
+<div class="preview-notice"><div class="container"><span class="preview-dot"></span><strong>Вариант №2 · V2.10</strong><span>Предпросмотр · заявки пока не принимаются</span></div></div>
 
 <div id="toast" class="toast">Заявка отправлена!</div>
 
@@ -593,7 +609,7 @@ html{scroll-padding-bottom:100px}
   <div class="mobile-menu" id="mobileMenu">
     <a href="#services">Услуги</a>
     <a href="#calc-section">Калькулятор и Квиз</a>
-    <a href="./self-service.html?v=27">Подготовить заявку</a>
+    <a href="./self-service.html?v=210">Подготовить заявку</a>
     <a href="./cabinet.html?v=27">Кабинет клиента</a>
     <a href="#cases">Кейсы экономии</a>
     <a href="#b2b">Партнерам (B2B)</a>
@@ -634,7 +650,7 @@ html{scroll-padding-bottom:100px}
 <div class="container route-section"><div class="cabinet-banner"><div><strong>Личный кабинет клиента</strong></div><a class="btn btn-outline" href="./cabinet.html?v=27">Войти в тестовый кабинет →</a></div><h2 class="route-title">С чего начнём?</h2><div class="quick-paths" aria-label="Выбор задачи">
   <a href="#services"><span class="route-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v14H4zM8 9h8M8 13h3M15 13h1"/></svg></span><span class="route-copy"><strong>Нужен новый лизинг</strong><small>Выбрать имущество</small></span><b>→</b></a>
   <a href="#offer-compare"><span class="route-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V4M4 20h16M8 15l4-5 4 2 4-7"/></svg></span><span class="route-copy"><strong>Есть предложение от лизинговой компании</strong><small>Сравнить полную стоимость</small></span><b>→</b></a>
-  <a href="./self-service.html?v=27"><span class="route-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 9l2 2 4-4M9 15h6M9 18h4"/></svg></span><span class="route-copy"><strong>Подготовить заявку</strong><small>Бюджет, документы, кредитная история</small></span><b>→</b></a>
+  <a href="./self-service.html?v=210"><span class="route-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 9l2 2 4-4M9 15h6M9 18h4"/></svg></span><span class="route-copy"><strong>Подготовить заявку</strong><small>Бюджет, документы, кредитная история</small></span><b>→</b></a>
   <a href="#support-route"><span class="route-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-5 8-8 9-3-1-8-4-8-9V6l8-3Zm-4 9 3 3 5-6"/></svg></span><span class="route-copy"><strong>Уже есть договор</strong><small>Выкуп, страхование, график</small></span><b>→</b></a>
 </div></div>
 
@@ -678,18 +694,15 @@ html{scroll-padding-bottom:100px}
             </div>
             <div class="field">
               <label for="cPriceNum"><span>Стоимость имущества, ₽</span><strong id="cPriceOut">4 500 000 ₽</strong></label>
-              <input type="number" id="cPriceNum" value="4500000" min="500000" max="150000000" step="50000" oninput="syncPrice(this.value,false)" onchange="syncPrice(this.value,true)">
+              <input type="text" data-money inputmode="numeric" id="cPriceNum" value="4 500 000" data-min="500000" data-max="150000000" oninput="syncPrice(this.value,false)" onchange="syncPrice(this.value,true)">
               <div class="thumb-slider" style="--range-fill:2.676%"><input type="range" id="cPriceRange" aria-label="Стоимость имущества" min="500000" max="150000000" step="50000" value="4500000" oninput="syncPrice(this.value)" style="--range-fill:2.676%"><div class="thumb-slider-rail" aria-hidden="true"><div class="thumb-slider-knob"></div></div></div><div class="range-limits" aria-hidden="true"><span>500 тыс. ₽</span><span>150 млн ₽</span></div>
             </div>
             <div class="field">
               <label>
                 <span>Аванс (<span id="cAdvOut">20% — 900 000 ₽</span>)</span>
-                <span style="display:flex;gap:6px;">
-                  <button type="button" class="btn btn-sm" id="advPctBtn" style="padding:2px 8px;background:var(--navy);color:#fff;" onclick="setAdvMode('pct')">%</button>
-                  <button type="button" class="btn btn-sm" id="advRubBtn" style="padding:2px 8px;background:#E2E8F0;" onclick="setAdvMode('rub')">₽</button>
-                </span>
+                
               </label>
-              <input type="number" id="cAdvInput" aria-label="Размер аванса" value="20" min="0" max="49" step="0.1" oninput="syncAdvInput(false)" onchange="syncAdvInput(true)">
+              <input type="text" data-money inputmode="numeric" id="cAdvInput" aria-label="Размер аванса, рубли" value="900 000" data-min="0" data-max="2205000" oninput="syncAdvInput(false)" onchange="syncAdvInput(true)">
               <div class="thumb-slider" style="--range-fill:40.816%"><input type="range" id="cAdvRange" aria-label="Аванс в процентах" min="0" max="49" step="0.1" value="20" oninput="syncAdvRange()" style="--range-fill:40.816%"><div class="thumb-slider-rail" aria-hidden="true"><div class="thumb-slider-knob"></div></div></div><div class="range-limits" aria-hidden="true"><span>0%</span><span>49%</span></div>
             </div>
             <div class="field">
@@ -772,13 +785,7 @@ html{scroll-padding-bottom:100px}
 
         <div class="quiz-step" data-step="2">
           <h3>2. Ориентировочный бюджет и желаемый аванс</h3>
-          <div class="quiz-opts">
-            <button type="button" class="quiz-opt" onclick="pickQuiz(2,'До 3 млн ₽',this)">До 3 млн ₽</button>
-            <button type="button" class="quiz-opt" onclick="pickQuiz(2,'3 – 7 млн ₽',this)">3 – 7 млн ₽</button>
-            <button type="button" class="quiz-opt" onclick="pickQuiz(2,'7 – 20 млн ₽',this)">7 – 20 млн ₽</button>
-            <button type="button" class="quiz-opt" onclick="pickQuiz(2,'Свыше 20 млн ₽',this)">Свыше 20 млн ₽</button>
-          </div>
-          <div class="field"><label>Желаемый аванс</label><input type="text" id="qAdv" maxlength="30" placeholder="Например: 15% или 1 000 000 ₽"></div>
+          <div class="field"><label for="qBudget">Бюджет, ₽</label><input type="text" id="qBudget" data-money inputmode="numeric" data-min="500000" data-max="150000000" data-slider="15000000" data-quantum="50000" value="4 500 000"></div><div class="field"><label for="qAdv">Желаемый аванс, ₽</label><input type="text" id="qAdv" data-money inputmode="numeric" data-min="0" data-max="4500000" data-slider="1000000" data-quantum="5000" value="900 000"></div>
           <div style="display:flex;gap:10px;"><button type="button" class="btn btn-outline btn-sm" onclick="goQuiz(1)">← Назад</button><button type="button" class="btn btn-primary btn-sm" onclick="goQuiz(3)">Далее →</button></div>
         </div>
 
@@ -823,7 +830,7 @@ html{scroll-padding-bottom:100px}
   </div>
 </section>
 
-<section class="section section-alt" id="offer-compare"><div class="container"><div class="eyebrow">СРАВНЕНИЕ КП</div><h2 class="section-title">Какое предложение выгоднее?</h2><p class="section-sub">Введите данные двух предложений и узнайте, сколько составят общие расходы.</p><div class="offer-grid"><fieldset class="offer-card"><legend>Предложение №1</legend><div class="field"><label for="offerAadvance">Аванс, ₽</label><input type="number" id="offerAadvance" data-offer="A" data-part="advance" value="900000" min="0" max="1000000000" step="1" inputmode="numeric"></div><div class="field"><label for="offerAmonths">Число ежемесячных платежей</label><input type="number" id="offerAmonths" data-offer="A" data-part="months" value="36" min="1" max="120" step="1" inputmode="numeric"></div><div class="field"><label for="offerApayment">Платёж в месяц, ₽</label><input type="number" id="offerApayment" data-offer="A" data-part="payment" value="130000" min="0" max="1000000000" step="1" inputmode="numeric"></div><div class="field"><label for="offerAbuyout">Выкуп (если не включён в платежи), ₽</label><input type="number" id="offerAbuyout" data-offer="A" data-part="buyout" value="1000" min="0" max="1000000000" step="1" inputmode="numeric"></div><div class="field"><label for="offerAextras">Доп. расходы (если не включены в платежи), ₽</label><input type="number" id="offerAextras" data-offer="A" data-part="extras" value="0" min="0" max="1000000000" step="1" inputmode="numeric"></div><details class="schedule-detail"><summary>Неравномерный график платежей</summary><label for="scheduleA">Платежи по месяцам, ₽ (через точку с запятой или с новой строки)</label><textarea id="scheduleA" rows="4" maxlength="3000" placeholder="130000; 125000; 120000"></textarea><label class="schedule-check"><input type="checkbox" id="useScheduleA"> Использовать этот график вместо равных платежей</label><small id="scheduleHintA">Аванс и выкуп указываются отдельно.</small></details><div class="offer-total"><small>Всего к оплате</small><strong id="offerTotalA">—</strong></div></fieldset><fieldset class="offer-card"><legend>Предложение №2</legend><div class="field"><label for="offerBadvance">Аванс, ₽</label><input type="number" id="offerBadvance" data-offer="B" data-part="advance" value="900000" min="0" max="1000000000" step="1" inputmode="numeric"></div><div class="field"><label for="offerBmonths">Число ежемесячных платежей</label><input type="number" id="offerBmonths" data-offer="B" data-part="months" value="36" min="1" max="120" step="1" inputmode="numeric"></div><div class="field"><label for="offerBpayment">Платёж в месяц, ₽</label><input type="number" id="offerBpayment" data-offer="B" data-part="payment" value="128000" min="0" max="1000000000" step="1" inputmode="numeric"></div><div class="field"><label for="offerBbuyout">Выкуп (если не включён в платежи), ₽</label><input type="number" id="offerBbuyout" data-offer="B" data-part="buyout" value="100000" min="0" max="1000000000" step="1" inputmode="numeric"></div><div class="field"><label for="offerBextras">Доп. расходы (если не включены в платежи), ₽</label><input type="number" id="offerBextras" data-offer="B" data-part="extras" value="30000" min="0" max="1000000000" step="1" inputmode="numeric"></div><details class="schedule-detail"><summary>Неравномерный график платежей</summary><label for="scheduleB">Платежи по месяцам, ₽ (через точку с запятой или с новой строки)</label><textarea id="scheduleB" rows="4" maxlength="3000" placeholder="130000; 125000; 120000"></textarea><label class="schedule-check"><input type="checkbox" id="useScheduleB"> Использовать этот график вместо равных платежей</label><small id="scheduleHintB">Аванс и выкуп указываются отдельно.</small></details><div class="offer-total"><small>Всего к оплате</small><strong id="offerTotalB">—</strong></div></fieldset></div><div class="offer-result" role="status" aria-live="polite" id="offerResult">—</div><details class="offer-visual" id="offerVisual" hidden><summary>Подробно: из чего складываются расходы</summary><div class="offer-breakdown"><table><thead><tr><th scope="col">Расходы</th><th scope="col">№1</th><th scope="col">№2</th></tr></thead><tbody id="offerBreakdown"></tbody></table></div><div class="offer-bars"><div><span>Предложение 1</span><div class="offer-bar" id="offerBarA"></div></div><div><span>Предложение 2</span><div class="offer-bar" id="offerBarB"></div></div></div><div class="offer-key"><span><i></i>Аванс</span><span><i></i>Платежи</span><span><i></i>Выкуп</span><span><i></i>Доп. расходы</span></div></details><details class="discount-detail"><summary>Дополнительный финансовый расчёт (дисконтирование)</summary><div class="field"><label for="discountRate">Годовая ставка дисконтирования, %</label><input id="discountRate" type="number" min="0" max="100" step="0.1" value="15" inputmode="decimal"></div><p class="calculation-explain">Ставка задаётся вами, а не лизинговой компанией. Аванс и дополнительные расходы считаются уплаченными сейчас, платежи — в конце каждого месяца, выкуп — в конце срока.</p><div class="discount-result" id="discountResult">—</div></details><button class="btn btn-outline" id="offerExport" type="button">Скачать подробное сравнение (CSV)</button> <button class="btn btn-outline" id="offerReset" type="button">Вернуть пример</button> <button class="btn btn-primary" type="button" onclick="document.getElementById('callbackTrigger').click()">Обсудить предложения</button></div></section>
+<section class="section section-alt" id="offer-compare"><div class="container"><div class="eyebrow">СРАВНЕНИЕ КП</div><h2 class="section-title">Какое предложение выгоднее?</h2><p class="section-sub">Введите данные двух предложений и узнайте, сколько составят общие расходы.</p><div class="offer-grid"><fieldset class="offer-card"><legend>Предложение №1</legend><div class="field"><label for="offerAadvance">Аванс, ₽</label><input type="text" data-money inputmode="numeric" id="offerAadvance" data-offer="A" data-part="advance" value="900000" data-min="0" data-max="1000000000" data-slider="5000000" data-quantum="5000"></div><div class="field"><label for="offerAmonths">Число ежемесячных платежей</label><input type="number" id="offerAmonths" data-offer="A" data-part="months" value="36" min="1" max="120" step="1" inputmode="numeric" data-slider="120" data-quantum="1"></div><div class="field"><label for="offerApayment">Платёж в месяц, ₽</label><input type="text" data-money inputmode="numeric" id="offerApayment" data-offer="A" data-part="payment" value="130000" data-min="0" data-max="1000000000" data-slider="1000000" data-quantum="1000"></div><div class="field"><label for="offerAbuyout">Выкуп (если не включён в платежи), ₽</label><input type="text" data-money inputmode="numeric" id="offerAbuyout" data-offer="A" data-part="buyout" value="1000" data-min="0" data-max="1000000000" data-slider="1000000" data-quantum="1000"></div><div class="field"><label for="offerAextras">Доп. расходы (если не включены в платежи), ₽</label><input type="text" data-money inputmode="numeric" id="offerAextras" data-offer="A" data-part="extras" value="0" data-min="0" data-max="1000000000" data-slider="1000000" data-quantum="1000"></div><details class="schedule-detail"><summary>Неравномерный график платежей</summary><label for="scheduleA">Платежи по месяцам, ₽ (через точку с запятой или с новой строки)</label><textarea id="scheduleA" rows="4" maxlength="3000" placeholder="130000; 125000; 120000"></textarea><label class="schedule-check"><input type="checkbox" id="useScheduleA"> Использовать этот график вместо равных платежей</label><small id="scheduleHintA">Аванс и выкуп указываются отдельно.</small></details><div class="offer-total"><small>Всего к оплате</small><strong id="offerTotalA">—</strong></div></fieldset><fieldset class="offer-card"><legend>Предложение №2</legend><div class="field"><label for="offerBadvance">Аванс, ₽</label><input type="text" data-money inputmode="numeric" id="offerBadvance" data-offer="B" data-part="advance" value="900000" data-min="0" data-max="1000000000" data-slider="5000000" data-quantum="5000"></div><div class="field"><label for="offerBmonths">Число ежемесячных платежей</label><input type="number" id="offerBmonths" data-offer="B" data-part="months" value="36" min="1" max="120" step="1" inputmode="numeric" data-slider="120" data-quantum="1"></div><div class="field"><label for="offerBpayment">Платёж в месяц, ₽</label><input type="text" data-money inputmode="numeric" id="offerBpayment" data-offer="B" data-part="payment" value="128000" data-min="0" data-max="1000000000" data-slider="1000000" data-quantum="1000"></div><div class="field"><label for="offerBbuyout">Выкуп (если не включён в платежи), ₽</label><input type="text" data-money inputmode="numeric" id="offerBbuyout" data-offer="B" data-part="buyout" value="100000" data-min="0" data-max="1000000000" data-slider="1000000" data-quantum="1000"></div><div class="field"><label for="offerBextras">Доп. расходы (если не включены в платежи), ₽</label><input type="text" data-money inputmode="numeric" id="offerBextras" data-offer="B" data-part="extras" value="30000" data-min="0" data-max="1000000000" data-slider="1000000" data-quantum="1000"></div><details class="schedule-detail"><summary>Неравномерный график платежей</summary><label for="scheduleB">Платежи по месяцам, ₽ (через точку с запятой или с новой строки)</label><textarea id="scheduleB" rows="4" maxlength="3000" placeholder="130000; 125000; 120000"></textarea><label class="schedule-check"><input type="checkbox" id="useScheduleB"> Использовать этот график вместо равных платежей</label><small id="scheduleHintB">Аванс и выкуп указываются отдельно.</small></details><div class="offer-total"><small>Всего к оплате</small><strong id="offerTotalB">—</strong></div></fieldset></div><div class="offer-result" role="status" aria-live="polite" id="offerResult">—</div><details class="offer-visual" id="offerVisual" hidden><summary>Подробно: из чего складываются расходы</summary><div class="offer-breakdown"><table><thead><tr><th scope="col">Расходы</th><th scope="col">№1</th><th scope="col">№2</th></tr></thead><tbody id="offerBreakdown"></tbody></table></div><div class="offer-bars"><div><span>Предложение 1</span><div class="offer-bar" id="offerBarA"></div></div><div><span>Предложение 2</span><div class="offer-bar" id="offerBarB"></div></div></div><div class="offer-key"><span><i></i>Аванс</span><span><i></i>Платежи</span><span><i></i>Выкуп</span><span><i></i>Доп. расходы</span></div></details><details class="discount-detail"><summary>Дополнительный финансовый расчёт (дисконтирование)</summary><div class="field"><label for="discountRate">Годовая ставка дисконтирования, %</label><input id="discountRate" data-slider="100" data-quantum="0.1" type="number" min="0" max="100" step="0.1" value="15" inputmode="decimal"></div><p class="calculation-explain">Ставка задаётся вами, а не лизинговой компанией. Аванс и дополнительные расходы считаются уплаченными сейчас, платежи — в конце каждого месяца, выкуп — в конце срока.</p><div class="discount-result" id="discountResult">—</div></details><button class="btn btn-outline" id="offerExport" type="button">Скачать подробное сравнение (CSV)</button> <button class="btn btn-outline" id="offerReset" type="button">Вернуть пример</button> <button class="btn btn-primary" type="button" onclick="document.getElementById('callbackTrigger').click()">Обсудить предложения</button></div></section>
 <!-- WHY BROKER -->
 <section class="section">
   <div class="container">
@@ -1006,7 +1013,7 @@ html{scroll-padding-bottom:100px}
         </div>
         <div class="grid-2" style="gap:10px;">
           <div class="field"><input type="text" name="asset" placeholder="Авто / оборудование / объект *" required></div>
-          <div class="field"><input type="text" name="budget" placeholder="Бюджет и срок (напр. 5 млн, 36 мес.)"></div>
+          <div class="field"><label for="requestBudget">Бюджет, ₽</label><input type="text" id="requestBudget" name="budget" data-finance data-money inputmode="numeric" data-min="0" data-max="150000000" data-slider="15000000" data-quantum="50000" value="4 500 000"><label for="requestTerm">Срок, мес.</label><input type="number" id="requestTerm" name="term" data-finance data-slider="84" min="1" max="120" step="1" value="36"></div>
         </div>
         <div class="grid-2" style="gap:10px;">
           <div class="field"><input type="text" name="name" placeholder="Ваше имя *" required></div>
@@ -1035,7 +1042,7 @@ html{scroll-padding-bottom:100px}
       </div>
       <div>
         <h4>Навигация</h4>
-        <ul><li><a href="#services">Услуги</a></li><li><a href="#calc-section">Калькулятор</a></li><li><a href="./self-service.html?v=27">Подготовить заявку</a></li><li><a href="#about">О компании</a></li><li><a href="#b2b">Партнёрам</a></li><li><a href="#contacts">Контакты и реквизиты</a></li></ul>
+        <ul><li><a href="#services">Услуги</a></li><li><a href="#calc-section">Калькулятор</a></li><li><a href="./self-service.html?v=210">Подготовить заявку</a></li><li><a href="#about">О компании</a></li><li><a href="#b2b">Партнёрам</a></li><li><a href="#contacts">Контакты и реквизиты</a></li></ul>
       </div>
       <div>
         <h4>Правовая информация</h4>
@@ -1221,7 +1228,6 @@ html{scroll-padding-bottom:100px}
   let casesData = DEFAULT_CASES;
   let articlesData = DEFAULT_ARTICLES;
 
-  let advMode = "pct";
   let quizAnswers = { q1: "", q2: "", q3: "" };
 
   const fmt = n => Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " ₽";
@@ -1326,45 +1332,15 @@ html{scroll-padding-bottom:100px}
   }
 
   // Calculator Logic
-  function syncPrice(v,commit=true) {
-    const val = Math.min(150000000,Math.max(500000,Number(v)||500000));
-    if(commit) document.getElementById("cPriceNum").value=val;
+  function calcPrice(){return Math.min(150000000,Math.max(500000,financeNumber(document.getElementById("cPriceNum"))||500000));}
+  function syncPrice(v,commit=true){
+    const priceField=document.getElementById("cPriceNum"),val=Math.min(150000000,Math.max(500000,Number(String(v).replace(/\s/g,''))||500000));
+    if(commit)setFinance(priceField,val);
     document.getElementById("cPriceRange").value=val;
-    if(advMode==="rub") {
-      const field=document.getElementById("cAdvInput");
-      field.max=Math.round(val*.49); field.value=Math.round(val*Number(document.getElementById("cAdvRange").value)/100);
-    }
-    recalc();
+    const field=document.getElementById("cAdvInput");field.dataset.max=String(Math.round(val*.49));setFinance(field,Math.round(val*Number(document.getElementById("cAdvRange").value)/100));recalc();
   }
-  function setAdvMode(mode) {
-    advMode=mode;
-    const price=Math.min(150000000,Math.max(500000,Number(document.getElementById("cPriceNum").value)||500000));
-    const pct=Number(document.getElementById("cAdvRange").value);
-    const field=document.getElementById("cAdvInput");
-    field.max=mode==="pct"?49:Math.round(price*.49); field.step=mode==="pct"?0.1:1;
-    field.value=mode==="pct"?pct:Math.round(price*pct/100);
-    document.getElementById("advPctBtn").style.background=mode==="pct"?"var(--navy)":"#E2E8F0";
-    document.getElementById("advPctBtn").style.color=mode==="pct"?"#fff":"var(--slate)";
-    document.getElementById("advRubBtn").style.background=mode==="rub"?"var(--navy)":"#E2E8F0";
-    document.getElementById("advRubBtn").style.color=mode==="rub"?"#fff":"var(--slate)";
-    recalc();
-  }
-  function syncAdvRange() {
-    const price=Math.min(150000000,Math.max(500000,Number(document.getElementById("cPriceNum").value)||500000));
-    const pct=Number(document.getElementById("cAdvRange").value);
-    document.getElementById("cAdvInput").value=advMode==="pct"?pct:Math.round(price*pct/100);
-    recalc();
-  }
-  function syncAdvInput(commit=true) {
-    const price=Math.min(150000000,Math.max(500000,Number(document.getElementById("cPriceNum").value)||500000));
-    const field=document.getElementById("cAdvInput");
-    const val=Math.min(advMode==="pct"?49:Math.round(price*.49),Math.max(0,Number(field.value)||0));
-    if(commit)field.value=val;
-    document.getElementById("cAdvRange").value=advMode==="pct"?val:val/price*100;
-    recalc();
-  }
-
-
+  function syncAdvRange(){setFinance(document.getElementById("cAdvInput"),Math.round(calcPrice()*Number(document.getElementById("cAdvRange").value)/100));recalc();}
+  function syncAdvInput(commit=true){const field=document.getElementById("cAdvInput"),price=calcPrice(),val=Math.min(Math.round(price*.49),Math.max(0,financeNumber(field)||0));if(commit)setFinance(field,val);document.getElementById("cAdvRange").value=val/price*100;recalc();}
   function pmt(annualRate, months, principal) {
     const r = (annualRate / 100) / 12;
     if (r === 0) return principal / months;
@@ -1381,9 +1357,9 @@ html{scroll-padding-bottom:100px}
     el.setAttribute('aria-valuetext',description);
   }
   function paintCalc() {
-    const price=Math.min(150000000,Math.max(500000,Number(document.getElementById("cPriceNum").value)||500000));
-    const raw=Math.max(0,Number(document.getElementById("cAdvInput").value)||0);
-    const advRub=advMode==="rub"?Math.min(price*.49,raw):price*Math.min(49,raw)/100;
+    const price=calcPrice();
+    const raw=Math.max(0,financeNumber(document.getElementById("cAdvInput"))||0);
+    const advRub=Math.min(price*.49,raw);
     const pct=advRub/price*100;
     const term=Number(document.getElementById("cTerm").value)||36;
     const financed=price-advRub;
@@ -1434,11 +1410,12 @@ html{scroll-padding-bottom:100px}
   }
 
   function goQuiz(step) {
+    if(step>=3){const b=document.getElementById("qBudget"),a=document.getElementById("qAdv");a.dataset.max=String(financeNumber(b)||0);if(!financeValid(b)||!financeValid(a)){showToast("Проверьте бюджет и аванс.");return;}quizAnswers.q2=fmt(financeNumber(b));}
     if(step===3 && !quizAnswers.q2 || step===4 && (!quizAnswers.q2 || !quizAnswers.q3)){showToast("Выберите подходящий вариант.");return;}
     document.querySelectorAll(".quiz-step").forEach(s => s.classList.toggle("active", Number(s.dataset.step) === step));
     document.getElementById("quizStepLabel").textContent = `Шаг ${step} из 4`;
     document.getElementById("quizBar").style.width = (step * 25) + "%";
-    if(step===4){const box=document.getElementById("quizReview");box.replaceChildren(...[["Имущество",quizAnswers.q1,1],["Бюджет",quizAnswers.q2,2],["Статус",quizAnswers.q3,3]].map(([label,value,n])=>{const row=document.createElement("div"),copy=document.createElement("span"),button=document.createElement("button");copy.textContent=label+": "+(value||"Не указано");button.type="button";button.textContent="Изменить";button.setAttribute("aria-label","Изменить: "+label);button.onclick=()=>goQuiz(n);row.append(copy,button);return row;}));}
+    if(step===4){const box=document.getElementById("quizReview");box.replaceChildren(...[["Имущество",quizAnswers.q1,1],["Бюджет",quizAnswers.q2,2],["Аванс",fmt(financeNumber(document.getElementById("qAdv"))),2],["Статус",quizAnswers.q3,3]].map(([label,value,n])=>{const row=document.createElement("div"),copy=document.createElement("span"),button=document.createElement("button");copy.textContent=label+": "+(value||"Не указано");button.type="button";button.textContent="Изменить";button.setAttribute("aria-label","Изменить: "+label);button.onclick=()=>goQuiz(n);row.append(copy,button);return row;}));}
   }
 
   // Lead Submission + Optional Telegram Bot / Webhook + Sample KP download
@@ -1491,7 +1468,7 @@ html{scroll-padding-bottom:100px}
 </script>
 <script>
 document.querySelectorAll('form').forEach(f=>{
-  f.querySelectorAll('input:not([type=checkbox]),textarea').forEach(x=>{x.readOnly=true;x.removeAttribute('required');x.placeholder='Демо: данные не вводятся';});
+  f.querySelectorAll('input:not([type=checkbox]):not([data-finance]),textarea').forEach(x=>{x.readOnly=true;x.removeAttribute('required');x.placeholder='Демо: данные не вводятся';});
   f.querySelectorAll('[required]:not([name="pdConsent"])').forEach(x=>x.removeAttribute('required'));
 });
 document.querySelectorAll('[data-bind-href="tg"],[data-bind-href="max"],a[href="https://vk.com/"],a[href="https://rutube.ru/"],a[href="https://youtube.com/"]').forEach(x=>{x.removeAttribute('href');x.removeAttribute('target');x.setAttribute('aria-disabled','true');});
@@ -1568,7 +1545,7 @@ document.querySelectorAll('form').forEach(form=>{
 (() => {
  const byId=id=>document.getElementById(id);
  document.querySelectorAll('[data-term]').forEach(b=>b.addEventListener('click',()=>{byId('cTerm').value=b.dataset.term;recalc();}));
- byId('resetCalc').addEventListener('click',()=>{byId('cPriceNum').value=4500000;byId('cPriceRange').value=4500000;byId('cAdvRange').value=20;setAdvMode('pct');byId('cAdvInput').value=20;byId('cTerm').value=36;recalc();});
+ byId('resetCalc').addEventListener('click',()=>{setFinance(byId('cPriceNum'),4500000);byId('cPriceRange').value=4500000;byId('cAdvRange').value=20;byId('cAdvInput').dataset.max='2205000';setFinance(byId('cAdvInput'),900000);byId('cTerm').value=36;recalc();});
  byId('saveCurrentCalc').addEventListener('click',()=>{paintCalc();const x=calcSnapshot;const lines=['Лизинг Компас — учебная модель, не оферта','Стоимость;Аванс;Срок (мес.)',[Math.round(x.price),Math.round(x.advRub),x.term].join(';'),'Условная ставка (%);Платёж в месяц;Всего с авансом;Переплата',...calcRows.map(r=>[r.rate,Math.round(r.mPay),Math.round(r.total),Math.round(r.overpay)].join(';'))];const u=URL.createObjectURL(new Blob(['\uFEFF'+lines.join('\r\n')],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=u;a.download='Leasing_Compass_calculation.csv';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);});
  // Native scrolling: adapted from KASKAD mobile process controls, no gesture interception.
  const track=document.querySelector('.steps-grid');
@@ -1596,8 +1573,8 @@ document.querySelectorAll('form').forEach(form=>{
      let v={},custom=$('useSchedule'+a).checked;
      for(const x of inputs.filter(x=>x.dataset.offer===a)){
        const ignored=custom&&['months','payment'].includes(x.dataset.part);x.disabled=ignored;
-       if(!ignored&&(!x.value.trim()||!x.checkValidity()))bad=true;
-       v[x.dataset.part]=Number(x.value);
+       if(!ignored&&(!x.value.trim()||(x.hasAttribute('data-money')?!financeValid(x):!x.checkValidity())))bad=true;
+       v[x.dataset.part]=x.hasAttribute('data-money')?financeNumber(x):Number(x.value);
      }
      const p=schedule(a,v);
      $('scheduleHint'+a).textContent=custom?(p?'Платежей в графике: '+p.length:'Введите от 1 до 120 неотрицательных сумм; разделитель — ; или новая строка.'):'Аванс и выкуп указываются отдельно.';
@@ -1605,6 +1582,7 @@ document.querySelectorAll('form').forEach(form=>{
      const sum=p.reduce((n,x)=>n+x,0);
      all[a]={...v,p,months:p.length,sum,total:v.advance+sum+v.buyout+v.extras};
    }
+   refreshFinance();
    $('offerExport').disabled=bad;
    $('offerVisual').hidden=bad;
    if(bad){latest=null;$('offerTotalA').textContent='—';$('offerTotalB').textContent='—';$('offerResult').textContent='Проверьте суммы и графики платежей.';$('discountResult').textContent='Сначала заполните предложения.';return;}
@@ -1632,7 +1610,7 @@ document.querySelectorAll('form').forEach(form=>{
  const queue=()=>{if(!frame)frame=requestAnimationFrame(calc);};
  [...inputs,$('scheduleA'),$('scheduleB'),$('discountRate')].forEach(x=>x.addEventListener('input',queue));
  ['A','B'].forEach(a=>$('useSchedule'+a).addEventListener('change',calc));
- $('offerReset').addEventListener('click',()=>{inputs.forEach(x=>x.value=x.defaultValue);['A','B'].forEach(a=>{$('useSchedule'+a).checked=false;$('schedule'+a).value='';});$('discountRate').value='15';calc();});
+ $('offerReset').addEventListener('click',()=>{inputs.forEach(x=>{x.value=x.defaultValue;if(x.hasAttribute('data-money'))setFinance(x,financeNumber(x));});['A','B'].forEach(a=>{$('useSchedule'+a).checked=false;$('schedule'+a).value='';});$('discountRate').value='15';calc();});
  $('offerExport').addEventListener('click',()=>{
    calc();if(!latest)return;
    const num=(n,d=2)=>n.toFixed(d).replace('.',',');
@@ -1653,49 +1631,54 @@ document.querySelectorAll('form').forEach(form=>{
 </script>
 <script>
 (() => {
-  // Keep the real input as the single source of truth, including keyboard interaction.
-  function installThumbSlider(input) {
-    const wrapper=input.parentElement;
-    const rail=wrapper.querySelector('.thumb-slider-rail');
-    const knob=rail.querySelector('.thumb-slider-knob');
-    const min=Number(input.min),max=Number(input.max),step=Number(input.step)||1;
-    const precision=(String(step).split('.')[1]||'').length;
-    function paint(){wrapper.style.setProperty('--range-fill',((Number(input.value)-min)/(max-min)*100)+'%');}
-    paint();input.addEventListener('input',paint);
-    let drag=null;
-    knob.addEventListener('pointerdown',e=>{
-      if(drag||e.isPrimary===false||e.button!==0)return;
-      const rect=knob.getBoundingClientRect();
-      const dx=e.clientX-(rect.left+rect.width/2),dy=e.clientY-(rect.top+rect.height/2);
-      // Reject browser touch-target expansion and taps outside the visible circle.
-      if(dx*dx+dy*dy>Math.pow(rect.width/2,2))return;
-      const width=rail.getBoundingClientRect().width;if(width<=0)return;
-      e.preventDefault();
-      drag={id:e.pointerId,x:e.clientX,y:e.clientY,value:Number(input.value),width,active:false,offset:0};
-      input.focus({preventScroll:true});knob.setPointerCapture(e.pointerId);
-    });
-    knob.addEventListener('pointermove',e=>{
-      if(!drag||e.pointerId!==drag.id)return;
-      e.preventDefault();
-      const delta=e.clientX-drag.x,vertical=e.clientY-drag.y;
-      if(!drag.active){
-        if(Math.abs(delta)<5||Math.abs(delta)<Math.abs(vertical))return;
-        drag.active=true;drag.offset=Math.sign(delta)*5;
-      }
-      const raw=drag.value+(delta-drag.offset)*(max-min)/drag.width;
-      const next=Number(Math.max(min,Math.min(max,min+Math.round((raw-min)/step)*step)).toFixed(precision));
-      if(next===Number(input.value))return;
-      input.value=String(next);paint();input.dispatchEvent(new Event('input',{bubbles:true}));
-    });
-    function stop(e){
-      if(!drag||e.pointerId!==drag.id)return;
-      drag=null;
-      if(knob.hasPointerCapture(e.pointerId))knob.releasePointerCapture(e.pointerId);
-    }
-    knob.addEventListener('pointerup',stop);knob.addEventListener('pointercancel',stop);knob.addEventListener('lostpointercapture',stop);
-  }
-  ['cPriceRange','cAdvRange','cTerm'].forEach(id=>installThumbSlider(document.getElementById(id)));
+ const controls=[];
+ const short=(n,m)=>m?financeFormat(n)+' ₽':String(n);
+ function install(input,after){
+   const wrapper=input.parentElement,rail=wrapper.querySelector('.thumb-slider-rail'),knob=rail.querySelector('.thumb-slider-knob');
+   function paint(){const min=Number(input.min),max=Number(input.max);wrapper.style.setProperty('--range-fill',(max>min?100*(Number(input.value)-min)/(max-min):0)+'%');wrapper.classList.toggle('is-disabled',input.disabled);}
+   input.addEventListener('input',paint);paint();let drag=null;
+   knob.addEventListener('pointerdown',e=>{
+     if(input.disabled||drag||e.isPrimary===false||e.button!==0)return;
+     const r=knob.getBoundingClientRect(),dx=e.clientX-r.left-r.width/2,dy=e.clientY-r.top-r.height/2;
+     if(dx*dx+dy*dy>(r.width/2)**2)return;
+     const width=rail.getBoundingClientRect().width;if(!width)return;
+     e.preventDefault();drag={id:e.pointerId,x:e.clientX,y:e.clientY,value:Number(input.value),width,min:Number(input.min),max:Number(input.max),step:Number(input.step)||1,active:false,offset:0};
+     input.focus({preventScroll:true});knob.setPointerCapture(e.pointerId);
+   });
+   knob.addEventListener('pointermove',e=>{
+     if(!drag||e.pointerId!==drag.id||input.disabled)return;
+     e.preventDefault();const d=drag,dx=e.clientX-d.x,dy=e.clientY-d.y;
+     if(!d.active){if(Math.abs(dx)<5||Math.abs(dx)<Math.abs(dy))return;d.active=true;d.offset=Math.sign(dx)*5;}
+     const raw=d.value+(dx-d.offset)*(d.max-d.min)/d.width,precision=(String(d.step).split('.')[1]||'').length;
+     const next=Number(Math.max(d.min,Math.min(d.max,d.min+Math.round((raw-d.min)/d.step)*d.step)).toFixed(precision));
+     if(next===Number(input.value))return;input.value=String(next);paint();input.dispatchEvent(new Event('input',{bubbles:true}));
+   });
+   function stop(e){if(!drag||e.pointerId!==drag.id)return;drag=null;if(knob.hasPointerCapture(e.pointerId))knob.releasePointerCapture(e.pointerId);after?.();}
+   ['pointerup','pointercancel','lostpointercapture'].forEach(k=>knob.addEventListener(k,stop));
+   return {paint,get dragging(){return !!drag}};
+ }
+ document.querySelectorAll('input[data-money]').forEach(el=>{
+   el.addEventListener('input',()=>{const old=el.value,pos=el.selectionStart??old.length,count=old.slice(0,pos).replace(/\D/g,'').length;el.value=old.replace(/\D/g,'').slice(0,12).replace(/\B(?=(\d{3})+(?!\d))/g,' ');let i=0,n=0;while(i<el.value.length&&n<count){if(/\d/.test(el.value[i]))n++;i++;}try{el.setSelectionRange(i,i)}catch{}},true);
+   el.addEventListener('keydown',e=>{if(e.key==='Backspace'&&el.selectionStart===el.selectionEnd&&el.value[el.selectionStart-1]===' '){const p=el.selectionStart;el.setSelectionRange(p-1,p-1);}});
+   setFinance(el,financeNumber(el));
+ });
+ document.querySelectorAll('.thumb-slider input[type="range"]').forEach(input=>{const c=install(input);controls.push(()=>c.paint())});
+ document.querySelectorAll('input[data-slider]').forEach(el=>{
+   const money=el.hasAttribute('data-money'),min=Number(el.dataset.min??el.min),base=Number(el.dataset.slider),quantum=Number(el.dataset.quantum||1);
+   const wrapper=document.createElement('div');wrapper.className='thumb-slider';
+   const input=document.createElement('input');input.type='range';input.min=String(min);input.step=String(money?1:quantum);
+   input.setAttribute('aria-label',(document.querySelector('label[for="'+el.id+'"]')?.textContent||'Значение').trim());
+   const rail=document.createElement('div');rail.className='thumb-slider-rail';rail.setAttribute('aria-hidden','true');const knob=document.createElement('div');knob.className='thumb-slider-knob';rail.append(knob);wrapper.append(input,rail);
+   const limits=document.createElement('div');limits.className='finance-limits';limits.setAttribute('aria-hidden','true');const lo=document.createElement('span'),hi=document.createElement('span');limits.append(lo,hi);el.after(wrapper,limits);
+   let c;function sync(){const value=money?financeNumber(el):Number(el.value);const hard=Number(el.dataset.max??el.max);let max=Math.min(hard,Math.max(base,Number.isFinite(value)?Math.ceil(value/base)*base:base));if(max<=min)max=min+1;if(!c?.dragging)input.max=String(max);
+     input.disabled=el.disabled||el.readOnly||hard<=min;input.value=String(Number.isFinite(value)?Math.min(Number(input.max),Math.max(min,value)):min);input.setAttribute('aria-valuetext',short(Number(input.value),money));lo.textContent=short(min,money);hi.textContent=short(Number(input.max),money);c?.paint();}
+   sync();c=install(input,sync);sync();controls.push(sync);el.addEventListener('input',sync);
+   input.addEventListener('input',()=>{let n=Number(input.value);if(money){n=Math.max(min,Math.min(Number(el.dataset.max??el.max),n===Number(input.max)?n:Math.round(n/quantum)*quantum));setFinance(el,n);}else el.value=String(n);el.dispatchEvent(new Event('input',{bubbles:true}));});
+ });
+ window.syncFinanceSliders=()=>controls.forEach(f=>f());refreshFinance();
 })();
+</script><script>
+document.getElementById('qBudget').addEventListener('input',()=>{const a=document.getElementById('qAdv'),max=Math.max(0,financeNumber(document.getElementById('qBudget'))||0);a.dataset.max=String(max);if(financeNumber(a)>max)setFinance(a,max);refreshFinance();});
 </script>
 </body>
 </html>
